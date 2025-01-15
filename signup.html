@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up - MokeSell</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="signup-body">
+  <div class="top-bar">
+    <div class="logo"><a class="logo" href="index.html">MokeSell</a></div>
+  </div>
+  <main>
+    <section class="signup-section">
+      <h1>Welcome To MokeSell</h1>
+      <form action="welcome.html" method="post">
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+        <div class="form-group">
+          <label for="confirm-password">Confirm Password:</label>
+          <input type="password" id="confirm-password" name="confirm-password" required>
+        </div>
+        <button type="submit" class="signup-btn">Sign Up</button>
+      </form>
+      <button class="guest-btn"><a class="guest-link" href="index.html">Browse as Guest</a></button>
+      <button class="switch-btn"><a class="login-link" href="login.html">Log In</a></button>
+    </section>
+  </main>
+</body>
+</html>

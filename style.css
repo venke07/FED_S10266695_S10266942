@@ -1,0 +1,136 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body Styling */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+  }
+  
+  /* Header Styling */
+  header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 10px;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-right: auto; 
+}
+
+nav {
+    flex: 1; 
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    justify-content: center; 
+    align-items: center; 
+    margin: 0; 
+    padding: 0; 
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1rem;
+}
+
+.header-icons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+  
+  .search-bar {
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 9px;
+    width: 200px;
+  }
+  
+  .icon {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+
+  .header-icons img {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .login-btn {
+    background-color: #007bff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    
+  }
+
+  .login-link {
+    text-decoration: none;
+    color: #fff;
+}
+  
+  .login-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Main Section */
+  .welcome-section {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .promo-banner {
+    width: 80%;
+    height: 450px;
+    background-color: #ddd;
+    margin-top: 10px;
+    }  
+  
+  /* Product Sections */
+  .product-section {
+    margin: 20px;
+  }
+  
+  .product-section h2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .product-grid {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .product {
+    flex: 1;
+    height: 100px;
+    background-color: #e0e0e0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  

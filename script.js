@@ -22,6 +22,39 @@ promoBanner.addEventListener('mouseout', () => {
 const apiKey = '6788f0bf7cf4e11f6418ad94';
 const apiUrl = 'https://devassignmentven-57f7.restdb.io/rest/users';
 
+// Handle signup form submission
+document.querySelector('.signup-section form').addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  const username = document.getElementById('username').value;
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+  const confirmPassword = document.getElementById('confirm-password').value;
+
+  if (password !== confirmPassword) {
+    alert('Passwords do not match.');
+    return;
+  }
+
+  fetch(apiUrl, {
+    method: 'POST',
+    headers: {
+      'x-apikey': apiKey,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ username, email, password })
+  })
+  .then(response => response.json())
+  .then(data => {
+    alert('Signup successful!');
+    window.location.href = 'dashboard.html';
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    alert('An error occurred. Please try again.');
+  });
+});
+
 // Handle login form submission
 document.getElementById('login-form').addEventListener('submit', function(event) {
   event.preventDefault();

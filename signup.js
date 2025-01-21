@@ -34,6 +34,8 @@ document.getElementById('signup-form').addEventListener('submit', async (event) 
       const result = await response.json();
       console.log('Data sent successfully:', result);
       alert('User data submitted successfully!');
+      localStorage.setItem('user', JSON.stringify(userData)); // Store user data in local storage
+      window.location.href = 'index.html'; // Redirect to home page
     } else {
       console.error('Error:', response.statusText);
       alert('There was an error submitting the data.');

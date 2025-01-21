@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile - MokeSell</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="logo"><a class="logo" href="index.html">MokeSell</a></div>
+    <div id="top-right">
+      <img id="profile-icon" src="images/profile.png" alt="Profile" class="icon">
+      <button id="logout-btn" class="login-btn"><a class="login-link" href="logout.html">Log Out</a></button>
+    </div>
+  </header>
+  <main>
+    <section class="profile-section">
+      <h1>Your Profile</h1>
+      <div class="profile-details">
+        <p><strong>Username:</strong> <span id="profile-username"></span></p>
+        <p><strong>Email:</strong> <span id="profile-email"></span></p>
+      </div>
+      <div class="profile-image-section">
+        <h2>Change Profile Image</h2>
+        <img id="current-profile-image" src="images/profile.png" alt="Current Profile Image" class="icon">
+        <input type="file" id="profile-image-input" accept="image/*">
+        <button id="change-profile-image-btn" class="signup-btn">Change Image</button>
+      </div>
+    </section>
+  </main>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const user = JSON.parse(localStorage.getItem('user'));
+      if (user) {
+        document.getElementById('profile-username').textContent = user.username;
+        document.getElementById('profile-email').textContent = user.email;
+        if (user.profileImage) {
+          document.getElementById('current-profile-image').src = user.profileImage;
+        }
+      }
+
+      document.getElementById('change-profile-image-btn').addEventListener('click', function() {
+        const fileInput = document.getElementById('profile-image-input');
+        if (fileInput.files.length > 0) {
+          const reader = new FileReader();
+          reader.onload = function(e) {
+            document.getElementById('current-profile-image').src = e.target.result;
+            // Save the new profile image to local storage or send it to the server
+            user.profileImage = e.target.result;
+            localStorage.setItem('user', JSON.stringify(user));
+          };
+          reader.readAsDataURL(fileInput.files[0]);
+        } else {
+          alert('Please select an image file.');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

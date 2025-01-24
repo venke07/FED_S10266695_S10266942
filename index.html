@@ -9,19 +9,39 @@
 <body>
   <header>
     <div class="logo">MokeSell</div>
-    <nav>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Products</a></li>
-        <li><a href="#">Discounts</a></li>
+<nav>
+  <ul class="menu">
+    <li><a href="#">Home</a></li>
+    <li><a href="products.html">Products</a></li>
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle">Men</a>
+      <ul class="dropdown-menu">
+        <li><a href="#">Shampoo & Conditioner</a></li>
+        <li><a href="#">Mouthwase</a></li>
+        <li><a href="#"></a></li>
+        <li><a href="#">Accessories</a></li>
       </ul>
-    </nav>
+    </li>
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle">Women</a>
+      <ul class="dropdown-menu">
+        <li><a href="#">T-Shirts</a></li>
+        <li><a href="#">Pants</a></li>
+        <li><a href="#">Shoes</a></li>
+        <li><a href="#">Accessories</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Discounts</a></li>
+  </ul>
+</nav>
     <div class="header-icons">
       <input type="text" placeholder="Search" class="search-bar">
       <img src="images/bell.png" alt="Notification Bell" class="icon">
       <img src="images/shopping-cart.png" alt="Shopping-Cart" class="icon">
       <img src="images/chat.png" alt="Messages" class="icon">
-      <img id="profile-icon" src="images/profile.png" alt="Profile" class="icon" style="display: none;">
+      <a href="profile.html">
+        <img id="profile-icon" src="images/profile.png" alt="Profile" class="icon" style="display: none;">
+    </a>    
       <button id="login-btn" class="login-btn"><a class="login-link" href="login.html">Log In / Sign Up</a></button>
     </div>
   </header>
@@ -29,21 +49,24 @@
   <main>
     <section class="welcome-section">
       <h1>Welcome to MokeSell</h1>
-      <div class="promo-banner"></div>
-    </section>
-
-    <section class="profile-section" style="display: none;">
-      <h2>Your Profile</h2>
-      <div class="profile-details">
-        <p><strong>Username:</strong> <span id="profile-username"></span></p>
-        <p><strong>Email:</strong> <span id="profile-email"></span></p>
+      <div class="promo-banner">
+        <button class="arrow left-arrow" id="prevBtn">&#10094;</button>
+        <img id="carouselImage" src="images/headbanner.jpg" alt="Promo Banner">
+        <button class="arrow right-arrow" id="nextBtn">&#10095;</button>
+        <div class="dots" id="dotsContainer"></div>
       </div>
     </section>
+
+    
 
     <section class="product-section">
       <h2>Lowest Prices</h2>
       <div class="product-grid">
-        <div class="product"></div>
+        <div class="product">
+          <img src="images/laptop(1).webp" alt="Product 1">
+          <p class="product-description">Jeep EW121 True Wireless Bluetooth 5.4...</p>
+        <p class="product-price"><span class="discounted-price">$11.90</span> <span class="original-price">$50.00</span></p>
+        </div>
         <div class="product"></div>
         <div class="product"></div>
       </div>
@@ -52,9 +75,15 @@
     <section class="product-section">
       <h2>Official Brands</h2>
       <div class="product-grid">
-        <div class="product"></div>
-        <div class="product"></div>
-        <div class="product"></div>
+        <div class="product">
+          <img src="images/asusbrand.png" alt="Brand 1">
+        </div>
+        <div class="product">
+          <img src="images/Dell_Logo.png" alt="Brand 2">
+        </div>
+        <div class="product">
+          <img src="images/msi.png" alt="Brand 3">
+        </div>
       </div>
     </section>
 
@@ -67,6 +96,7 @@
       </div>
     </section>
   </main>
+  <script src="dropdown.js"></script>
   
   <script>
     document.addEventListener('DOMContentLoaded', function() {

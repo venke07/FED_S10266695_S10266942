@@ -50,6 +50,24 @@ header.login-header, header.signup-header {
   text-decoration: none;
   
 }
+.menu {
+  display: inline-flex; /* Aligns the menu items horizontally */
+  list-style: none;
+  padding-left: 70px;
+  margin: 0;
+  gap: 20px; /* Adds spacing between menu items */
+}
+
+.menu li a {
+  text-decoration: none;
+  color: #000; /* Change to your preferred color */
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.menu li {
+  position: relative;
+}
 
 nav {
     flex: 1; 
@@ -71,6 +89,7 @@ nav ul li a {
     color: #333;
     font-size: 1rem;
 }
+
 
 .dropdown {
   position: relative;
@@ -408,4 +427,70 @@ nav ul li a {
     display: flex;
     align-items: center;
   }
+
+  .middle-section {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Aligns the boxes at the top */
+    gap: 20px; /* Space between the boxes */
+    margin: 40px 20px; /* Margin around the section */
+  }
+  
+  /* Box Styling */
+  .box {
+    width: 300px;
+    border-radius: 10px;
+    background-color: #f4f4f4;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+  }
+  
+  /* File Upload Box */
+  .file-upload {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    width: 400px;
+    cursor: pointer;
+    border: 2px dashed #4caf50;
+    color: #4caf50;
+    margin-top: 5%;
+    margin-left: 1%;
+    transition: background-color 0.3s ease;
+  }
+  
+  .file-upload:hover {
+    background-color: #e8f5e9;
+  }
+  
+  /* Laptop Information Box */
+  .laptop-info img {
+    width: 100px;
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  .laptop-info {
+    margin-top: 5%;
+    height: 50%;
+    width: 55%;
+  }
+  
+  .laptop-info h3 {
+    margin: 10px 0;
+    color: #333;
+  }
+  
+  .laptop-info p {
+    margin: 0;
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+  }
+
+
+
 

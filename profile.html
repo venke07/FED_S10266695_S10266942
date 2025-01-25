@@ -18,8 +18,9 @@
     <section class="profile-section">
       <h1>Your Profile</h1>
       <div class="profile-details">
-        <p><strong>Username:</strong> <span id="profile-username"></span></p>
-        <p><strong>Email:</strong> <span id="profile-email"></span></p>
+        <h2>Basic Information</h2>
+        <p><strong>Username:</strong> <span id="profile-username">Loading...</span></p>
+        <p><strong>Email:</strong> <span id="profile-email">Loading...</span></p>
       </div>
       <div class="profile-image-section">
         <h2>Change Profile Image</h2>
@@ -27,51 +28,85 @@
         <input type="file" id="profile-image-input" accept="image/*">
         <button id="change-profile-image-btn" class="signup-btn">Change Image</button>
       </div>
+      <div class="advanced-info-section">
+        <h2>Advanced Information</h2>
+        <p><strong>Account Created:</strong> <span id="account-created">Loading...</span></p>
+        <p><strong>Last Login:</strong> <span id="last-login">Loading...</span></p>
+      </div>
+      <div class="change-password-section">
+        <h2>Change Password</h2>
+        <form id="change-password-form">
+          <div class="form-group">
+            <label for="current-password">Current Password:</label>
+            <input type="password" id="current-password" name="current-password" required>
+          </div>
+          <div class="form-group">
+            <label for="new-password">New Password:</label>
+            <input type="password" id="new-password" name="new-password" required>
+          </div>
+          <div class="form-group">
+            <label for="confirm-new-password">Confirm New Password:</label>
+            <input type="password" id="confirm-new-password" name="confirm-new-password" required>
+          </div>
+          <button type="submit" class="signup-btn">Change Password</button>
+        </form>
+      </div>
     </section>
   </main>
   <script>
-   document.addEventListener('DOMContentLoaded', function() {
-  const user = JSON.parse(localStorage.getItem('user'));
-  
-  // Check if user exists in localStorage and populate profile details
-  if (user) {
-    document.getElementById('profile-username').textContent = user.username;
-    document.getElementById('profile-email').textContent = user.email;
-    if (user.profileImage) {
-      document.getElementById('current-profile-image').src = user.profileImage;
-    }
-  }
+    document.addEventListener('DOMContentLoaded', function() {
+      const user = JSON.parse(localStorage.getItem('user'));
+      if (user) {
+        document.getElementById('profile-username').textContent = user.username;
+        document.getElementById('profile-email').textContent = user.email;
+        if (user.profileImage) {
+          document.getElementById('current-profile-image').src = user.profileImage;
+        }
+        document.getElementById('account-created').textContent = user.accountCreated || 'N/A';
+        document.getElementById('last-login').textContent = user.lastLogin || 'N/A';
+      } else {
+        document.getElementById('profile-username').textContent = 'No user data found';
+        document.getElementById('profile-email').textContent = 'No user data found';
+        document.getElementById('account-created').textContent = 'No user data found';
+        document.getElementById('last-login').textContent = 'No user data found';
+      }
 
-  // Toggle profile section on profile icon click
-  const profileIcon = document.getElementById('profile-icon');
-  const profileSection = document.getElementById('profile-section');
+      document.getElementById('change-profile-image-btn').addEventListener('click', function() {
+        const fileInput = document.getElementById('profile-image-input');
+        if (fileInput.files.length > 0) {
+          const reader = new FileReader();
+          reader.onload = function(e) {
+            document.getElementById('current-profile-image').src = e.target.result;
+            user.profileImage = e.target.result;
+            localStorage.setItem('user', JSON.stringify(user));
+          };
+          reader.readAsDataURL(fileInput.files[0]);
+        } else {
+          alert('Please select an image file.');
+        }
+      });
 
-  profileIcon.addEventListener('click', function() {
-    if (profileSection.style.display === 'none' || profileSection.style.display === '') {
-      profileSection.style.display = 'block'; // Show profile section
-    } else {
-      profileSection.style.display = 'none'; // Hide profile section
-    }
-  });
+      document.getElementById('change-password-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const currentPassword = document.getElementById('current-password').value;
+        const newPassword = document.getElementById('new-password').value;
+        const confirmNewPassword = document.getElementById('confirm-new-password').value;
 
-  // Handle profile image change
-  document.getElementById('change-profile-image-btn').addEventListener('click', function() {
-    const fileInput = document.getElementById('profile-image-input');
-    if (fileInput.files.length > 0) {
-      const reader = new FileReader();
-      reader.onload = function(e) {
-        document.getElementById('current-profile-image').src = e.target.result;
-        // Save the new profile image to local storage or send it to the server
-        user.profileImage = e.target.result;
+        if (newPassword !== confirmNewPassword) {
+          alert('New passwords do not match.');
+          return;
+        }
+
+        if (user.password !== currentPassword) {
+          alert('Current password is incorrect.');
+          return;
+        }
+
+        user.password = newPassword;
         localStorage.setItem('user', JSON.stringify(user));
-      };
-      reader.readAsDataURL(fileInput.files[0]);
-    } else {
-      alert('Please select an image file.');
-    }
-  });
-});
-
+        alert('Password changed successfully!');
+      });
+    });
   </script>
 </body>
 </html>

@@ -44,7 +44,7 @@
   <img src="images/shopping-cart.png" alt="Shopping-Cart" class="icon">
   <img src="images/chat.png" alt="Messages" class="icon">
   <a href="profile.html">
-    <img id="profile-icon" src="images/profile.png" alt="Profile" class="icon" style="display: none;">
+    <img id="profile-icon" src="images/profile.png" alt="Profile" class="icon">
   </a>    
   <button id="login-btn" class="login-btn">
     <a class="login-link" href="login.html">Log In / Sign Up</a>
@@ -111,21 +111,13 @@
       const user = JSON.parse(localStorage.getItem('user'));
       const profileIcon = document.getElementById('profile-icon');
       const loginBtn = document.getElementById('login-btn');
-      const profileSection = document.querySelector('.profile-section');
 
       if (user) {
         profileIcon.style.display = 'block';
         loginBtn.style.display = 'none';
-        profileSection.style.display = 'block';
-        profileIcon.addEventListener('click', function() {
-          window.location.href = 'profile.html';
-        });
-        document.getElementById('profile-username').textContent = user.username;
-        document.getElementById('profile-email').textContent = user.email;
       } else {
         profileIcon.style.display = 'none';
         loginBtn.style.display = 'block';
-        profileSection.style.display = 'none';
       }
     });
   </script>

@@ -118,6 +118,25 @@ nav ul li a {
     border-radius: 9px;
     width: 200px;
   }
+
+  .sell-btn {
+    background-color: #007bff; /* Blue background */
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .sell-btn a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .sell-btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
   
   .icon {
     width: 40px;

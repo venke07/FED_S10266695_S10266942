@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MokeSell</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="logo">MokeSell</div>
+    <nav>
+      <ul class="menu">
+        <li><a href="#">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Men</a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Shampoo & Conditioner</a></li>
+            <li><a href="#">Mouthwase</a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#">Accessories</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Women</a>
+          <ul class="dropdown-menu">
+            <li><a href="#">T-Shirts</a></li>
+            <li><a href="#">Pants</a></li>
+            <li><a href="#">Shoes</a></li>
+            <li><a href="#">Accessories</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Discounts</a></li>
+      </ul>
+    </nav>
+    <div class="header-icons">
+      <button id="sell-btn" class="sell-btn">
+        <a class="sell-link" href="selling.html">+Sell</a>
+      </button>
+      <input type="text" placeholder="Search" class="search-bar">
+      <img src="images/bell.png" alt="Notification Bell" class="icon">
+      <img src="images/shopping-cart.png" alt="Shopping-Cart" class="icon">
+      <img src="images/chat.png" alt="Messages" class="icon">
+      <a href="profile.html">
+        <img id="profile-icon" src="images/profile.png" alt="Profile" class="icon" style="display: none;">
+      </a>
+      <button id="login-btn" class="login-btn">
+        <a class="login-link" href="login.html">Log In / Sign Up</a>
+      </button>
+    </div>
+  </header>
+
+  <div class="middle-section">
+    <!-- File Upload Box -->
+    <div class="box file-upload">
+      <h3>Upload Your Files</h3>
+      <p>Drag and drop files here, or click to select files. Maximum 10 Files</p>
+      <input type="file" id="fileInput" multiple style="display: none;">
+    </div>
+
+    <!-- Laptop Information Box -->
+    <div class="box laptop-info">
+      <img src="images/laptopicon.png" alt="Laptop Image" class="laptop-image">
+      <h3>We Accept Second-Hand Laptops</h3>
+      <p>
+        Don't let your old laptops gather dust! Whether it's gently used, needs a little repair,
+        or is no longer in style, we can help. Your laptops can find a second life in the hands
+        of someone who needs them. Sell or donate them today!
+      </p>
+    </div>
+  </div>
+
+  <script>
+    // JavaScript for file input click
+    const fileUploadBox = document.querySelector('.file-upload');
+    const fileInput = document.getElementById('fileInput');
+
+    fileUploadBox.addEventListener('click', () => {
+      fileInput.click();
+    });
+  </script>
+</body>
+</html>

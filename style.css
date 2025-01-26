@@ -339,9 +339,10 @@ nav ul li a {
   }
   
   .product-card img {
-    width: 100%; /* Makes images responsive */
-    height: auto;
-    border-radius: 5px;
+    width: 250px;
+    height: 200px;
+    object-fit: cover;
+    box-sizing: inherit;
   }
   
   .product-name {

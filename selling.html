@@ -62,6 +62,15 @@
     </div>
   </div>
 
+  <div class="chatbot-container">
+    <div class="chatbot-header">Chat with us!</div>
+    <div class="chatbot-messages" id="chatbotMessages"></div>
+    <div class="chatbot-input">
+      <input type="text" id="chatbotInput" placeholder="Type a message...">
+      <button id="chatbotSendBtn">Send</button>
+    </div>
+  </div>
+
   <script>
     // JavaScript for file input click
     const fileUploadBox = document.querySelector('.file-upload');
@@ -71,5 +80,7 @@
       fileInput.click();
     });
   </script>
+  <script src="dropdown.js"></script>
+  <script src="chatbot.js"></script>
 </body>
 </html>

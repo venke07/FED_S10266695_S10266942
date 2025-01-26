@@ -31,7 +31,8 @@ document.addEventListener('DOMContentLoaded', function () {
   
 
 
-// Array of image URLs
+
+// Array of image URLs i
 // Array of image URLs
 const images = [
   "images/headbanner.jpg", // First banner image

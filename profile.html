@@ -101,6 +101,7 @@
           reader.onload = function(e) {
             document.getElementById('current-profile-image').src = e.target.result;
             // Update the profile image in RESTDB
+            
             fetch(`${apiUrl}/${userId}`, {
               method: 'PUT',
               headers: {

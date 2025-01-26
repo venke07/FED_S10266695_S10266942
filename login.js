@@ -26,6 +26,8 @@ document.addEventListener('DOMContentLoaded', function() {
       const user = data.find(user => user.username === username && user.password === password);
       if (user) {
         alert('Login successful!');
+        localStorage.setItem('userId', user._id); // Store user ID in local storage
+        console.log('User ID stored:', user._id); // Debugging log
         window.location.href = 'index.html';
       } else {
         alert('Invalid username or password.');

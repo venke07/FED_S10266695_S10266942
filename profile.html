@@ -54,21 +54,44 @@
     </section>
   </main>
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const user = JSON.parse(localStorage.getItem('user'));
-      if (user) {
-        document.getElementById('profile-username').textContent = user.username;
-        document.getElementById('profile-email').textContent = user.email;
-        if (user.profileImage) {
-          document.getElementById('current-profile-image').src = user.profileImage;
+    document.addEventListener('DOMContentLoaded', async function() {
+      const apiKey = '6788f0bf7cf4e11f6418ad94';
+      const apiUrl = 'https://devassignmentven-57f7.restdb.io/rest/account';
+      const userId = localStorage.getItem('userId'); // Retrieve user ID from local storage
+
+      console.log('Retrieved user ID:', userId); // Debugging log
+
+      if (!userId) {
+        alert('No user is logged in.');
+        window.location.href = 'login.html';
+        return;
+      }
+
+      try {
+        const response = await fetch(`${apiUrl}/${userId}`, {
+          method: 'GET',
+          headers: {
+            'x-apikey': apiKey,
+            'Content-Type': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          const user = await response.json();
+          document.getElementById('profile-username').textContent = user.username;
+          document.getElementById('profile-email').textContent = user.email;
+          if (user.profileImage) {
+            document.getElementById('current-profile-image').src = user.profileImage;
+          }
+          document.getElementById('account-created').textContent = user.accountCreated || 'N/A';
+          document.getElementById('last-login').textContent = user.lastLogin || 'N/A';
+        } else {
+          console.error('Error:', response.statusText);
+          alert('There was an error retrieving the data.');
         }
-        document.getElementById('account-created').textContent = user.accountCreated || 'N/A';
-        document.getElementById('last-login').textContent = user.lastLogin || 'N/A';
-      } else {
-        document.getElementById('profile-username').textContent = 'No user data found';
-        document.getElementById('profile-email').textContent = 'No user data found';
-        document.getElementById('account-created').textContent = 'No user data found';
-        document.getElementById('last-login').textContent = 'No user data found';
+      } catch (error) {
+        console.error('Request failed:', error);
+        alert('Error while retrieving data from the server.');
       }
 
       document.getElementById('change-profile-image-btn').addEventListener('click', function() {
@@ -77,8 +100,24 @@
           const reader = new FileReader();
           reader.onload = function(e) {
             document.getElementById('current-profile-image').src = e.target.result;
-            user.profileImage = e.target.result;
-            localStorage.setItem('user', JSON.stringify(user));
+            // Update the profile image in RESTDB
+            fetch(`${apiUrl}/${userId}`, {
+              method: 'PUT',
+              headers: {
+                'x-apikey': apiKey,
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({ profileImage: e.target.result })
+            }).then(response => {
+              if (response.ok) {
+                alert('Profile image updated successfully!');
+              } else {
+                alert('Error updating profile image.');
+              }
+            }).catch(error => {
+              console.error('Error:', error);
+              alert('Error updating profile image.');
+            });
           };
           reader.readAsDataURL(fileInput.files[0]);
         } else {
@@ -97,14 +136,24 @@
           return;
         }
 
-        if (user.password !== currentPassword) {
-          alert('Current password is incorrect.');
-          return;
-        }
-
-        user.password = newPassword;
-        localStorage.setItem('user', JSON.stringify(user));
-        alert('Password changed successfully!');
+        // Update the password in RESTDB
+        fetch(`${apiUrl}/${userId}`, {
+          method: 'PUT',
+          headers: {
+            'x-apikey': apiKey,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ password: newPassword })
+        }).then(response => {
+          if (response.ok) {
+            alert('Password changed successfully!');
+          } else {
+            alert('Error changing password.');
+          }
+        }).catch(error => {
+          console.error('Error:', error);
+          alert('Error changing password.');
+        });
       });
     });
   </script>

@@ -53,6 +53,14 @@
       </div>
     </section>
   </main>
+  <div class="chatbot-container">
+    <div class="chatbot-header">Chat with us!</div>
+    <div class="chatbot-messages" id="chatbotMessages"></div>
+    <div class="chatbot-input">
+      <input type="text" id="chatbotInput" placeholder="Type a message...">
+      <button id="chatbotSendBtn">Send</button>
+    </div>
+  </div>
   <script>
     document.addEventListener('DOMContentLoaded', async function() {
       const apiKey = '6788f0bf7cf4e11f6418ad94';
@@ -157,5 +165,7 @@
       });
     });
   </script>
+  <script src="profile.js"></script>
+  <script src="chatbot.js"></script>
 </body>
 </html>

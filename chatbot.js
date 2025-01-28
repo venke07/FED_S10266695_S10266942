@@ -3,8 +3,9 @@ document.addEventListener('DOMContentLoaded', function() {
   const chatbotInput = document.getElementById('chatbotInput');
   const chatbotSendBtn = document.getElementById('chatbotSendBtn');
 
-
-  const apiKey = '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'; // Replace with your OpenRouter API key
+  const apiKey = 'AIzaSyA8Q9E7MRWejb7XFBrBv7aYWajlcRrpPQ8'; 
+  const apiUrl = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyA8Q9E7MRWejb7XFBrBv7aYWajlcRrpPQ8'; // Replace with your Google Gemini API URL
+ // Replace with your Google Gemini API key
 
   function addMessage(message, sender) {
     const messageElement = document.createElement('div');

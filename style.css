@@ -35,18 +35,24 @@ header.login-header, header.signup-header {
   display: none; /* Hide the header in the login and signup pages */
 }
 
-.logo, .logo-profile {
+
+.logo {
+  margin-right: 210px;
   font-size: 1.5rem;
   font-weight: bold;
   text-decoration: none;
 }
 
-.logo {
-  margin-right: 210px;
+.logo-profile {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-right: auto;
+  text-decoration: none;
 }
 
-.logo-profile {
-  margin-right: auto;
+.logo-profile a  {
+  text-decoration: none;
+  color: #333;
 }
 
 .menu {
@@ -418,48 +424,133 @@ nav ul li a {
   color: #333;
 }
 
+:root {
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --secondary: #64748b;
+  --success: #22c55e;
+  --background: #f8fafc;
+  --card: #ffffff;
+  --border: #e2e8f0;
+  --text: #1e293b;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text);
+}
+
+.profile-icon {
+  width: 30px;
+  height: 30px;
+}
+
 .profile-section {
-  display: block; /* Show by default */
-  background-color: #fff;
-  padding: 40px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 450px;
-  margin: 20px auto;
+  max-width: 1300px;
+  margin: 3rem auto;
+  margin-left: 130px;
+  background-color: var(--card);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+              0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.profile-section h1 {
   text-align: center;
+  color: var(--text);
+  margin-bottom: 2.5rem;
+  font-size: 2rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
 }
 
-.profile-details, .profile-image-section, .advanced-info-section, .change-password-section {
-  margin-bottom: 20px;
-  text-align: left; /* Align text to the left */
+.profile-section h1::before,
+.profile-section h1::after {
+  content: '';
+  height: 2px;
+  width: 60px;
+  background: linear-gradient(to right, var(--primary), transparent);
 }
 
-.profile-details h2, .profile-image-section h2, .advanced-info-section h2, .change-password-section h2 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-  color: #333;
-  border-bottom: 2px solid #007bff; /* Add a bottom border */
-  padding-bottom: 5px; /* Add padding below the text */
+.profile-section h1::after {
+  background: linear-gradient(to left, var(--primary), transparent);
 }
 
-.profile-details p, .advanced-info-section p {
+.profile-details, 
+.profile-image-section, 
+.advanced-info-section, 
+.change-password-section {
+  background: linear-gradient(145deg, #ffffff, #f8fafc);
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+}
+
+.profile-details:hover, 
+.profile-image-section:hover, 
+.advanced-info-section:hover, 
+.change-password-section:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-color: var(--primary);
+}
+
+.profile-details h2, 
+.profile-image-section h2, 
+.advanced-info-section h2, 
+.change-password-section h2 {
+  font-size: 1.25rem;
+  color: var(--primary);
+  margin-bottom: 1.25rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.profile-details h2::before {
+  content: '👤';
+}
+
+.profile-image-section h2::before {
+  content: '📸';
+}
+
+.advanced-info-section h2::before {
+  content: '🔍';
+}
+
+.change-password-section h2::before {
+  content: '🔒';
+}
+
+.profile-details p,
+.advanced-info-section p {
+  margin: 1rem 0;
+  color: var(--secondary);
   font-size: 1rem;
-  color: #666;
-  margin: 10px 0; /* Add margin between paragraphs */
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  background-color: #f8fafc;
+  border-radius: 8px;
 }
 
-.profile-image-section img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  margin-bottom: 10px;
-  border: 2px solid #007bff; /* Add a border around the image */
+.profile-details strong,
+.advanced-info-section strong {
+  color: var(--text);
+  font-weight: 600;
+  min-width: 160px;
 }
 
-.profile-image-section input {
-  display: block;
-  margin: 10px auto;
-}
 
 .signup-btn {
   background-color: #007bff;
@@ -613,6 +704,142 @@ nav ul li a {
 .chatbot-message.bot {
   text-align: left;
 }
+
+/* Hide the modal initially */
+/* Cart Modal Styles */
+.cart-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  z-index: 1000;
+}
+
+/* Header Styles */
+.cart-modal::before {
+  content: "Your Cart";
+  display: block;
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0 0 24px 0;
+  text-align: left;
+}
+
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+}
+
+.close-btn::after {
+  content: "×";
+}
+
+/* Cart Content */
+.cart-content {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+#cart-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#cart-items li {
+  display: flex;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid #eee;
+}
+
+#cart-items li:last-child {
+  border-bottom: none;
+}
+
+/* Product Image */
+#cart-items li img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 16px;
+  object-fit: cover;
+}
+
+/* Product Details */
+#cart-items li .item-details {
+  flex-grow: 1;
+  text-align: left;
+}
+
+.item-name {
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.item-price {
+  color: #666;
+}
+
+/* Total Section */
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid #eee;
+  font-weight: 600;
+}
+
+/* Checkout Button */
+#checkout-btn {
+  display: block;
+  width: 100%;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+#checkout-btn:hover {
+  background: #0056b3;
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.hidden {
+  display: none;
+}
+
+
 
 
 

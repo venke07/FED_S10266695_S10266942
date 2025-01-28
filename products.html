@@ -28,7 +28,8 @@
     <div class="header-icons">
       <input type="text" placeholder="Search" class="search-bar">
       <img src="images/bell.png" alt="Notification Bell" class="icon">
-      <img src="images/shopping-cart.png" alt="Shopping-Cart" class="icon">
+      <img src="images/shopping-cart.png" alt="Shopping-Cart" id="shopping-cart-icon" class="icon">
+    
       <img src="images/chat.png" alt="Messages" class="icon">
       <a href="profile.html">
         <img id="profile-icon" src="images/profile.png" alt="Profile" class="icon" style="display: none;">
@@ -38,6 +39,12 @@
   </header>
 
   <main>
+    <div id="cart-modal" class="cart-modal hidden">
+      <div class="cart-content">
+        <ul id="cart-items"></ul>
+        <button id="close-cart" class="close-btn">Close</button>
+      </div>
+    </div>  
     <section class="product-section">
       <h1>Our Products</h1>
       <div class="product-grid-page">
@@ -157,5 +164,7 @@
     </section>
   </main>
   <script src="dropdown.js"></script>
+  <script src="cart.js"></script>
+  <script src="checkout.js"></script>
 </body>
 </html>

@@ -31,7 +31,7 @@
       </button>
       <input type="text" placeholder="Search" class="search-bar">
       <img src="images/bell.png" alt="Notification Bell" class="icon">
-      <img src="images/shopping-cart.png" alt="Shopping-Cart" class="icon">
+      <img src="images/heart.png" alt="Shopping-Cart" class="icon">
       <img src="images/chat.png" alt="Messages" class="icon">
       <a href="profile.html">
         <img id="profile-icon" src="images/profile.png" alt="Profile" class="icon" style="display: none;">
@@ -62,14 +62,6 @@
     </div>
   </div>
 
-  <div class="chatbot-container">
-    <div class="chatbot-header">Chat with us!</div>
-    <div class="chatbot-messages" id="chatbotMessages"></div>
-    <div class="chatbot-input">
-      <input type="text" id="chatbotInput" placeholder="Type a message...">
-      <button id="chatbotSendBtn">Send</button>
-    </div>
-  </div>
 
   <script>
     // JavaScript for file input click
@@ -80,6 +72,7 @@
       fileInput.click();
     });
   </script>
+  <div id="chatbot"></div>
   <script src="dropdown.js"></script>
   <script src="chatbot.js"></script>
 </body>

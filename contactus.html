@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile - MokeSell</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="logo-profile"><a class="logo-profile" href="index.html">MokeSell</a></div>
+  </header>
+
+  <!-- Background Wrapper -->
+  <div class="contact-bg">
+    <main class="contact-wrapper">
+      <!-- Image Container -->
+      <div class="contact-image">
+        <img src="images/contactus.avif" alt="Contact Illustration">
+      </div>
+
+      <!-- Contact Form Container -->
+      <div class="contact-container">
+        <h1>Let's Get In Touch.</h1>
+        <p class="subtitle">Or just reach out manually to <a href="#">MokeSell@gmail.com</a></p>
+
+        <form id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input type="text" id="firstName" name="firstName" placeholder="Enter your first name...">
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input type="text" id="lastName" name="lastName" placeholder="Enter your last name...">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email address...">
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <div class="phone-input">
+              <select id="countryCode">
+                <option value="+44">🇬🇧 +44</option>
+              </select>
+              <input type="tel" id="phone" name="phone" placeholder="(000) 000-0000">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Enter your main text here..." rows="4"></textarea>
+            <div class="character-count">300/300</div>
+          </div>
+
+          <button type="submit" class="submit-btn">Submit Form</button>
+        </form>
+      </div>
+    </main>
+  </div>
+
+  <script src="contactus.js"></script>
+</body>
+</html>

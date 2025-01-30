@@ -16,11 +16,6 @@ class Chatbot {
         - Your Gender is a Female
         Please provide helpful, friendly responses within this context. If asked about specific products or prices, explain that you can provide general guidance but recommend checking the current listings for exact prices and availability.`;
     }
-<<<<<<< HEAD
-  });
-});
-
-=======
 
     initialize() {
         // Create chat toggle button
@@ -168,4 +163,3 @@ class Chatbot {
 document.addEventListener('DOMContentLoaded', () => {
     new Chatbot();
 });
->>>>>>> 54982f69884d734a06eab4d60ab505733b51122b

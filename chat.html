@@ -1,39 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chat - MokeSell</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat - MokeSell</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <div class="logo"><a href="index.html">MokeSell</a></div>
-    <nav>
-      <ul class="menu">
-      </ul>
-    </nav>
-    <div class="header-icons">
-    </div>
-  </header>
-  <main>
-    <div class="chat-page">
-      <div class="chat-list">
-        <h2>Chats</h2>
-        <ul id="chat-list">
-        </ul>
-      </div>
-      <div class="chat-window">
-        <h2>Chat Window</h2>
-        <div id="chat-messages">
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <i class="fas fa-shopping-bag"></i>
+                MokeSell
+            </a>
         </div>
-        <div class="chat-input">
-          <input type="text" id="chat-input" placeholder="Type a message...">
-          <button id="send-btn">Send</button>
+        <nav>
+            <ul class="menu">
+                <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#"><i class="fas fa-envelope"></i> Messages</a></li>
+                <li><a href="#"><i class="fas fa-user"></i> Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="chat-page">
+            <div class="chat-list">
+                <div class="chat-list-header">
+                    <h2>Messages</h2>
+                    <span class="online-status">3 Active Sellers</span>
+                </div>
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search conversations...">
+                </div>
+                <ul id="chat-list"></ul>
+            </div>
+
+            <div class="chat-window">
+                <div class="chat-window-header">
+                    <div class="seller-info">
+                        <div class="seller-avatar">
+                            <img src="/api/placeholder/40/40" alt="Seller Avatar">
+                            <span class="online-indicator"></span>
+                        </div>
+                        <div class="seller-details">
+                            <h3 id="current-seller">Select a conversation</h3>
+                            <span class="seller-status">Online</span>
+                        </div>
+                    </div>
+                    <div class="chat-actions">
+                        <button class="action-btn"><i class="fas fa-phone"></i></button>
+                        <button class="action-btn"><i class="fas fa-video"></i></button>
+                        <button class="action-btn"><i class="fas fa-ellipsis-v"></i></button>
+                    </div>
+                </div>
+
+                <div id="chat-messages"></div>
+
+                <div class="chat-input-container">
+                    <button class="attachment-btn"><i class="fas fa-paperclip"></i></button>
+                    <div class="chat-input-wrapper">
+                        <input type="text" id="chat-input" placeholder="Type a message...">
+                        <button class="emoji-btn"><i class="far fa-smile"></i></button>
+                    </div>
+                    <button id="send-btn"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </main>
-  <script src="chat.js"></script>
+    </main>
+
+    <script src="chat.js"></script>
 </body>
 </html>

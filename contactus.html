@@ -6,62 +6,93 @@
   <title>Profile - MokeSell</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="contactus-body">
+  <div class="ribbon"></div>
+  <div class="icon-background">
+    <img src="images/shopping-bag-icon.png" style="top: 10%; left: 20%;">
+    <img src="images/shopping-bag-icon.png" style="top: 90%; left: 10%;">
+    <img src="images/shopping-bag-icon.png" style="top: 90%; right: 10%;">
+    <img src="images/shopping-bag-icon.png" style="top: 10%; right: 20%;">
+  </div>
   <header>
-    <div class="logo-profile"><a class="logo-profile" href="index.html">MokeSell</a></div>
+    <div class="logo"><a href="index.html">MokeSell</a></div>
   </header>
 
-  <!-- Background Wrapper -->
-  <div class="contact-bg">
-    <main class="contact-wrapper">
-      <!-- Image Container -->
-      <div class="contact-image">
-        <img src="images/contactus.avif" alt="Contact Illustration">
+  <div class="contact-section">
+    <h1>Let's Get In Touch.</h1>
+    <p class="subtitle">Or just reach out manually to <a href="#">MokeSell@gmail.com</a></p>
+
+    <form id="contactForm">
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input type="text" id="firstName" name="firstName" placeholder="Enter your first name...">
+      </div>
+      
+      <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input type="text" id="lastName" name="lastName" placeholder="Enter your last name...">
       </div>
 
-      <!-- Contact Form Container -->
-      <div class="contact-container">
-        <h1>Let's Get In Touch.</h1>
-        <p class="subtitle">Or just reach out manually to <a href="#">MokeSell@gmail.com</a></p>
-
-        <form id="contactForm">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="firstName">First Name</label>
-              <input type="text" id="firstName" name="firstName" placeholder="Enter your first name...">
-            </div>
-            <div class="form-group">
-              <label for="lastName">Last Name</label>
-              <input type="text" id="lastName" name="lastName" placeholder="Enter your last name...">
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="Enter your email address...">
-          </div>
-
-          <div class="form-group">
-            <label for="phone">Phone Number</label>
-            <div class="phone-input">
-              <select id="countryCode">
-                <option value="+44">🇬🇧 +44</option>
-              </select>
-              <input type="tel" id="phone" name="phone" placeholder="(000) 000-0000">
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" placeholder="Enter your main text here..." rows="4"></textarea>
-            <div class="character-count">300/300</div>
-          </div>
-
-          <button type="submit" class="submit-btn">Submit Form</button>
-        </form>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email address...">
       </div>
-    </main>
+
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <div class="phone-input">
+          <select id="countryCode" onchange="updatePlaceholder()">
+            <option value="+1" data-placeholder="(123) 456-7890"> US +1</option>
+            <option value="+44" data-placeholder="07123 456789"> UK +44</option>
+            <option value="+61" data-placeholder="0412 345 678"> AU +61</option>
+            <option value="+91" data-placeholder="91234 56789">  IN +91</option>
+            <option value="+81" data-placeholder="090-1234-5678"> JP +81</option>
+            <option value="+49" data-placeholder="0151 23456789"> DE +49</option>
+            <option value="+33" data-placeholder="06 12 34 56 78"> FR +33</option>
+            <option value="+39" data-placeholder="312 345 6789"> IT +39</option>
+            <option value="+34" data-placeholder="612 34 56 78"> ES +34</option>
+            <option value="+55" data-placeholder="21 91234-5678"> BR +55</option>
+            <option value="+7" data-placeholder="8 912 345-67-89"> RU +7</option>
+            <option value="+86" data-placeholder="138 0012 3456"> CN +86</option>
+            <option value="+27" data-placeholder="082 123 4567"> ZA +27</option>
+            <option value="+971" data-placeholder="050 123 4567"> AE +971</option>
+            <option value="+62" data-placeholder="0812-3456-7890"> ID +62</option>
+            <option value="+52" data-placeholder="55 1234 5678"> MX +52</option>
+            <option value="+82" data-placeholder="010-1234-5678"> KR +82</option>
+            <option value="+60" data-placeholder="012-345 6789"> MY +60</option>
+            <option value="+66" data-placeholder="081-234-5678"> TH +66</option>
+            <option value="+358" data-placeholder="040 123 4567"> FI +358</option>
+            <option value="+46" data-placeholder="070-123 45 67"> SE +46</option>
+            <option value="+65" data-placeholder="8123 4567"> SG +65</option>
+          </select>
+          <input type="tel" id="phone" name="phone" placeholder="(000) 000-0000">
+        </div>
+      </div>
+      
+
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Enter your main text here..." rows="4"></textarea>
+        <div class="character-count">300/300</div>
+      </div>
+
+      <button type="submit" class="submit-btn">Submit Form</button>
+    </form>
   </div>
+  <div class="popup-box" id="popupBox">
+    <h2>Thank You!</h2>
+    <p>Your message has been successfully sent. We appreciate your feedback and will get back to you shortly.</p>
+    <div class="emoji">😊</div>
+  </div>
+  <script>
+    function updatePlaceholder() {
+      var countrySelect = document.getElementById("countryCode");
+      var phoneInput = document.getElementById("phone");
+      var selectedOption = countrySelect.options[countrySelect.selectedIndex];
+  
+      phoneInput.placeholder = selectedOption.getAttribute("data-placeholder");
+    }
+  </script>
 
   <script src="contactus.js"></script>
 </body>

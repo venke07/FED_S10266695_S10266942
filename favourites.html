@@ -20,12 +20,18 @@
             <li><a href="#">Smartphones</a></li>
             <li><a href="#">Tablets</a></li>
             <li><a href="#">Accessories</a></li>
+            
           </ul>
         </li>
         <li><a href="#">Discounts</a></li>
+        <li><a href="contactus.html">Contact Us</a></li>
       </ul>
     </nav>
+
     <div class="header-icons">
+      <button id="sell-btn" class="sell-btn">
+        <a class="sell-link" href="selling.html">+Sell</a>
+      </button>
       <input type="text" placeholder="Search" class="search-bar">
       <img src="images/bell.png" alt="Notification Bell" class="icon">
       <img src="images/heart.png" alt="Heart" id="shopping-cart-icon" class="icon">
@@ -47,5 +53,22 @@
   </main>
 
 <script src="checkout.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const userId = localStorage.getItem('userId'); // Retrieve user ID from local storage
+    const profileIcon = document.getElementById('profile-icon');
+    const loginBtn = document.getElementById('login-btn');
+
+    console.log('Retrieved user ID:', userId); // Debugging log
+
+    if (userId) {
+      profileIcon.style.display = 'block';
+      loginBtn.style.display = 'none';
+    } else {
+      profileIcon.style.display = 'none';
+      loginBtn.style.display = 'block';
+    }
+  });
+</script>
 </body>
 </html>

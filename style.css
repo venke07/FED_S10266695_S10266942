@@ -19,10 +19,60 @@ body.login-body, body.signup-body {
   padding-top: 60px; /* Adjust for the top bar */
 }
 
+body.contactus-body {
+  background: linear-gradient(135deg, #e0f7fa, #80deea);
+  position: relative;
+  overflow-x: hidden; /* Allow vertical scrolling */
+}
+
+.ribbon {
+  position: absolute;
+  top: 40%;
+  left: -50%;
+  width: 200%;
+  height: 300px; /* Increase height for more curvature */
+  background: linear-gradient(135deg, #4d2bfb, #0606db); /* Nicer gradient color */
+  transform: rotate(-10deg); /* Increase rotation for more curvature */
+  border-radius: 50% / 20%; /* More complex curvature */
+  z-index: 0;
+  pointer-events: none; /* Ensure the ribbon does not interfere with scrolling */
+}
+
+.icon-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.icon-background img {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  opacity: 100%;
+  animation: float 10s infinite;
+  z-index: -1; /* Ensure icons are behind other content */
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 /* Header Styling */
 header {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start; /* Align items to the start (left) */
   align-items: center;
   padding: 10px 10px;
   background-color: #fff;
@@ -35,9 +85,8 @@ header.login-header, header.signup-header {
   display: none; /* Hide the header in the login and signup pages */
 }
 
-
 .logo {
-  margin-right: 210px;
+  margin-right: auto; /* Pushes the logo to the left */
   font-size: 1.5rem;
   font-weight: bold;
   text-decoration: none;
@@ -63,7 +112,7 @@ header.login-header, header.signup-header {
 .menu {
   display: inline-flex; /* Aligns the menu items horizontally */
   list-style: none;
-  padding-left: 70px;
+  padding-left: 120px;
   margin: 0;
   gap: 20px; /* Adds spacing between menu items */
 }
@@ -80,15 +129,16 @@ header.login-header, header.signup-header {
 }
 
 nav {
-  flex: 1; 
-  text-align: center;
+  flex: 1;
+  text-align: center; /* Center the navbar */
+  padding-left: 160px; /* Add some padding to the left */
 }
 
 nav ul {
   list-style: none;
   display: flex;
   gap: 25px;
-  justify-content: center; 
+  justify-content: center; /* Center items */
   align-items: center; 
   margin: 0; 
   padding: 0; 
@@ -344,7 +394,16 @@ nav ul li a {
   padding: 15px;
   text-align: center;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.product-card:hover {
+  transform: scale(1.05 );
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+
 
 .product-card img {
   width: 250px;
@@ -676,25 +735,29 @@ body {
 .form-group select,
 .form-group textarea {
   width: 100%;
-  padding: 10px 12px;
-  border: 1px solid #e5e7eb;
+  padding: 12px;
+  border: 1px solid #ddd;
   border-radius: 8px;
-  font-size: 15px;
-  transition: border-color 0.2s ease;
-  background-color: #fff;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  font-size: 16px;
   outline: none;
-  border-color: #36b37e;
-  box-shadow: 0 0 0 3px rgba(54, 179, 126, 0.1);
+  transition: 0.3s;
+  box-shadow: 0 2px 4px rgba(14, 144, 170, 0.1); /* Add shadow */
+  outline: 1px solid rgb(5, 197, 210); /* Add black outline */
 }
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-  color: #9ca3af;
+  color: #999;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  background: rgba(255, 255, 255, 1);
+  border-color: #034343;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhance shadow on focus */
+  outline: 2px solid black; /* Maintain black outline on focus */
 }
 
 /* Form Row for Side-by-Side Fields */
@@ -1191,162 +1254,108 @@ body {
   z-index: 1000;
 }
 
-.contact-bg {
-  background: linear-gradient(to right, #b1d9ff, #4654ed); /* Light blue & purple gradient */
-  min-height: 90vh; /* Full screen height */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 40px 0;
-}
-
-.contact-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  max-width: 1100px;
-  padding: 2rem;
-  background: #ffffff;
+.contact-section {
+  position: relative;
+  background: #ffffff; /* Change to solid white background */
+  padding: 40px;
   border-radius: 15px;
-  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 600px;
+  margin: 50px auto;
+  text-align: center;
+  border: 2px solid #007bff;
+  z-index: 1; /* Ensure the contact section is above the ribbon */
 }
 
-/* Image Container */
-.contact-image img {
-  max-width: 450px;
-  width: 100%;
-  border-radius: 15px;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* Contact Form Container */
-.contact-container {
-  width: 1200px;
-  height: 800px;
-  flex: 1;
-}
-
-/* Header Styling */
-h1 {
+.contact-section h1 {
   font-size: 28px;
-  font-weight: bold;
-  color: #222;
-  margin-bottom: 10px;
-}
-
-.subtitle {
-  font-size: 14px;
-  color: #666;
   margin-bottom: 20px;
+  color: #333;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .subtitle a {
-  color: #6a5acd;
+  color: #007bff;
   text-decoration: none;
-  font-weight: 500;
 }
 
 .subtitle a:hover {
   text-decoration: underline;
 }
 
-/* Form Styling */
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  background: linear-gradient(to right, #f9f9f9, #ffffff);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-/* Input Fields */
 .form-group {
-  flex: 1;
+  margin-bottom: 20px;
   text-align: left;
 }
 
 label {
-  display: block;
-  font-size: 14px;
   font-weight: 600;
-  color: #444;
+  display: block;
   margin-bottom: 5px;
+  color: #333;
 }
 
 input, textarea, select {
   width: 100%;
   padding: 12px;
   border: 1px solid #ddd;
-  border-radius: 10px;
-  font-size: 14px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  font-size: 16px;
   outline: none;
-  transition: 0.3s ease-in-out;
+  transition: 0.3s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow */
+  outline: 2px solid black; /* Add black outline */
 }
 
-input:focus, textarea:focus, select:focus {
-  border-color: #6a5acd;
-  box-shadow: 0 0 8px rgba(106, 90, 205, 0.3);
+input::placeholder, textarea::placeholder {
+  color: #999;
+}
+
+input:focus, textarea:focus {
+  background: rgba(255, 255, 255, 1);
+  border-color: #007bff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhance shadow on focus */
+  outline: 2px solid black; /* Maintain black outline on focus */
 }
 
 /* Phone Input */
 .phone-input {
   display: flex;
   align-items: center;
-  gap: 5px;
 }
 
 .phone-input select {
   width: 30%;
-  padding: 10px;
-  font-size: 14px;
-  background: #f9f9f9;
-  border-radius: 10px;
-}
-
-.phone-input input {
-  flex: 1;
-}
-
-/* Textarea */
-textarea {
-  resize: none;
+  margin-right: 10px;
 }
 
 /* Character Count */
 .character-count {
-  font-size: 12px;
-  color: #888;
   text-align: right;
+  font-size: 14px;
+  color: #999;
 }
 
 /* Submit Button */
 .submit-btn {
-  background: #6a5acd;
-  color: white;
-  font-size: 16px;
-  font-weight: 600;
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: bold;
   padding: 12px;
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: 0.3s ease-in-out;
+  width: 100%;
+  transition: 0.3s;
 }
 
 .submit-btn:hover {
-  background: #104e7d;
-  transform: translateY(-2px);
-  box-shadow: 0px 5px 15px rgba(16, 78, 125, 0.3);
-}
-
-.contact-page {
-  background: linear-gradient(to right, #dbeafe, #93c5fd); /* Light blue gradient */
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: linear-gradient(135deg, #0056b3, #003f7f);
+  transform: scale(1.05);
 }
 
 /* Chat Page */
@@ -1427,5 +1436,145 @@ textarea {
 #send-btn:hover {
   background-color: #0056b3;
 }
+
+/* ...existing code... */
+
+.popup-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  z-index: 1001;
+  display: none; /* Hidden by default */
+  width: 80%;
+  max-width: 400px;
+}
+
+.popup-box h2 {
+  margin-bottom: 15px;
+  font-size: 26px;
+  color: #007bff;
+}
+
+.popup-box p {
+  font-size: 18px;
+  color: #333;
+}
+
+.popup-box .emoji {
+  font-size: 50px;
+  margin-top: 15px;
+}
+
+/* ...existing code... */
+
+/* ...existing code... */
+.notification-dot {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  border-radius: 50%;
+}
+
+@keyframes bell-animation {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-15deg);
+  }
+  50% {
+    transform: rotate(15deg);
+  }
+  75% {
+    transform: rotate(-15deg);
+  }
+}
+
+.bell-animation {
+  animation: bell-animation 0.5s;
+}
+
+@keyframes bell-lines {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.bell-lines {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 20px;
+  height: 20px;
+  background: url('images/bell-lines.png') no-repeat center center;
+  background-size: contain;
+  animation: bell-lines 1s infinite;
+}
+/* ...existing code... */
+
+/* ...existing code... */
+.notification-dot {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  border-radius: 50%;
+}
+/* ...existing code... */
+
+#dropdown-container {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  width: 400px; /* Make the dropdown bigger */
+  max-height: 400px; /* Add max height */
+  overflow-y: auto; /* Add scroll if content overflows */
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: none;
+  z-index: 1000;
+}
+/* ...existing code... */
+
+/* ...existing code... */
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+}
+
+.shake {
+  animation: shake 0.5s;
+}
+
+.icon.shake {
+  animation: shake 0.5s;
+}
+/* ...existing code... */
 
 

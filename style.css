@@ -388,52 +388,113 @@ nav ul li a {
   margin: 20px 0;
 }
 
+/* ...existing code... */
+
 .product-card {
   border: 1px solid #ccc;
   border-radius: 10px;
   padding: 15px;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 500px; /* Increased height */
+  width: 350px; /* Adjust width as needed */
+  position: relative; /* Ensure absolute positioning works within the card */
+  overflow: visible; /* Ensure overflow is visible */
+  z-index: 1; /* Ensure the card is above other elements */
 }
 
 .product-card:hover {
-  transform: scale(1.05 );
+  transform: scale(1.05);
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
   cursor: pointer;
 }
 
+.product-card .user-icon {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
+.product-card .user-icon img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.product-card .time {
+  font-size: 12px;
+  color: #666;
+}
 
 .product-card img {
-  width: 250px;
-  height: 200px;
+  width: 100%;
+  height: 300px; /* Adjust height to push content above */
   object-fit: cover;
-  box-sizing: inherit;
+  border-radius: 4px;
 }
 
-.product-name {
+.product-card .product-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 10px;
+  position: relative;
+  z-index: 1; /* Ensure product info is above the heart icon */
+}
+
+.product-card .product-name {
   font-size: 16px;
-  margin: 10px 0;
-}
-.favorite-button {
-  background: none;
-  border: none;
-  cursor: pointer;
+  margin: 5px 0;
+  position: relative;
+  z-index: 2; /* Ensure the product name is above the image */
+  background: rgba(255, 255, 255, 0.8); /* Add background for better visibility */
+  padding: 2px 5px; /* Add padding for better readability */
+  border-radius: 4px; /* Add border radius for aesthetics */
 }
 
-.heart-icon {
+.product-card .product-price {
+  font-size: 14px;
+  color: #007bff;
+}
+
+/* Separate favorite button styles */
+.favorite-button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  position: absolute;
+  bottom: 5px; /* Adjust to position below the product name */
+  right: 10px; /* Adjust to position on the right */
+  z-index: 10; /* Ensure the button is above other elements */
+}
+
+.favorite-button .heart-icon {
   width: 24px;
   height: 24px;
-  fill: #ffffff; /* Default: grey heart */
-  stroke: #090707; /* Grey outline */
+  fill: none; /* No fill by default */
+  stroke: #090707; /* Black outline by default */
   transition: fill 0.3s ease, stroke 0.3s ease;
 }
 
-.heart-icon.filled {
-  fill: #ff0000; /* Red heart when clicked */
-  stroke: #ff0000; /* Red outline */
+.favorite-button .heart-icon.filled {
+  fill: #ff0000; /* Red fill when liked */
+  stroke: none; /* No outline when liked */
 }
+
+.favorite-button .heart-icon.unfilled {
+  fill: none; /* No fill when unliked */
+  stroke: #090707; /* Black outline when unliked */
+}
+
+.favorite-button .like-count {
+  font-size: 14px;
+  color: #333;
+}
+
+/* ...existing code... */
 
 /* Login and Signup Sections */
 .login-section, .signup-section {
@@ -1713,6 +1774,39 @@ input:focus, textarea:focus {
 
 #showCaptchaBtn:hover {
   background-color: #45a049; /* Darker green on hover */
+}
+
+/* ...existing code... */
+
+/* ...existing code... */
+
+.product-card .product-image {
+  width: 85%;
+  height: 65%; /* Adjust height to prevent overlap */
+  object-fit:inherit; /* Ensure the image covers the area without distortion */
+  border-radius: 4px;
+  position: relative;
+  z-index: 1; /* Ensure the image is below the product name */
+}
+
+/* ...existing code... */
+
+.favorite-button .heart-icon {
+  width: 24px;
+  height: 24px;
+  fill: none; /* No fill by default */
+  stroke: #090707; /* Black outline by default */
+  transition: fill 0.3s ease, stroke 0.3s ease;
+}
+
+.favorite-button .heart-icon.filled {
+  fill: #ff0000; /* Red fill when liked */
+  stroke: none; /* No outline when liked */
+}
+
+.favorite-button .heart-icon.unfilled {
+  fill: none; /* No fill when unliked */
+  stroke: #090707; /* Black outline when unliked */
 }
 
 /* ...existing code... */

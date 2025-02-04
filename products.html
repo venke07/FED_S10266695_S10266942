@@ -9,38 +9,39 @@
 <body>
   <header>
     <div class="logo">MokeSell</div>
-<nav>
-  <ul class="menu">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="products.html">Products</a></li>
-    <li class="dropdown">
-      <a href="#" class="dropdown-toggle">Electronics</a>
-      <ul class="dropdown-menu">
-        <li><a href="#">Laptops</a></li>
-        <li><a href="#">Smartphones</a></li>
-        <li><a href="#">Tablets</a></li>
-        <li><a href="#">Accessories</a></li>
+    <nav>
+      <ul class="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Electronics</a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Laptops</a></li>
+            <li><a href="#">Smartphones</a></li>
+            <li><a href="#">Tablets</a></li>
+            <li><a href="#">Accessories</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Discounts</a></li>
+        <li><a href="contactus.html">Contact Us</a></li>
       </ul>
-    </li>
-    <li><a href="#">Discounts</a></li>
-    <li><a href="contactus.html">Contact Us</a></li>
-  </ul>
-</nav>
-<div class="header-icons">
-  <button id="sell-btn" class="sell-btn">
-    <a class="sell-link" href="selling.html">+Sell</a>
-  </button>
+    </nav>
     <div class="header-icons">
-      <input type="text" placeholder="Search" class="search-bar">
-      <img src="images/bell.png" alt="Notification Bell" class="icon">
-      <a href="favourites.html">
-        <img src="images/heart.png" alt="Heart" class="icon">
-      </a>
-      <img src="images/chat.png" alt="Messages" class="icon">
-      <a href="profile.html">
-        <img id="profile-icon" src="images/profile.png" alt="Profile" class="icon" style="display: none;">
-    </a>    
-      <button id="login-btn" class="login-btn"><a class="login-link" href="login.html">Log In / Sign Up</a></button>
+      <button id="sell-btn" class="sell-btn">
+        <a class="sell-link" href="selling.html">+Sell</a>
+      </button>
+      <div class="header-icons">
+        <input type="text" placeholder="Search" class="search-bar">
+        <img src="images/bell.png" alt="Notification Bell" class="icon">
+        <a href="favourites.html">
+          <img src="images/heart.png" alt="Heart" class="icon">
+        </a>
+        <img src="images/chat.png" alt="Messages" class="icon">
+        <a href="profile.html">
+          <img id="profile-icon" src="images/profile.png" alt="Profile" class="icon" style="display: none;">
+        </a>    
+        <button id="login-btn" class="login-btn"><a class="login-link" href="login.html">Log In / Sign Up</a></button>
+      </div>
     </div>
   </header>
 
@@ -50,179 +51,291 @@
       <div class="product-grid-page">
         <!-- Product 1 -->
         <div class="product-card">
-          <img src="images/lenovo-lap.png" alt="Wireless Earbuds">
-          <p class="product-name">Wireless Earbuds, PX8</p>
-          <p class="product-price">$59.99</p>
-          <button class="favorite-button">
+          <div class="user-icon">
+            <img src="images/user-icon.png" alt="User Icon">
+            <span class="time">3 hours ago</span>
+          </div>
+          <img class="product-image" src="images/lenovo-lap.png" alt="Wireless Earbuds">
+          <div class="product-info">
+            <p class="product-name">Wireless Earbuds, PX8</p>
+            <p class="product-price">$59.99</p>
+          </div>
+          <div class="favorite-button">
             <svg xmlns="http://www.w3.org/2000/svg" class="heart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z" />
             </svg>
-          </button>
+            <span class="like-count">0</span>
+          </div>
         </div>
         <!-- Product 2 -->
         <div class="product-card">
-          <img src="images/laptop-product.png" alt="AirPods Max">
-          <p class="product-name">AirPods Max</p>
-          <p class="product-price">$549.99</p>
-          <button class="favorite-button">
+          <div class="user-icon">
+            <img src="images/user-icon.png" alt="User Icon">
+            <span class="time">3 hours ago</span>
+          </div>
+          <img class="product-image" src="images/laptop-product.png" alt="AirPods Max">
+          <div class="product-info">
+            <p class="product-name">AirPods Max</p>
+            <p class="product-price">$549.99</p>
+          </div>
+          <div class="favorite-button">
             <svg xmlns="http://www.w3.org/2000/svg" class="heart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z" />
             </svg>
-          </button>
+            <span class="like-count">0</span>
+          </div>
         </div>
         <!-- Product 3 -->
         <div class="product-card">
-          <img src="images/iphone.png" alt="Rose BT Earphones">
-          <p class="product-name">Iphone 14. 128GB. Starlight</p>
-          <p class="product-price">$849.99</p>
-          <button class="favorite-button">
+          <div class="user-icon">
+            <img src="images/user-icon.png" alt="User Icon">
+            <span class="time">3 hours ago</span>
+          </div>
+          <img class="product-image" src="images/iphone.png" alt="Rose BT Earphones">
+          <div class="product-info">
+            <p class="product-name">Iphone 14. 128GB. Starlight</p>
+            <p class="product-price">$849.99</p>
+          </div>
+          <div class="favorite-button">
             <svg xmlns="http://www.w3.org/2000/svg" class="heart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z" />
             </svg>
-          </button>
+            <span class="like-count">0</span>
+          </div>
         </div>
         <!-- Product 4 -->
         <div class="product-card">
-          <img src="images/laptopproduct.png" alt="Sony WH-1000XM4">
-          <p class="product-name">Microsoft Surface Pro 4</p>
-          <p class="product-price">$219.99</p>
-          <button class="favorite-button">
+          <div class="user-icon">
+            <img src="images/user-icon.png" alt="User Icon">
+            <span class="time">3 hours ago</span>
+          </div>
+          <img class="product-image" src="images/laptopproduct.png" alt="Sony WH-1000XM4">
+          <div class="product-info">
+            <p class="product-name">Microsoft Surface Pro 4</p>
+            <p class="product-price">$219.99</p>
+          </div>
+          <div class="favorite-button">
             <svg xmlns="http://www.w3.org/2000/svg" class="heart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z" />
             </svg>
-          </button>
+            <span class="like-count">0</span>
+          </div>
         </div>
         <!-- Product 5 -->
         <div class="product-card">
-          <img src="images/laptopproduct(2).png" alt="Bose QC35 II">
-          <p class="product-name">Lenova Yoga Slim 7 Pro</p>
-          <p class="product-price">$800</p>
-          <button class="favorite-button">
+          <div class="user-icon">
+            <img src="images/user-icon.png" alt="User Icon">
+            <span class="time">3 hours ago</span>
+          </div>
+          <img class="product-image" src="images/laptopproduct(2).png" alt="Bose QC35 II">
+          <div class="product-info">
+            <p class="product-name">Lenova Yoga Slim 7 Pro</p>
+            <p class="product-price">$800</p>
+          </div>
+          <div class="favorite-button">
             <svg xmlns="http://www.w3.org/2000/svg" class="heart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z" />
             </svg>
-          </button>
+            <span class="like-count">0</span>
+          </div>
         </div>
         <!-- Product 6 -->
         <div class="product-card">
-          <img src="images/phoneproduct.png" alt="Samsung Galaxy Buds Pro">
-          <p class="product-name">Samsung Galaxy S23 Green</p>
-          <p class="product-price">$679.99</p>
-          <button class="favorite-button">
+          <div class="user-icon">
+            <img src="images/user-icon.png" alt="User Icon">
+            <span class="time">3 hours ago</span>
+          </div>
+          <img class="product-image" src="images/phoneproduct.png" alt="Samsung Galaxy Buds Pro">
+          <div class="product-info">
+            <p class="product-name">Samsung Galaxy S23 Green</p>
+            <p class="product-price">$679.99</p>
+          </div>
+          <div class="favorite-button">
             <svg xmlns="http://www.w3.org/2000/svg" class="heart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z" />
             </svg>
-          </button>
+            <span class="like-count">0</span>
+          </div>
         </div>
         <!-- Product 7 -->
         <div class="product-card">
-          <img src="images/computerproduct.png" alt="Jabra Elite 85t">
-          <p class="product-name">FLASH DEAL 4060 + RYZEN 5 7600 Custom Gaming Pc</p>
-          <p class="product-price">$1360</p>
-          <button class="favorite-button">
+          <div class="user-icon">
+            <img src="images/user-icon.png" alt="User Icon">
+            <span class="time">3 hours ago</span>
+          </div>
+          <img class="product-image" src="images/computerproduct.png" alt="Jabra Elite 85t">
+          <div class="product-info">
+            <p class="product-name">FLASH DEAL 4060 + RYZEN 5 7600 Custom Gaming Pc</p>
+            <p class="product-price">$1360</p>
+          </div>
+          <div class="favorite-button">
             <svg xmlns="http://www.w3.org/2000/svg" class="heart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z" />
             </svg>
-          </button>
+            <span class="like-count">0</span>
+          </div>
         </div>
         <!-- Product 8 -->
         <div class="product-card">
-          <img src="images/galaxyclockproduct.png" alt="Sennheiser Momentum">
-          <p class="product-name">Multifunctional Mini Blutooth Speaker/Clock</p>
-          <p class="product-price">$23.93</p>
-          <button class="favorite-button">
+          <div class="user-icon">
+            <img src="images/user-icon.png" alt="User Icon">
+            <span class="time">3 hours ago</span>
+          </div>
+          <img class="product-image" src="images/galaxyclockproduct.png" alt="Sennheiser Momentum">
+          <div class="product-info">
+            <p class="product-name">Multifunctional Mini Blutooth Speaker/Clock</p>
+            <p class="product-price">$23.93</p>
+          </div>
+          <div class="favorite-button">
             <svg xmlns="http://www.w3.org/2000/svg" class="heart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z" />
             </svg>
-          </button>
+            <span class="like-count">0</span>
+          </div>
         </div>
         <!-- Product 9 -->
         <div class="product-card">
-          <img src="images/computerproduct(2).png" alt="Beats by Dre Studio 3">
-          <p class="product-name">Custom Desktop Gaming PC Building Intel Core AMD Ryzen GeForce GTX RTX</p>
-          <p class="product-price">$658</p>
-          <button class="favorite-button">
+          <div class="user-icon">
+            <img src="images/user-icon.png" alt="User Icon">
+            <span class="time">3 hours ago</span>
+          </div>
+          <img class="product-image" src="images/computerproduct(2).png" alt="Beats by Dre Studio 3">
+          <div class="product-info">
+            <p class="product-name">Custom Desktop Gaming PC Building Intel Core AMD Ryzen GeForce GTX RTX</p>
+            <p class="product-price">$658</p>
+          </div>
+          <div class="favorite-button">
             <svg xmlns="http://www.w3.org/2000/svg" class="heart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z" />
             </svg>
-          </button>
+            <span class="like-count">0</span>
+          </div>
         </div>
         <!-- Product 10 -->
         <div class="product-card">
-          <img src="images/pcproductt.png" alt="Anker Soundcore">
-          <p class="product-name">LG Monitor</p>
-          <p class="product-price">$89.99</p>
-          <button class="favorite-button">
+          <div class="user-icon">
+            <img src="images/user-icon.png" alt="User Icon">
+            <span class="time">3 hours ago</span>
+          </div>
+          <img class="product-image" src="images/pcproductt.png" alt="Anker Soundcore">
+          <div class="product-info">
+            <p class="product-name">LG Monitor</p>
+            <p class="product-price">$89.99</p>
+          </div>
+          <div class="favorite-button">
             <svg xmlns="http://www.w3.org/2000/svg" class="heart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z" />
             </svg>
-          </button>
+            <span class="like-count">0</span>
+          </div>
         </div>
         <!-- Product 11 -->
         <div class="product-card">
-          <img src="images/laptopproduct(3).png" alt="Shure Aonic 50">
-          <p class="product-name">Instalment* Flexible Payment Schemes on Eligible Laptops! Featuring Gigabyte/Aorus, Asus/ROG Strix,</p>
-          <p class="product-price">$199.99</p>
-          <button class="favorite-button">
+          <div class="user-icon">
+            <img src="images/user-icon.png" alt="User Icon">
+            <span class="time">3 hours ago</span>
+          </div>
+          <img class="product-image" src="images/laptopproduct(3).png" alt="Shure Aonic 50">
+          <div class="product-info">
+            <p class="product-name">Instalment* Flexible Payment Schemes on Eligible Laptops! Featuring Gigabyte/Aorus, Asus/ROG Strix,</p>
+            <p class="product-price">$199.99</p>
+          </div>
+          <div class="favorite-button">
             <svg xmlns="http://www.w3.org/2000/svg" class="heart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z" />
             </svg>
-          </button>
+            <span class="like-count">0</span>
+          </div>
         </div>
         <!-- Product 12 -->
         <div class="product-card">
-          <img src="images/phoneprodcut(3).png" alt="Apple EarPods">
-          <p class="product-name">Iphone 13 Mini</p>
-          <p class="product-price">$398</p>
-          <button class="favorite-button">
+          <div class="user-icon">
+            <img src="images/user-icon.png" alt="User Icon">
+            <span class="time">3 hours ago</span>
+          </div>
+          <img class="product-image" src="images/phoneprodcut(3).png" alt="Apple EarPods">
+          <div class="product-info">
+            <p class="product-name">Iphone 13 Mini</p>
+            <p class="product-price">$398</p>
+          </div>
+          <div class="favorite-button">
             <svg xmlns="http://www.w3.org/2000/svg" class="heart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z" />
             </svg>
-          </button>
+            <span class="like-count">0</span>
+          </div>
         </div>
         <!-- Product 13 -->
         <div class="product-card">
-          <img src="images/phoneproduct(4).png" alt="Plantronics Voyager">
-          <p class="product-name">Iphone 14 Mini Blue - Damaged Screen</p>
-          <p class="product-price">$359.99</p>
-          <button class="favorite-button">
+          <div class="user-icon">
+            <img src="images/user-icon.png" alt="User Icon">
+            <span class="time">3 hours ago</span>
+          </div>
+          <img class="product-image" src="images/phoneproduct(4).png" alt="Plantronics Voyager">
+          <div class="product-info">
+            <p class="product-name">Iphone 14 Mini Blue - Damaged Screen</p>
+            <p class="product-price">$359.99</p>
+          </div>
+          <div class="favorite-button">
             <svg xmlns="http://www.w3.org/2000/svg" class="heart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z" />
             </svg>
-          </button>
+            <span class="like-count">0</span>
+          </div>
         </div>
         <!-- Product 14 -->
         <div class="product-card">
-          <img src="images/laptopproduct(4).png" alt="Sony WF-1000XM4">
-          <p class="product-name">20Hz RGB 15.6" ASUS ROG GAMING </p>
-          <p class="product-price">$590</p>
-          <button class="favorite-button">
+          <div class="user-icon">
+            <img src="images/user-icon.png" alt="User Icon">
+            <span class="time">3 hours ago</span>
+          </div>
+          <img class="product-image" src="images/laptopproduct(4).png" alt="Sony WF-1000XM4">
+          <div class="product-info">
+            <p class="product-name">20Hz RGB 15.6" ASUS ROG GAMING </p>
+            <p class="product-price">$590</p>
+          </div>
+          <div class="favorite-button">
             <svg xmlns="http://www.w3.org/2000/svg" class="heart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z" />
             </svg>
-          </button>
+            <span class="like-count">0</span>
+          </div>
         </div>
         <!-- Product 15 -->
         <div class="product-card">
-          <img src="images/laptopproduct(5).png" alt="LG Tone Free">
-          <p class="product-name">2024 Asus ROG Zephyrus G14 Asus ROG Zephyrus</p>
-          <p class="product-price">$1888</p>
-          <button class="favorite-button">
+          <div class="user-icon">
+            <img src="images/user-icon.png" alt="User Icon">
+            <span class="time">3 hours ago</span>
+          </div>
+          <img class="product-image" src="images/laptopproduct(5).png" alt="LG Tone Free">
+          <div class="product-info">
+            <p class="product-name">2024 Asus ROG Zephyrus G14 Asus ROG Zephyrus</p>
+            <p class="product-price">$1888</p>
+          </div>
+          <div class="favorite-button">
             <svg xmlns="http://www.w3.org/2000/svg" class="heart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z" />
             </svg>
-          </button>
+            <span class="like-count">0</span>
+          </div>
         </div>
         <!-- Product 16 -->
         <div class="product-card">
-          <img src="images/computerproduct(3).png" alt="Bang & Olufsen Beoplay">
-          <p class="product-name">AMD Ryzen 5 5600 + Nvidia GeForce RTX 3060 - Slightly Used</p>
-          <p class="product-price">$675</p>
-          <button class="favorite-button">
+          <div class="user-icon">
+            <img src="images/user-icon.png" alt="User Icon">
+            <span class="time">3 hours ago</span>
+          </div>
+          <img class="product-image" src="images/computerproduct(3).png" alt="Bang & Olufsen Beoplay">
+          <div class="product-info">
+            <p class="product-name">AMD Ryzen 5 5600 + Nvidia GeForce RTX 3060 - Slightly Used</p>
+            <p class="product-price">$675</p>
+          </div>
+          <div class="favorite-button">
             <svg xmlns="http://www.w3.org/2000/svg" class="heart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z" />
             </svg>
-          </button>
+            <span class="like-count">0</span>
+          </div>
         </div>
       </div>
     </section>
@@ -246,6 +359,25 @@
         profileIcon.style.display = 'none';
         loginBtn.style.display = 'block';
       }
+
+      // Handle like/dislike functionality
+      document.querySelectorAll('.favorite-button').forEach(button => {
+        const heartIcon = button.querySelector('.heart-icon');
+        const likeCount = button.querySelector('.like-count');
+        let count = Math.floor(Math.random() * 100); // Random initial like count
+        likeCount.textContent = count;
+
+        button.addEventListener('click', () => {
+          if (heartIcon.classList.contains('filled')) {
+            heartIcon.classList.remove('filled');
+            count--;
+          } else {
+            heartIcon.classList.add('filled');
+            count++;
+          }
+          likeCount.textContent = count;
+        });
+      });
     });
   </script>
 </body>

@@ -1358,79 +1358,200 @@ input:focus, textarea:focus {
   transform: scale(1.05);
 }
 
-/* Chat Page */
+/* Chat Page Layout */
 .chat-page {
   display: flex;
-  gap: 20px;
-  padding: 20px;
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  height: calc(100vh - 80px);
 }
 
+/* Chat List Styles */
 .chat-list {
   flex: 1;
   background: white;
+  border-radius: 15px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  max-width: 400px;
+}
+
+.chat-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.online-status {
+  color: #28a745;
+  font-size: 0.9rem;
+}
+
+.search-box {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 0.8rem 1rem 0.8rem 2.5rem;
+  border: 1px solid #ddd;
   border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  font-size: 0.9rem;
 }
 
-.chat-list h2 {
-  margin-bottom: 20px;
-}
-
-.chat-list ul {
-  list-style: none;
-  padding: 0;
+.search-box i {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666;
 }
 
 .chat-list li {
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 10px;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .chat-list li:hover {
-  background-color: #f0f0f0;
+  background-color: #f8f9fa;
 }
 
+/* Chat Window Styles */
 .chat-window {
   flex: 2;
   background: white;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-.chat-window h2 {
-  margin-bottom: 20px;
+.chat-window-header {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.seller-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.seller-avatar {
+  position: relative;
+}
+
+.seller-avatar img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.online-indicator {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 8px;
+  height: 8px;
+  background: #28a745;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+.chat-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.action-btn {
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  padding: 0.5rem;
 }
 
 #chat-messages {
   flex: 1;
   overflow-y: auto;
-  margin-bottom: 20px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-.chat-input {
+.message {
+  max-width: 70%;
+  padding: 0.8rem 1rem;
+  border-radius: 15px;
+  position: relative;
+}
+
+.message.sent {
+  align-self: flex-end;
+  background: #007bff;
+  color: white;
+}
+
+.message.received {
+  align-self: flex-start;
+  background: #f0f2f5;
+}
+
+.chat-input-container {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid #eee;
   display: flex;
-  gap: 10px;
+  align-items: center;
+  gap: 1rem;
+}
+
+.chat-input-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background: #f0f2f5;
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
 }
 
 #chat-input {
   flex: 1;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+  border: none;
+  background: none;
+  padding: 0.5rem;
+  outline: none;
+}
+
+.attachment-btn, .emoji-btn {
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  padding: 0.5rem;
 }
 
 #send-btn {
-  padding: 10px 20px;
-  background-color: #007bff;
+  background: #007bff;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 #send-btn:hover {
@@ -1577,4 +1698,22 @@ input:focus, textarea:focus {
 }
 /* ...existing code... */
 
+/* ...existing code... */
+
+#showCaptchaBtn {
+  background-color: #4CAF50; /* Green background */
+  color: white; /* White text */
+  padding: 10px 20px; /* Padding */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 16px; /* Font size */
+  transition: background-color 0.3s; /* Smooth transition */
+}
+
+#showCaptchaBtn:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
+/* ...existing code... */
 

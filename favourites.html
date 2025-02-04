@@ -23,6 +23,7 @@
             
           </ul>
         </li>
+        <li><a href="favourites.html">Favorites</a></li>
         <li><a href="#">Discounts</a></li>
         <li><a href="contactus.html">Contact Us</a></li>
       </ul>
@@ -44,31 +45,84 @@
   </header>
 
   <main>
-    <section class="product-section">
-      <h1>My Favorites</h1>
-      <div class="product-grid-page" id="favorites-container">
-        <!-- Favorites will be displayed here -->
+    <section class="favorites-section">
+      <h1>Your Favorites</h1>
+      <div id="favorites-container" class="product-grid-page">
+        <!-- Favorites will be dynamically inserted here -->
       </div>
     </section>
   </main>
 
-<script src="checkout.js"></script>
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const userId = localStorage.getItem('userId'); // Retrieve user ID from local storage
-    const profileIcon = document.getElementById('profile-icon');
-    const loginBtn = document.getElementById('login-btn');
+  <script src="Notification.js"></script>
+  <script src="cart.js"></script>
+  <script  src="checkout.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const favoritesContainer = document.getElementById('favorites-container');
+      if (!favoritesContainer) return; // Exit if not on favorites page
 
-    console.log('Retrieved user ID:', userId); // Debugging log
+      // Function to display no favorites message
+      const showNoFavoritesMessage = () => {
+        favoritesContainer.innerHTML = '<p class="center-message">No favorite items yet</p>';
+      };
 
-    if (userId) {
-      profileIcon.style.display = 'block';
-      loginBtn.style.display = 'none';
-    } else {
-      profileIcon.style.display = 'none';
-      loginBtn.style.display = 'block';
-    }
-  });
-</script>
+      // Function to render all favorites
+      const renderFavorites = () => {
+        // Get fresh data from localStorage
+        const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+
+        // Clear existing content
+        favoritesContainer.innerHTML = '';
+
+        if (favorites.length === 0) {
+          showNoFavoritesMessage();
+          return;
+        }
+
+        // Create and display each favorite item
+        favorites.forEach(item => {
+          const productCard = document.createElement('div');
+          productCard.className = 'product-card';
+          productCard.innerHTML = `
+            <img src="${item.image}" alt="${item.name}">
+            <p class="product-name">${item.name}</p>
+            <p class="product-price">${item.price}</p>
+            <button class="favorite-button" data-item-id="${item.id}" style="color: red;">
+              <svg xmlns="http://www.w3.org/2000/svg" class="heart-icon" viewBox="0 0 24 24"
+                   style="fill: red; stroke: red;"
+                   stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z" />
+              </svg>
+            </button>
+          `;
+
+          // Add click handler to heart button
+          const favoriteButton = productCard.querySelector('.favorite-button');
+
+          favoriteButton.addEventListener('click', () => {
+            // Get current favorites
+            const currentFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
+
+            // Remove the item from favorites
+            const updatedFavorites = currentFavorites.filter(fav => fav.id !== item.id);
+
+            // Show removal message
+            showNotification(`${item.name} removed from favorites`, 'error');
+
+            // Update localStorage
+            localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+
+            // Re-render the favorites
+            renderFavorites();
+          });
+
+          favoritesContainer.appendChild(productCard);
+        });
+      };
+
+      // Initial render
+      renderFavorites();
+    });
+  </script>
 </body>
 </html>

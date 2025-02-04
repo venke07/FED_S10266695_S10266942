@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
         id: productId,
         name: productCard.querySelector('.product-name').textContent,
         price: productCard.querySelector('.product-price').textContent,
-        image: productCard.querySelector('product-image').src
+        image: productCard.querySelector('img').src
       };
 
       const existingIndex = favorites.findIndex(fav => fav.id === productId);

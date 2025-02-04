@@ -10,6 +10,19 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.setItem('favorites', JSON.stringify(favorites));
   };
 
+  // Create message container if it doesn't exist
+  if (!document.getElementById('message-container')) {
+    const messageContainer = document.createElement('div');
+    messageContainer.id = 'message-container';
+    messageContainer.style.cssText = `
+      position: fixed;
+      top: 60px; /* Adjusted to avoid overlapping with the bell */
+      right: 20px;
+      z-index: 1000;
+    `;
+    document.body.appendChild(messageContainer);
+  }
+
   // Create dropdown container for notification bell
   const createDropdownContainer = () => {
     const dropdownContainer = document.createElement('div');
@@ -32,6 +45,32 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   createDropdownContainer();
+
+  // Show message function
+  const showMessage = (text, isSuccess = true) => {
+    const message = document.createElement('div');
+    message.style.cssText = `
+      background-color: ${isSuccess ? '#4CAF50' : '#f44336'};
+      color: white;
+      padding: 16px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+      opacity: 0;
+      transition: opacity 0.3s ease-in;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    `;
+    message.textContent = text;
+    document.getElementById('message-container').appendChild(message);
+
+    // Fade in
+    setTimeout(() => message.style.opacity = '1', 10);
+
+    // Remove after 3 seconds
+    setTimeout(() => {
+      message.style.opacity = '0';
+      setTimeout(() => message.remove(), 300);
+    }, 3000);
+  };
 
   // Add click event listeners to all favorite buttons
   document.querySelectorAll('.favorite-button').forEach(button => {
@@ -56,19 +95,51 @@ document.addEventListener('DOMContentLoaded', () => {
         // Add to favorites
         favorites.push(productDetails);
         button.querySelector('.heart-icon').style.fill = 'red';
-        showNotification(`${productDetails.name} added to favorites!`, 'success', productDetails.image);
+        showMessage(`${productDetails.name} added to favorites!`);
         updateNotificationDot();
       } else {
         // Remove from favorites
         favorites.splice(existingIndex, 1);
         button.querySelector('.heart-icon').style.fill = 'none';
-        showNotification(`${productDetails.name} removed from favorites!`, 'error', productDetails.image);
+        showMessage(`${productDetails.name} removed from favorites!`, false);
         updateNotificationDot();
       }
 
       saveFavorites(favorites);
     });
   });
+
+  // Update notification dot and animate bell
+  const updateNotificationDot = () => {
+    const notificationBell = document.querySelector('.icon[alt="Notification Bell"]');
+    if (notificationBell) {
+      let dot = notificationBell.nextElementSibling;
+      if (!dot || !dot.classList.contains('notification-dot')) {
+        dot = document.createElement('span');
+        dot.classList.add('notification-dot');
+        dot.style.cssText = `
+          position: absolute;
+          top: 10px;
+          right: 100px;
+          width: 10px;
+          height: 10px;
+          background-color: red;
+          border-radius: 50%;
+        `;
+        notificationBell.parentElement.appendChild(dot);
+      }
+      const favorites = getFavorites();
+      if (favorites.length === 0) {
+        dot.style.display = 'none';
+      } else {
+        dot.style.display = 'block';
+      }
+      notificationBell.classList.add('bell-animation');
+      setTimeout(() => {
+        notificationBell.classList.remove('bell-animation');
+      }, 1000); // Animation duration
+    }
+  };
 
   // Add click event listener to notification bell
   const notificationBell = document.querySelector('.icon[alt="Notification Bell"]');
@@ -99,9 +170,13 @@ document.addEventListener('DOMContentLoaded', () => {
               margin-right: 10px;
               border-radius: 4px;
             `;
-            const textNode = document.createTextNode(`${favorite.name} - ${favorite.price}`);
+            const textNode = document.createTextNode(`${favorite.name} has been added to your favorites. `);
+            const moreInfo = document.createElement('span');
+            moreInfo.textContent = 'Click here to find out more.';
+            moreInfo.style.color = '#007bff'; // Change text color
             item.appendChild(img);
             item.appendChild(textNode);
+            item.appendChild(moreInfo);
             dropdownContainer.appendChild(item);
           });
         } else {

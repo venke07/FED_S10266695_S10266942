@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
           width: 10px;
           height: 10px;
           background-color: red;
-          border-radius: 50%;
+          border-radius: 40%;
         `;
         notificationBell.parentElement.appendChild(dot);
       }

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="product-container">
+        <!-- Image Gallery -->
+        <div class="image-gallery">
+            <div class="main-image">
+                <img id="mainImage" src="" alt="Main Product Image">
+            </div>
+            <div class="thumbnail-container">
+                <img class="thumbnail" src="" alt="Thumbnail 1" onclick="changeImage(0)">
+                <img class="thumbnail" src="" alt="Thumbnail 2" onclick="changeImage(1)">
+                <img class="thumbnail" src="" alt="Thumbnail 3" onclick="changeImage(2)">
+            </div>
+        </div>
+
+        <!-- Product Information -->
+        <div class="product-info">
+            <h1 id="productName"></h1>
+            <p id="productPrice" class="price"></p>
+            <p id="productDescription" class="description"></p>
+            
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button class="chat-btn" onclick="openChat()">
+                    <img src="images/chat.png" alt="Chat">
+                    Talk with Seller
+                </button>
+                <button class="favorite-btn" onclick="toggleFavorite()">
+                    <img src="images/heart.png" alt="Favorite">
+                </button>
+                <button class="share-btn" onclick="shareProduct()">
+                    <img src="images/share.png" alt="Share">
+                </button>
+            </div>
+
+            <!-- Seller Information -->
+            <div class="seller-info">
+                <h2>Seller Information</h2>
+                <div class="seller-profile">
+                    <img id="sellerImage" src="" alt="Seller">
+                    <div class="seller-details">
+                        <p id="sellerName"></p>
+                        <p id="lastActive"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="product-details.js"></script>
+</body>
+</html>

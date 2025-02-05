@@ -123,6 +123,52 @@
       // Initial render
       renderFavorites();
     });
+
+    // Add click event listener to notification bell
+    const notificationBell = document.querySelector('.icon[alt="Notification Bell"]');
+    if (notificationBell) {
+      notificationBell.addEventListener('click', () => {
+        const dropdownContainer = document.getElementById('dropdown-container');
+        if (dropdownContainer.style.display === 'block') {
+          dropdownContainer.style.display = 'none';
+        } else {
+          const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+          dropdownContainer.innerHTML = ''; // Clear previous content
+
+          if (favorites.length > 0) {
+            favorites.forEach(favorite => {
+              const item = document.createElement('div');
+              item.style.cssText = `
+                display: flex;
+                align-items: center;
+                padding: 10px;
+                border-bottom: 1px solid #ddd;
+                cursor: pointer; /* Change cursor to pointer on hover */
+              `;
+              const img = document.createElement('img');
+              img.src = favorite.image;
+              img.style.cssText = `
+                width: 50px;
+                height: 50px;
+                margin-right: 10px;
+                border-radius: 4px;
+              `;
+              const textNode = document.createTextNode(`${favorite.name} - ${favorite.price}`);
+              item.appendChild(img);
+              item.appendChild(textNode);
+              dropdownContainer.appendChild(item);
+            });
+          } else {
+            const noFavoritesMessage = document.createElement('div');
+            noFavoritesMessage.textContent = 'No new notifications.';
+            noFavoritesMessage.style.padding = '10px';
+            dropdownContainer.appendChild(noFavoritesMessage);
+          }
+
+          dropdownContainer.style.display = 'block';
+        }
+      });
+    }
   </script>
 </body>
 </html>

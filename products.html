@@ -45,13 +45,51 @@
   </header>
 
   <main>
+    <button id="filter-toggle-btn" class="filter-toggle-btn">Filter By</button>
     <section class="product-section">
-      <h1>Our Products</h1>
+      <div class="filter-section hidden" style="display: none;">
+        <div class="filter-container">
+          <h3>Filters</h3>
+          
+          <div class="filter-group">
+            <h4>Price Range</h4>
+            <div class="price-inputs">
+              <input type="number" id="min-price" placeholder="Min $" min="0">
+              <span>-</span>
+              <input type="number" id="max-price" placeholder="Max $" min="0">
+              <button id="price-apply">Apply</button>
+            </div>
+          </div>
+      
+          <div class="filter-group">
+            <h4>Category</h4>
+            <div class="checkbox-group">
+              <label><input type="checkbox" value="laptop" class="category-filter"> Laptops</label>
+              <label><input type="checkbox" value="phone" class="category-filter"> Phones</label>
+              <label><input type="checkbox" value="computer" class="category-filter"> Computers</label>
+              <label><input type="checkbox" value="accessories" class="category-filter"> Accessories</label>
+            </div>
+          </div>
+      
+          <div class="filter-group">
+            <h4>Condition</h4>
+            <div class="checkbox-group">
+              <label><input type="checkbox" value="new" class="condition-filter"> New</label>
+              <label><input type="checkbox" value="used" class="condition-filter"> Used</label>
+              <label><input type="checkbox" value="damaged" class="condition-filter"> Damaged</label>
+            </div>
+          </div>
+      
+          <button id="clear-filters" class="clear-filters-btn">Clear All Filters</button>
+        </div>
+      </div>
+
       <div class="product-grid-page">
         <!-- Product 1 -->
-        <div class="product-card">
+        <div class="product-card" data-product-id="wirelessearbudspx8">
           <img src="images/lenovo-lap.png" alt="Wireless Earbuds">
           <p class="product-name">Wireless Earbuds, PX8</p>
+          <p class="product-description">High-quality wireless earbuds with premium sound</p>
           <p class="product-price">$59.99</p>
           <button class="favorite-button">
             <svg xmlns="http://www.w3.org/2000/svg" class="heart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -60,9 +98,10 @@
           </button>
         </div>
         <!-- Product 2 -->
-        <div class="product-card">
+        <div class="product-card" data-product-id="airpodsmax">
           <img src="images/laptop-product.png" alt="AirPods Max">
           <p class="product-name">AirPods Max</p>
+          <p class="product-description">Premium over-ear headphones with active noise cancellation</p>
           <p class="product-price">$549.99</p>
           <button class="favorite-button">
             <svg xmlns="http://www.w3.org/2000/svg" class="heart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -71,9 +110,10 @@
           </button>
         </div>
         <!-- Product 3 -->
-        <div class="product-card">
-          <img src="images/iphone.png" alt="Rose BT Earphones">
+        <div class="product-card" data-product-id="iphone14128gbstarlight">
+          <img src="images/iphone.png" alt="Iphone 14. 128GB. Starlight">
           <p class="product-name">Iphone 14. 128GB. Starlight</p>
+          <p class="product-description">Latest iPhone model with A15 Bionic chip</p>
           <p class="product-price">$849.99</p>
           <button class="favorite-button">
             <svg xmlns="http://www.w3.org/2000/svg" class="heart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -82,9 +122,10 @@
           </button>
         </div>
         <!-- Product 4 -->
-        <div class="product-card">
-          <img src="images/laptopproduct.png" alt="Sony WH-1000XM4">
+        <div class="product-card" data-product-id="microsoftsurfacepro4">
+          <img src="images/laptopproduct.png" alt="Microsoft Surface Pro 4">
           <p class="product-name">Microsoft Surface Pro 4</p>
+          <p class="product-description">Versatile 2-in-1 laptop with touch screen</p>
           <p class="product-price">$219.99</p>
           <button class="favorite-button">
             <svg xmlns="http://www.w3.org/2000/svg" class="heart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -93,9 +134,10 @@
           </button>
         </div>
         <!-- Product 5 -->
-        <div class="product-card">
-          <img src="images/laptopproduct(2).png" alt="Bose QC35 II">
+        <div class="product-card" data-product-id="lenovoyogaslim7pro">
+          <img src="images/laptopproduct(2).png" alt="Lenova Yoga Slim 7 Pro">
           <p class="product-name">Lenova Yoga Slim 7 Pro</p>
+          <p class="product-description">Ultra-slim laptop with powerful performance</p>
           <p class="product-price">$800</p>
           <button class="favorite-button">
             <svg xmlns="http://www.w3.org/2000/svg" class="heart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -104,9 +146,10 @@
           </button>
         </div>
         <!-- Product 6 -->
-        <div class="product-card">
-          <img src="images/phoneproduct.png" alt="Samsung Galaxy Buds Pro">
+        <div class="product-card" data-product-id="samsunggalaxys23green">
+          <img src="images/phoneproduct.png" alt="Samsung Galaxy S23 Green">
           <p class="product-name">Samsung Galaxy S23 Green</p>
+          <p class="product-description">Latest Samsung flagship with advanced camera system</p>
           <p class="product-price">$679.99</p>
           <button class="favorite-button">
             <svg xmlns="http://www.w3.org/2000/svg" class="heart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -115,9 +158,10 @@
           </button>
         </div>
         <!-- Product 7 -->
-        <div class="product-card">
-          <img src="images/computerproduct.png" alt="Jabra Elite 85t">
+        <div class="product-card" data-product-id="gamingpc4060ryzen57600">
+          <img src="images/computerproduct.png" alt="FLASH DEAL 4060 + RYZEN 5 7600 Custom Gaming Pc">
           <p class="product-name">FLASH DEAL 4060 + RYZEN 5 7600 Custom Gaming Pc</p>
+          <p class="product-description">Custom built gaming PC with latest components</p>
           <p class="product-price">$1360</p>
           <button class="favorite-button">
             <svg xmlns="http://www.w3.org/2000/svg" class="heart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -126,9 +170,10 @@
           </button>
         </div>
         <!-- Product 8 -->
-        <div class="product-card">
-          <img src="images/galaxyclockproduct.png" alt="Sennheiser Momentum">
+        <div class="product-card" data-product-id="bluetoothspeakerclock">
+          <img src="images/galaxyclockproduct.png" alt="Multifunctional Mini Blutooth Speaker/Clock">
           <p class="product-name">Multifunctional Mini Blutooth Speaker/Clock</p>
+          <p class="product-description">2-in-1 bluetooth speaker with clock functionality</p>
           <p class="product-price">$23.93</p>
           <button class="favorite-button">
             <svg xmlns="http://www.w3.org/2000/svg" class="heart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -137,9 +182,10 @@
           </button>
         </div>
         <!-- Product 9 -->
-        <div class="product-card">
-          <img src="images/computerproduct(2).png" alt="Beats by Dre Studio 3">
+        <div class="product-card" data-product-id="customgamingpcgtxrtx">
+          <img src="images/computerproduct(2).png" alt="Custom Desktop Gaming PC Building Intel Core AMD Ryzen GeForce GTX RTX">
           <p class="product-name">Custom Desktop Gaming PC Building Intel Core AMD Ryzen GeForce GTX RTX</p>
+          <p class="product-description">Customizable gaming PC with various configuration options</p>
           <p class="product-price">$658</p>
           <button class="favorite-button">
             <svg xmlns="http://www.w3.org/2000/svg" class="heart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -148,9 +194,10 @@
           </button>
         </div>
         <!-- Product 10 -->
-        <div class="product-card">
-          <img src="images/pcproductt.png" alt="Anker Soundcore">
+        <div class="product-card" data-product-id="lgmonitor">
+          <img src="images/pcproductt.png" alt="LG Monitor">
           <p class="product-name">LG Monitor</p>
+          <p class="product-description">High-quality display monitor for work and gaming</p>
           <p class="product-price">$89.99</p>
           <button class="favorite-button">
             <svg xmlns="http://www.w3.org/2000/svg" class="heart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -159,9 +206,10 @@
           </button>
         </div>
         <!-- Product 11 -->
-        <div class="product-card">
-          <img src="images/laptopproduct(3).png" alt="Shure Aonic 50">
+        <div class="product-card" data-product-id="laptopinstallmentscheme">
+          <img src="images/laptopproduct(3).png" alt="Instalment* Flexible Payment Schemes on Eligible Laptops! Featuring Gigabyte/Aorus, Asus/ROG Strix,">
           <p class="product-name">Instalment* Flexible Payment Schemes on Eligible Laptops! Featuring Gigabyte/Aorus, Asus/ROG Strix,</p>
+          <p class="product-description">Flexible payment options for premium laptops</p>
           <p class="product-price">$199.99</p>
           <button class="favorite-button">
             <svg xmlns="http://www.w3.org/2000/svg" class="heart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -170,9 +218,10 @@
           </button>
         </div>
         <!-- Product 12 -->
-        <div class="product-card">
-          <img src="images/phoneprodcut(3).png" alt="Apple EarPods">
+        <div class="product-card" data-product-id="iphone13mini">
+          <img src="images/phoneprodcut(3).png" alt="Iphone 13 Mini">
           <p class="product-name">Iphone 13 Mini</p>
+          <p class="product-description">Compact iPhone with powerful features</p>
           <p class="product-price">$398</p>
           <button class="favorite-button">
             <svg xmlns="http://www.w3.org/2000/svg" class="heart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -181,9 +230,10 @@
           </button>
         </div>
         <!-- Product 13 -->
-        <div class="product-card">
-          <img src="images/phoneproduct(4).png" alt="Plantronics Voyager">
+        <div class="product-card" data-product-id="iphone14minibluedamaged">
+          <img src="images/phoneproduct(4).png" alt="Iphone 14 Mini Blue - Damaged Screen">
           <p class="product-name">Iphone 14 Mini Blue - Damaged Screen</p>
+          <p class="product-description">iPhone 14 Mini with screen damage - for repair or parts</p>
           <p class="product-price">$359.99</p>
           <button class="favorite-button">
             <svg xmlns="http://www.w3.org/2000/svg" class="heart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -192,9 +242,10 @@
           </button>
         </div>
         <!-- Product 14 -->
-        <div class="product-card">
-          <img src="images/laptopproduct(4).png" alt="Sony WF-1000XM4">
+        <div class="product-card" data-product-id="asusroggaminglaptop">
+          <img src="images/laptopproduct(4).png" alt="20Hz RGB 15.6" ASUS ROG GAMING ">
           <p class="product-name">20Hz RGB 15.6" ASUS ROG GAMING </p>
+          <p class="product-description">High-performance gaming laptop with RGB lighting</p>
           <p class="product-price">$590</p>
           <button class="favorite-button">
             <svg xmlns="http://www.w3.org/2000/svg" class="heart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -203,9 +254,10 @@
           </button>
         </div>
         <!-- Product 15 -->
-        <div class="product-card">
-          <img src="images/laptopproduct(5).png" alt="LG Tone Free">
+        <div class="product-card" data-product-id="asusrogzephyrusg14">
+          <img src="images/laptopproduct(5).png" alt="2024 Asus ROG Zephyrus G14 Asus ROG Zephyrus">
           <p class="product-name">2024 Asus ROG Zephyrus G14 Asus ROG Zephyrus</p>
+          <p class="product-description">Next-gen gaming laptop with powerful specs</p>
           <p class="product-price">$1888</p>
           <button class="favorite-button">
             <svg xmlns="http://www.w3.org/2000/svg" class="heart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -214,9 +266,10 @@
           </button>
         </div>
         <!-- Product 16 -->
-        <div class="product-card">
-          <img src="images/computerproduct(3).png" alt="Bang & Olufsen Beoplay">
+        <div class="product-card" data-product-id="gamingpcryzen55600rtx3060">
+          <img src="images/computerproduct(3).png" alt="AMD Ryzen 5 5600 + Nvidia GeForce RTX 3060 - Slightly Used">
           <p class="product-name">AMD Ryzen 5 5600 + Nvidia GeForce RTX 3060 - Slightly Used</p>
+          <p class="product-description">High-performance gaming PC with slight usage</p>
           <p class="product-price">$675</p>
           <button class="favorite-button">
             <svg xmlns="http://www.w3.org/2000/svg" class="heart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -231,6 +284,7 @@
   <script src="cart.js"></script>
   <script src="checkout.js"></script>
   <script src="Notification.js"></script>
+  <script src="filter.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const userId = localStorage.getItem('userId'); // Retrieve user ID from local storage
@@ -246,6 +300,22 @@
         profileIcon.style.display = 'none';
         loginBtn.style.display = 'block';
       }
+
+      // Add event listener to product cards
+      const productCards = document.querySelectorAll('.product-card');
+      productCards.forEach(card => {
+        card.addEventListener('click', function() {
+          const productId = card.getAttribute('data-product-id');
+          window.location.href = `product-details.html?productId=${productId}`;
+        });
+      });
+
+      // Add event listener to filter toggle button
+      const filterToggleBtn = document.getElementById('filter-toggle-btn');
+      const filterSection = document.querySelector('.filter-section');
+      filterToggleBtn.addEventListener('click', function() {
+        filterSection.classList.toggle('hidden');
+      });
     });
   </script>
 </body>

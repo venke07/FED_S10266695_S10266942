@@ -1,3 +1,6 @@
+const API_URL = "https://assignment-6774.restdb.io/rest/listings";
+const API_KEY = "be0a208b9efb4a99517bba9c06f413dd69fc2";
+
 // DOM Elements
 const fileUploadBox = document.querySelector('.file-upload');
 const fileInput = document.getElementById('fileInput');
@@ -53,44 +56,53 @@ fileInput.addEventListener('change', (e) => {
 });
 
 // Handle form submission
-form.addEventListener('submit', (e) => {
+form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    
-    // Collect form data
+
+    if (!validateForm()) return;
+
     const formData = new FormData();
     formData.append('name', document.getElementById('itemName').value);
     formData.append('category', document.getElementById('category').value);
     formData.append('condition', document.getElementById('condition').value);
     formData.append('price', document.getElementById('price').value);
     formData.append('description', document.getElementById('description').value);
-    
-    // Append files
-    Array.from(fileInput.files).forEach((file, index) => {
-        formData.append(`image${index}`, file);
+    formData.append('location', document.getElementById('location').value || "N/A");
+
+    // Append images as Base64
+    const imagePromises = Array.from(fileInput.files).map(file => {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload = () => resolve(reader.result);
+            reader.onerror = reject;
+            reader.readAsDataURL(file);
+        });
     });
 
-    // Here you would typically send this data to your server
-    // Example AJAX request (uncomment and modify when ready to use):
-    /*
-    fetch('/api/listings', {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log('Success:', data);
+    try {
+        const imageBase64Array = await Promise.all(imagePromises);
+        formData.append('images', JSON.stringify(imageBase64Array)); // Store multiple images as an array
+
+        const response = await fetch(API_URL, {
+            method: 'POST',
+            headers: {
+                'x-apikey': API_KEY,
+                'cache-control': 'no-cache',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(Object.fromEntries(formData))
+        });
+
+        if (!response.ok) throw new Error("Failed to submit listing");
+
+        const result = await response.json();
+        console.log('Success:', result);
+        alert('Item listed successfully!');
         resetForm();
-    })
-    .catch(error => {
-        console.error('Error:', error);
+    } catch (error) {
+        console.error('Error submitting form:', error);
         alert('Error submitting form. Please try again.');
-    });
-    */
-
-    // For development/testing:
-    console.log('Form submitted with data:', Object.fromEntries(formData));
-    alert('Item listed successfully!');
-    resetForm();
+    }
 });
 
 // Reset form and UI
@@ -114,7 +126,7 @@ fileUploadBox.addEventListener('dragleave', () => {
 fileUploadBox.addEventListener('drop', (e) => {
     e.preventDefault();
     fileUploadBox.style.backgroundColor = '';
-    
+
     const files = Array.from(e.dataTransfer.files);
     if (handleFileSelect(files)) {
         // Manually set the files to the input

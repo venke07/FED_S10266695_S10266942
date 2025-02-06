@@ -397,12 +397,12 @@
         loginBtn.style.display = 'block';
       }
 
-// Add event listener to product cards
-const productCards = document.querySelectorAll('.product-card');
+      // Add event listener to product cards
+      const productCards = document.querySelectorAll('.product-card');
       productCards.forEach(card => {
         card.addEventListener('click', function() {
           const productId = card.getAttribute('data-product-id');
-          window.location.href = product-details.html?productId=$:{productId};
+          window.location.href = `product-details.html?productId=${productId}`;
         });
       });
 

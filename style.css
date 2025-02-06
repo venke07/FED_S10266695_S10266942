@@ -400,7 +400,7 @@ nav ul li a {
   justify-content: space-between;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  height: 500px; /* Increased height */
+  height: 600px; /* Increased height */
   width: 350px; /* Adjust width as needed */
   position: relative; /* Ensure absolute positioning works within the card */
   overflow: visible; /* Ensure overflow is visible */
@@ -430,12 +430,6 @@ nav ul li a {
   color: #666;
 }
 
-.product-card img {
-  width: 100%;
-  height: 300px; /* Adjust height to push content above */
-  object-fit: cover;
-  border-radius: 4px;
-}
 
 .product-card .product-info {
   display: flex;
@@ -2135,30 +2129,21 @@ input:focus, textarea:focus {
   background-color: #dc2626;
 }
 
-/* Modify your existing product section to work with filters */
-.product-section {
-  display: flex;
-  gap: 30px;
-  padding: 20px;
-}
-
-/* ...existing code... */
-
-.product-user-icon {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  margin-right: 8px;
-  vertical-align: middle;
-}
 
 .product-seller-info {
   display: flex;
   align-items: center;
-  margin-bottom: 8px;
+  gap: 5px; /* Adds spacing between icon and text */
 }
 
-/* ...existing code... */
+.product-card img {
+  width: 100%;
+  height: 200px; /* Set a fixed height */
+  object-fit: cover; /* Ensure the image covers the area without distortion */
+  border-radius: 4px;
+}
+
+
 
 
 

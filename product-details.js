@@ -65,7 +65,9 @@ function changeImage(index) {
     const product = productDatabase[productId];
     
     if (product && product.images[index]) {
-        document.getElementById('mainImage').src = product.images[index];
+        const mainImage = document.getElementById('mainImage');
+        mainImage.src = product.images[index];
+        mainImage.style.height = '400px'; // Ensure consistent height
         console.log('Main image changed to:', product.images[index]); // Debugging log
     }
 }

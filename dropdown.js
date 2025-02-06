@@ -27,63 +27,105 @@ document.addEventListener('DOMContentLoaded', function () {
         });
       }
     });
-  });
+
+    // Array of image URLs - update these with your actual image paths
+    const images = [
+      "images/welcomebanerr.jpg",
+      "images/laptop(2).avif",
+      "images/laptop(3).jpg"
+    ];
   
-
-
-
-// Array of image URLs i
-// Array of image URLs
-const images = [
-  "images/headbanner.jpg", // First banner image
-  "images/laptop(2).avif", // Second banner image
-  "images/laptop(3).jpg"  // Third banner image
-];
-
-let currentIndex = 0;
-
-// Get elements
-const carouselImage = document.getElementById("carouselImage");
-const prevBtn = document.getElementById("prevBtn");
-const nextBtn = document.getElementById("nextBtn");
-const dotsContainer = document.getElementById("dotsContainer");
-
-// Create dots for each image
-images.forEach((_, index) => {
-  const dot = document.createElement("div");
-  dot.classList.add("dot");
-  if (index === 0) dot.classList.add("active"); // Mark the first dot as active
-  dot.addEventListener("click", () => switchImage(index)); // Add click event to each dot
-  dotsContainer.appendChild(dot);
-});
-
-// Update the active dot
-function updateDots() {
-  const dots = document.querySelectorAll(".dot");
-  dots.forEach((dot, index) => {
-    dot.classList.toggle("active", index === currentIndex);
+    let currentIndex = 0;
+    let isTransitioning = false;
+    
+    // Get carousel elements
+    const carouselImage = document.getElementById("carouselImage");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    const dotsContainer = document.getElementById("dotsContainer");
+  
+    // Create dots for each image
+    images.forEach((_, index) => {
+      const dot = document.createElement("div");
+      dot.classList.add("dot");
+      if (index === 0) dot.classList.add("active");
+      dot.addEventListener("click", () => {
+        if (!isTransitioning) switchImage(index);
+      });
+      dotsContainer.appendChild(dot);
+    });
+  
+    // Update active dot
+    function updateDots() {
+      const dots = document.querySelectorAll(".dot");
+      dots.forEach((dot, index) => {
+        dot.classList.toggle("active", index === currentIndex);
+      });
+    }
+  
+    // Switch to specific image with transition
+    function switchImage(index) {
+      if (isTransitioning || index === currentIndex) return;
+      
+      isTransitioning = true;
+      currentIndex = index;
+      
+      // Add fade-out effect
+      carouselImage.style.opacity = '0';
+      
+      setTimeout(() => {
+        carouselImage.src = images[currentIndex];
+        // Add fade-in effect
+        carouselImage.style.opacity = '1';
+        updateDots();
+        
+        setTimeout(() => {
+          isTransitioning = false;
+        }, 500);
+      }, 500);
+    }
+  
+    // Previous button click handler
+    prevBtn.addEventListener("click", () => {
+      if (!isTransitioning) {
+        const newIndex = (currentIndex - 1 + images.length) % images.length;
+        switchImage(newIndex);
+      }
+    });
+  
+    // Next button click handler
+    nextBtn.addEventListener("click", () => {
+      if (!isTransitioning) {
+        const newIndex = (currentIndex + 1) % images.length;
+        switchImage(newIndex);
+      }
+    });
+  
+    // Auto-rotate images
+    let autoRotateInterval = setInterval(() => {
+      if (!isTransitioning) {
+        const newIndex = (currentIndex + 1) % images.length;
+        switchImage(newIndex);
+      }
+    }, 5000);
+  
+    // Pause auto-rotation when hovering over carousel
+    const promoBanner = document.querySelector('.promo-banner');
+    promoBanner.addEventListener('mouseenter', () => {
+      clearInterval(autoRotateInterval);
+    });
+  
+    promoBanner.addEventListener('mouseleave', () => {
+      autoRotateInterval = setInterval(() => {
+        if (!isTransitioning) {
+          const newIndex = (currentIndex + 1) % images.length;
+          switchImage(newIndex);
+        }
+      }, 5000);
+    });
+  
+    // Initial load
+    carouselImage.src = images[0];
   });
-}
-
-// Switch to a specific image
-function switchImage(index) {
-  currentIndex = index;
-  carouselImage.src = images[currentIndex];
-  updateDots();
-}
-
-// Show the previous image
-prevBtn.addEventListener("click", () => {
-  currentIndex = (currentIndex - 1 + images.length) % images.length;
-  carouselImage.src = images[currentIndex];
-  updateDots();
-});
-
-// Show the next image
-nextBtn.addEventListener("click", () => {
-  currentIndex = (currentIndex + 1) % images.length;
-  carouselImage.src = images[currentIndex];
-  updateDots();
-});
 
 

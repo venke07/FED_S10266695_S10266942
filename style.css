@@ -333,10 +333,11 @@ nav ul li a {
 
 /* Product Sections */
 .product-section {
-  display: flex;
-  gap: 30px;
+  margin: 40px 0; /* Increased margin to push sections down */
   padding: 20px;
-  position: relative; /* Add relative positioning */
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .product-section h2 {
@@ -379,6 +380,7 @@ nav ul li a {
 .product-description {
   font-size: 1rem;
   color: #333;
+  margin-bottom: 10px;
 }
 
 .product-price {

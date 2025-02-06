@@ -41,11 +41,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Function to get product condition
   function getProductCondition(card) {
-      const name = card.querySelector('.product-name').textContent.toLowerCase();
-      const description = card.querySelector('.product-description').textContent.toLowerCase();
-      
-      if (name.includes('damaged') || description.includes('damaged')) return 'damaged';
-      if (name.includes('used') || description.includes('used')) return 'used';
+      const conditionText = card.querySelector('.product-condition').textContent.toLowerCase();
+      if (conditionText.includes('damaged')) return 'damaged';
+      if (conditionText.includes('used')) return 'used';
       return 'new';
   }
 

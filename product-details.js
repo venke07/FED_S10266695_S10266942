@@ -33,6 +33,7 @@ function loadProductDetails() {
     document.getElementById('productName').textContent = product.name;
     document.getElementById('productPrice').textContent = product.price;
     document.getElementById('productDescription').textContent = product.description;
+    document.getElementById('productCondition').textContent = product.condition;
     document.getElementById('detailedDescription').textContent = product.detailedDescription; // Ensure detailed description is set
     
     // Set seller information

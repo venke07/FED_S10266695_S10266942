@@ -1,53 +1,57 @@
 // Product database with all items
 const productDatabase = {
-    'wirelessearbudspx8': {
-        id: 'wirelessearbudspx8',
-        name: "Wireless Earbuds, PX8",
-        price: "$59.99",
-        description: "High-quality wireless earbuds with premium sound",
-        detailedDescription: "These wireless earbuds offer superior sound quality with noise cancellation and long battery life. Perfect for on-the-go listening.",
-        images: ["images/lenovo-lap.png", "images/lenovo-lap.png", "images/lenovo-lap.png"],
+    'asuslaptop': {
+        id: 'asuslaptop',
+        name: "Asus Laptop K413E",
+        price: "$429.99",
+        description: "High-performance laptop with sleek design",
+        condition: "Brand New",
+        detailedDescription: "The Asus Laptop K413E offers a high-performance experience with its powerful processor and sleek design. Perfect for both work and entertainment.",
+        images: ["images/lenovo-lap.png", "images/lenovo-lap(2).png", "images/lenovo-lap(3).png"],
         seller: {
             name: "Tech Store",
             image: "images/profile.png",
             lastActive: "2 hours ago"
         }
     },
-    'airpodsmax': {
-        id: 'airpodsmax',
-        name: "AirPods Max",
+    'microsoftsurfacepro2': {
+        id: 'microsoftsurfacepro2',
+        name: "Microsoft Surface Pro 2",
         price: "$549.99",
-        description: "Premium over-ear headphones with active noise cancellation",
-        detailedDescription: "AirPods Max provide an unparalleled listening experience with high-fidelity audio, active noise cancellation, and a comfortable over-ear design.",
-        images: ["images/laptop-product.png", "images/laptop-product.png", "images/laptop-product.png"],
+        description: "Versatile 2-in-1 laptop with touch screen",
+        condition: "Slightly Used",
+        detailedDescription: "The Microsoft Surface Pro 2 is a versatile 2-in-1 laptop with a touch screen, perfect for both work and play. It offers high performance and portability.",
+        images: ["images/laptop-product.png", "images/laptop-product(2).png", "images/laptop-product(3).png"],
         seller: {
-            name: "Apple Store",
+            name: "Microsoft Store",
             image: "images/profile.png",
             lastActive: "1 hour ago"
         }
     },
-    'iphone14128gbstarlight': {
-        id: 'iphone14128gbstarlight',
-        name: "Iphone 14. 128GB. Starlight",
+    'iphone13128gbstarlight': {
+        id: 'iphone13128gbstarlight',
+        name: "Iphone 13. 128GB. Starlight",
         price: "$849.99",
         description: "Latest iPhone model with A15 Bionic chip",
-        detailedDescription: "The iPhone 14 in Starlight features a stunning design, advanced camera system, and powerful A15 Bionic chip for exceptional performance.",
-        images: ["images/iphone.png", "images/iphone.png", "images/iphone.png"],
+        condition: "Brand New",
+        detailedDescription: "The iPhone 13 in Starlight features a stunning design, advanced camera system, and powerful A15 Bionic chip for exceptional performance.",
+        images: ["images/iphone.png", "images/iphone(2).png", "images/iphone(3).png"],
         seller: {
             name: "iStore",
             image: "images/profile.png",
             lastActive: "30 minutes ago"
         }
     },
-    'microsoftsurfacepro4': {
-        id: 'microsoftsurfacepro4',
-        name: "Microsoft Surface Pro 4",
-        price: "$219.99",
-        description: "Versatile 2-in-1 laptop with touch screen",
-        detailedDescription: "The Microsoft Surface Pro 4 is a versatile 2-in-1 laptop with a touch screen, perfect for both work and play. It offers high performance and portability.",
-        images: ["images/laptopproduct.png", "images/laptopproduct.png", "images/laptopproduct.png"],
+    'retinamacbook': {
+        id: 'retinamacbook',
+        name: "Mid 2015 Retina MacBook Pro 15 2.5Ghz Dual Display",
+        price: "$419.99",
+        description: "High-resolution display with powerful performance",
+        condition: "Slightly Used",
+        detailedDescription: "The Mid 2015 Retina MacBook Pro offers a high-resolution display and powerful performance, making it ideal for professionals and creatives.",
+        images: ["images/laptop-product(1).png", "images/laptop-product(1)(2).png", "images/laptop-product(1)(3).png"],
         seller: {
-            name: "MS Store",
+            name: "Apple Store",
             image: "images/profile.png",
             lastActive: "4 hours ago"
         }
@@ -57,8 +61,9 @@ const productDatabase = {
         name: "Lenova Yoga Slim 7 Pro",
         price: "$800",
         description: "Ultra-slim laptop with powerful performance",
+        condition: "Brand New",
         detailedDescription: "The Lenovo Yoga Slim 7 Pro is an ultra-slim laptop with powerful performance, ideal for professionals and creatives. It features a sleek design and long battery life.",
-        images: ["images/laptopproduct(2).png", "images/laptopproduct(2).png", "images/laptopproduct(2).png"],
+        images: ["images/laptop-product(2)(1).png", "images/laptop-product(2)(2).png", "images/laptop-product(2)(3).png"],
         seller: {
             name: "Lenovo Official",
             image: "images/profile.png",
@@ -70,8 +75,9 @@ const productDatabase = {
         name: "Samsung Galaxy S23 Green",
         price: "$679.99",
         description: "Latest Samsung flagship with advanced camera system",
+        condition: "Brand New",
         detailedDescription: "The Samsung Galaxy S23 in Green is the latest flagship smartphone with an advanced camera system, stunning display, and powerful performance.",
-        images: ["images/phoneproduct.png", "images/phoneproduct.png", "images/phoneproduct.png"],
+        images: ["images/phone-product.png", "images/phone-product(1).png", "images/phone-product(3).png"],
         seller: {
             name: "Samsung Store",
             image: "images/profile.png",
@@ -83,21 +89,23 @@ const productDatabase = {
         name: "FLASH DEAL 4060 + RYZEN 5 7600 Custom Gaming Pc",
         price: "$1360",
         description: "Custom built gaming PC with latest components",
+        condition: "Brand New",
         detailedDescription: "This custom gaming PC features the latest components, including a 4060 GPU and Ryzen 5 7600 CPU, for an exceptional gaming experience.",
-        images: ["images/computerproduct.png", "images/computerproduct.png", "images/computerproduct.png"],
+        images: ["images/computer-product.png", "images/computer-product(2).png", "images/computer-product(3).png"],
         seller: {
             name: "PC Builder Pro",
             image: "images/profile.png",
             lastActive: "3 hours ago"
         }
     },
-    'bluetoothspeakerclock': {
-        id: 'bluetoothspeakerclock',
-        name: "Multifunctional Mini Blutooth Speaker/Clock",
+    'mechanicalkeyboard': {
+        id: 'mechanicalkeyboard',
+        name: "60% Mechanical Keyboard",
         price: "$23.93",
-        description: "2-in-1 bluetooth speaker with clock functionality",
-        detailedDescription: "This multifunctional mini Bluetooth speaker also functions as a clock, offering great sound quality and a sleek design for any room.",
-        images: ["images/galaxyclockproduct.png", "images/galaxyclockproduct.png", "images/galaxyclockproduct.png"],
+        description: "Compact mechanical keyboard with customizable keys",
+        condition: "Slightly Used",
+        detailedDescription: "This 60% mechanical keyboard offers a compact design with customizable keys, perfect for gamers and typists who need a reliable and responsive keyboard.",
+        images: ["images/keyboard.png", "images/keyboard(2).png"],
         seller: {
             name: "Tech Gadgets",
             image: "images/profile.png",
@@ -109,8 +117,9 @@ const productDatabase = {
         name: "Custom Desktop Gaming PC Building Intel Core AMD Ryzen GeForce GTX RTX",
         price: "$658",
         description: "Customizable gaming PC with various configuration options",
+        condition: "Brand New",
         detailedDescription: "Build your own custom desktop gaming PC with options for Intel Core, AMD Ryzen, and GeForce GTX or RTX graphics cards. Tailor it to your needs.",
-        images: ["images/computerproduct(2).png", "images/computerproduct(2).png", "images/computerproduct(2).png"],
+        images: ["images/computer-product(2)(1).png"],
         seller: {
             name: "PC Custom Works",
             image: "images/profile.png",
@@ -122,23 +131,25 @@ const productDatabase = {
         name: "LG Monitor",
         price: "$89.99",
         description: "High-quality display monitor for work and gaming",
+        condition: "Slightly Used",
         detailedDescription: "The LG Monitor offers a high-quality display for both work and gaming, with vibrant colors and sharp details. Perfect for any setup.",
-        images: ["images/pcproductt.png", "images/pcproductt.png", "images/pcproductt.png"],
+        images: ["images/pc-product.png", "images/pc-product(2).png", "images/pc-product(3).png"],
         seller: {
             name: "LG Official",
             image: "images/profile.png",
             lastActive: "6 hours ago"
         }
     },
-    'laptopinstallmentscheme': {
-        id: 'laptopinstallmentscheme',
-        name: "Instalment* Flexible Payment Schemes on Eligible Laptops!",
-        price: "$199.99",
-        description: "Flexible payment options for premium laptops",
-        detailedDescription: "Take advantage of flexible payment schemes on eligible laptops with our installment plans. Get the laptop you need without the upfront cost.",
-        images: ["images/laptopproduct(3).png", "images/laptopproduct(3).png", "images/laptopproduct(3).png"],
+    'earbuds': {
+        id: 'earbuds',
+        name: "Earpeac3 bluetooth earbuds",
+        price: "$109.99",
+        description: "High-quality bluetooth earbuds with noise cancellation",
+        condition: "Brand New",
+        detailedDescription: "These Earpeac3 bluetooth earbuds offer high-quality sound with noise cancellation, making them perfect for listening to music or taking calls on the go.",
+        images: ["images/earbuds.png", "images/earbuds(2).png", "images/earbuds(3).png"],
         seller: {
-            name: "Laptop Finance",
+            name: "Audio Store",
             image: "images/profile.png",
             lastActive: "4 hours ago"
         }
@@ -148,8 +159,9 @@ const productDatabase = {
         name: "Iphone 13 Mini",
         price: "$398",
         description: "Compact iPhone with powerful features",
+        condition: "Brand New",
         detailedDescription: "The iPhone 13 Mini packs powerful features into a compact design, including a stunning display, advanced camera system, and A15 Bionic chip.",
-        images: ["images/phoneprodcut(3).png", "images/phoneprodcut(3).png", "images/phoneprodcut(3).png"],
+        images: ["images/phone-product(2)(1).png", "images/phone-product(2)(2).png", "images/phone-product(2)(3).png"],
         seller: {
             name: "Phone Hub",
             image: "images/profile.png",
@@ -161,8 +173,9 @@ const productDatabase = {
         name: "Iphone 14 Mini Blue - Damaged Screen",
         price: "$359.99",
         description: "iPhone 14 Mini with screen damage - for repair or parts",
+        condition: "Damaged",
         detailedDescription: "This iPhone 14 Mini in Blue has a damaged screen but is perfect for repair or parts. It features the latest technology and a compact design.",
-        images: ["images/phoneproduct(4).png", "images/phoneproduct(4).png", "images/phoneproduct(4).png"],
+        images: ["images/phone-product(3)(1).png", "images/phone-product(3)(2).png", "images/phone-product(3)(3).png"],
         seller: {
             name: "Phone Parts",
             image: "images/profile.png",
@@ -174,6 +187,7 @@ const productDatabase = {
         name: "20Hz RGB 15.6\" ASUS ROG GAMING",
         price: "$590",
         description: "High refresh rate gaming laptop with RGB features",
+        condition: "Brand New",
         detailedDescription: "The ASUS ROG Gaming laptop features a high refresh rate of 20Hz and RGB lighting, providing an immersive gaming experience with top-notch performance.",
         images: ["images/laptopproduct(4).png", "images/laptopproduct(4).png", "images/laptopproduct(4).png"],
         seller: {
@@ -182,15 +196,16 @@ const productDatabase = {
             lastActive: "3 hours ago"
         }
     },
-    'asusrogzephyrusg14': {
-        id: 'asusrogzephyrusg14',
-        name: "2024 Asus ROG Zephyrus G14",
-        price: "$1888",
-        description: "Latest model of the popular G14 gaming laptop",
-        detailedDescription: "The 2024 Asus ROG Zephyrus G14 is the latest model of the popular gaming laptop, offering powerful performance, a sleek design, and advanced features.",
-        images: ["images/laptopproduct(5).png", "images/laptopproduct(5).png", "images/laptopproduct(5).png"],
+    'gamingmouse': {
+        id: 'gamingmouse',
+        name: "Razer Basilisk V3 Ergonomic Customizable Gaming Mouse",
+        price: "$78",
+        description: "Ergonomic gaming mouse with customizable features",
+        condition: "Brand New",
+        detailedDescription: "The Razer Basilisk V3 is an ergonomic gaming mouse with customizable features, providing precision and comfort for long gaming sessions.",
+        images: ["images/mouse.png"],
         seller: {
-            name: "ROG Official",
+            name: "Gaming Gear",
             image: "images/profile.png",
             lastActive: "2 hours ago"
         }
@@ -200,8 +215,9 @@ const productDatabase = {
         name: "AMD Ryzen 5 5600 + Nvidia GeForce RTX 3060 - Slightly Used",
         price: "$675",
         description: "Used gaming PC in good condition",
+        condition: "Slightly Used",
         detailedDescription: "This slightly used gaming PC features an AMD Ryzen 5 5600 CPU and Nvidia GeForce RTX 3060 GPU, providing excellent performance for gaming and more.",
-        images: ["images/computerproduct(3).png", "images/computerproduct(3).png", "images/computerproduct(3).png"],
+        images: ["images/computer-product(3)(1).png", "images/computer-product(3)(2).png", "images/computer-product(3)(3).png"],
         seller: {
             name: "PC Resale Pro",
             image: "images/profile.png",
@@ -278,6 +294,7 @@ function loadProductDetails() {
         'productName': product.name,
         'productPrice': product.price,
         'productDescription': product.description,
+        'productCondition': product.condition,
         'sellerName': product.seller.name,
         'lastActive': product.seller.lastActive
     };

@@ -162,7 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
               align-items: center;
               padding: 10px;
               border-bottom: 1px solid #ddd;
-              cursor: pointer; /* Change cursor to pointer on hover */
+              position: relative;
             `;
             const img = document.createElement('img');
             img.src = favorite.image;
@@ -190,6 +190,34 @@ document.addEventListener('DOMContentLoaded', () => {
             textContainer.appendChild(moreInfo);
             item.appendChild(img);
             item.appendChild(textContainer);
+
+            // Add close button to remove individual notification
+            const closeButton = document.createElement('button');
+            closeButton.textContent = 'X';
+            closeButton.style.cssText = `
+              position: absolute;
+              top: 10px;
+              right: 10px;
+              background: none;
+              border: none;
+              color: #f44336;
+              font-size: 16px;
+              cursor: pointer;
+            `;
+            closeButton.addEventListener('click', (event) => {
+              event.stopPropagation(); // Prevent triggering the item click event
+              const updatedFavorites = favorites.filter(fav => fav.id !== favorite.id);
+              saveFavorites(updatedFavorites);
+              item.remove();
+              updateNotificationDot();
+
+              // Check if there are no more favorites and update the dropdown
+              if (updatedFavorites.length === 0) {
+                dropdownContainer.innerHTML = '<div style="padding: 10px;">No new notifications.</div>';
+              }
+            });
+            item.appendChild(closeButton);
+
             item.addEventListener('click', () => {
               const cleanProductId = favorite.id.replace(/-/g, ''); // Remove hyphens
               window.location.href = `product-details.html?productId=${encodeURIComponent(cleanProductId)}`;
@@ -197,6 +225,26 @@ document.addEventListener('DOMContentLoaded', () => {
            
             dropdownContainer.appendChild(item);
           });
+
+          // Add "Clear All Notifications" button
+          const clearAllButton = document.createElement('button');
+          clearAllButton.textContent = 'Clear All Notifications';
+          clearAllButton.style.cssText = `
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #f44336;
+            color: white;
+            border: none;
+            border-radius: 0 0 8px 8px;
+            cursor: pointer;
+          `;
+          clearAllButton.addEventListener('click', () => {
+            localStorage.removeItem('favorites');
+            dropdownContainer.innerHTML = '<div style="padding: 10px;">No new notifications.</div>';
+            updateNotificationDot();
+          });
+          dropdownContainer.appendChild(clearAllButton);
         } else {
           const noFavoritesMessage = document.createElement('div');
           noFavoritesMessage.textContent = 'No new notifications.';

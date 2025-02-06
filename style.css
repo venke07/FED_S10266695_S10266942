@@ -462,6 +462,8 @@ nav ul li a {
   color: #007bff;
 }
 
+
+
 /* Separate favorite button styles */
 .favorite-button {
   display: flex;
@@ -2139,6 +2141,24 @@ input:focus, textarea:focus {
   gap: 30px;
   padding: 20px;
 }
+
+/* ...existing code... */
+
+.product-user-icon {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.product-seller-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+/* ...existing code... */
 
 
 

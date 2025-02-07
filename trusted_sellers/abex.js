@@ -168,27 +168,47 @@ function renderCartPopup() {
     if (cartPopup) {
         cartPopup.innerHTML = `
             <h3>Cart Items</h3>
-            <ul>
-                ${cartItems.map(item => `
-                    <li>
+            <ul class="cart-items-list">
+                ${cartItems.map((item, index) => `
+                    <li data-index="${index}">
                         <img src="${item.image}" alt="${item.name}">
                         <span>${item.name}</span>
                         <span>SGD ${item.price.toFixed(2)}</span>
+                        <button class="remove-item" data-index="${index}">❌</button>
                     </li>
                 `).join('')}
             </ul>
+            <p><strong>Total: SGD ${cartTotal.toFixed(2)}</strong></p>
             <button class="checkout-btn">Checkout</button>
         `;
 
-        // Add event listener to the checkout button
+        // Add event listeners to remove buttons
+        document.querySelectorAll('.remove-item').forEach(button => {
+            button.addEventListener('click', (event) => {
+                const itemIndex = parseInt(event.target.getAttribute('data-index'));
+                removeFromCart(itemIndex);
+            });
+        });
+
+        // Add event listener to checkout button
         const checkoutButton = cartPopup.querySelector('.checkout-btn');
         if (checkoutButton) {
             checkoutButton.addEventListener('click', () => {
-                window.location.href = '/trusted_sellers/checkout.html';
+                window.location.href = 'checkout.html';
             });
         }
     }
 }
+
+function removeFromCart(index) {
+    if (index >= 0 && index < cartItems.length) {
+        cartTotal -= cartItems[index].price; // Subtract the item price
+        cartCount--; // Decrease item count
+        cartItems.splice(index, 1); // Remove item from array
+        updateCart(); // Update cart UI
+    }
+}
+
 
 // Show cart popup
 cartElement.addEventListener('click', (e) => {
@@ -198,6 +218,28 @@ cartElement.addEventListener('click', (e) => {
         cartPopup.classList.toggle('visible');
     }
 });
+
+function showCartNotification(productName) {
+    let notification = document.createElement('div');
+    notification.classList.add('cart-notification');
+    notification.innerText = `${productName} has been added to your cart.`;
+
+    document.body.appendChild(notification);
+
+    // Show notification
+    setTimeout(() => {
+        notification.classList.add('show');
+    }, 100);
+
+    // Hide notification after 3 seconds
+    setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => {
+            notification.remove();
+        }, 400); // Wait for transition to complete before removing
+    }, 3000);
+}
+
 
 // Product add to cart
 document.querySelectorAll('.product-card').forEach(card => {
@@ -211,7 +253,7 @@ document.querySelectorAll('.product-card').forEach(card => {
             }
             const productImage = card.querySelector('img').src;
             addToCart(productPrice, productName, productImage);
-            alert(`${productName} has been added to your cart.`);
+            showCartNotification(productName); // Call the new function
         });
     }
 });

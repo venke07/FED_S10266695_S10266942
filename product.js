@@ -227,6 +227,7 @@ const productDatabase = {
 };
 
 // Initialize product cards on main page
+
 function initializeProductCards() {
     document.querySelectorAll('.product-card').forEach(card => {
         card.addEventListener('click', (event) => {
@@ -239,7 +240,7 @@ function initializeProductCards() {
             const productId = card.getAttribute('data-product-id');
             if (productId) {
                 if (productId === 'asusroggaminglaptop') {
-                    window.location.href = 'abex.html';
+                    window.location.href = '/trusted_sellers/abex.html';
                 } else {
                     window.location.href = `product-details.html?productId=${productId}`;
                 }
@@ -247,6 +248,8 @@ function initializeProductCards() {
         });
     });
 }
+
+
 
 // Add click event listeners to all favorite buttons
 document.querySelectorAll('.favorite-button').forEach(button => {

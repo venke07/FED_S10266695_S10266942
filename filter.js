@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (name.includes('laptop') || description.includes('laptop')) return 'laptop';
       if (name.includes('phone') || name.includes('iphone') || description.includes('phone')) return 'phone';
       if (name.includes('pc') || name.includes('desktop') || description.includes('pc')) return 'computer';
-      if (name.includes('monitor') || name.includes('speaker') || name.includes('earbuds')) return 'accessories';
+      if (name.includes('monitor') || name.includes('keyboard') || name.includes('mouse') || name.includes('earbuds')) return 'accessories';
       return 'other';
   }
 

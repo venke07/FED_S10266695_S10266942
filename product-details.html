@@ -6,7 +6,7 @@
     <title>Product Details</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="product-details-page">
     <header>
         <div class="logo">MokeSell</div>
         <nav>
@@ -56,10 +56,18 @@
         <div class="product-info">
             <h1 id="productName"></h1>
             <p id="productPrice" class="price"></p>
+            
+            <h2>Description</h2>
             <p id="productDescription" class="description"></p>
-            <p id="productCondition" class="condition"></p>
-            <p id="detailedDescription" class="detailed-description"></p>
 
+            <h2>Detailed Description</h2>
+            <p id="detailedDescription" class="detailed-description"></p>
+            
+            <h2>Condition</h2>
+            <p id="productCondition" class="condition"></p>
+            
+            
+            
             <!-- Action Buttons -->
             <div class="action-buttons">
                 <button class="chat-btn" onclick="openChat()">

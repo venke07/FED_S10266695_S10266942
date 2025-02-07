@@ -274,7 +274,7 @@
           </div>
           <img src="images/earbuds.png" alt="Instalment* Flexible Payment Schemes on Eligible Laptops! Featuring Gigabyte/Aorus, Asus/ROG Strix,">
           <p class="product-name">Earpeac3 bluetooth earbuds</p>
-          <p class="product-description">Flexible payment options for premium laptops</p>
+          <p class="product-description">Brand new earpiece with clear sound and a comfy fit. Sealed and unused</p>
           <p class="product-condition">Brand New</p>
           <p class="product-price">$109.99</p>
           <button class="favorite-button">
@@ -346,7 +346,7 @@
           </div>
           <img src="images/mouse.png" alt="2024 Asus ROG Zephyrus G14 Asus ROG Zephyrus">
           <p class="product-name">Razer Basilisk V3 Ergonomic Customizable Gaming Mouse</p>
-          <p class="product-description">Next-gen gaming laptop with powerful specs</p>
+          <p class="product-description">Next-gen gaming mouse with interchaning dpi options.</p>
           <p class="product-condition">Brand New</p>
           <p class="product-price">$78</p>
           <button class="favorite-button">
@@ -381,6 +381,7 @@
   <script src="checkout.js"></script>
   <script src="Notification.js"></script>
   <script src="filter.js"></script>
+  <script src="search.js"></script> <!-- Include the new search.js script -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const userId = localStorage.getItem('userId'); // Retrieve user ID from local storage
@@ -403,7 +404,7 @@
         card.addEventListener('click', function() {
           const productId = card.getAttribute('data-product-id');
           if (productId === 'asusroggaminglaptop') {
-            window.location.href = 'abex.html';
+            window.location.href = 'trusted_sellers/abex.html';
           } else {
             window.location.href = `product-details.html?productId=${productId}`;
           }

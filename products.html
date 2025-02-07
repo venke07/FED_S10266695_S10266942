@@ -323,10 +323,10 @@
         <div class="product-card" data-product-id="asusroggaminglaptop">
           <div class="product-seller-info">
             <img src="images/profile.png" alt="User Icon" class="product-user-icon">
-            <span class="product-seller-name">John Doe</span> <!-- Add user name here -->
+            <span class="product-seller-name">Abex</span> <!-- Add user name here -->
             <span class="listing-time">3 hours ago</span>
           </div>
-          <img src="images/laptopproduct(4).png" alt="20Hz RGB 15.6" ASUS ROG GAMING ">
+          <img src="images/abex3.png" alt="20Hz RGB 15.6" ASUS ROG GAMING ">
           <p class="product-name">20Hz RGB 15.6" ASUS ROG GAMING </p>
           <p class="product-description">High-performance gaming laptop with RGB lighting</p>
           <p class="product-condition">Brand New</p>
@@ -402,7 +402,11 @@
       productCards.forEach(card => {
         card.addEventListener('click', function() {
           const productId = card.getAttribute('data-product-id');
-          window.location.href = `product-details.html?productId=${productId}`;
+          if (productId === 'asusroggaminglaptop') {
+            window.location.href = 'abex.html';
+          } else {
+            window.location.href = `product-details.html?productId=${productId}`;
+          }
         });
       });
 

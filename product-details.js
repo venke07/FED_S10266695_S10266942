@@ -1,5 +1,26 @@
+// Product card click handler
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.product-card').forEach(card => {
+        card.addEventListener('click', function (event) {
+            if (event.target.closest('.favorite-button')) {
+                event.stopPropagation();
+                return;
+            }
+
+            const productId = this.getAttribute('data-product-id');
+            console.log("Clicked Product ID:", productId);
+
+            if (productId === 'asusroggaminglaptop') {
+                window.location.href = 'abex.html';
+                return;
+            } else if (productId) {
+                window.location.href = `product-details.html?productId=${productId}`;
+            }
+        });
+    });
+});
+
 function openChat() {
-    // TODO: Implement chat functionality
     console.log('Opening chat with seller...');
 }
 
@@ -13,7 +34,6 @@ function toggleFavorite() {
 }
 
 function shareProduct() {
-    // TODO: Implement share functionality
     console.log('Sharing product...');
 }
 
@@ -27,32 +47,28 @@ function loadProductDetails() {
         return;
     }
 
-    console.log('Loading product details for:', productId); // Debugging log
+    console.log('Loading product details for:', productId);
 
-    // Set main product details
     document.getElementById('productName').textContent = product.name;
     document.getElementById('productPrice').textContent = product.price;
     document.getElementById('productDescription').textContent = product.description;
     document.getElementById('productCondition').textContent = product.condition;
-    document.getElementById('detailedDescription').textContent = product.detailedDescription; // Ensure detailed description is set
-    
-    // Set seller information
+    document.getElementById('detailedDescription').textContent = product.detailedDescription;
+
     document.getElementById('sellerName').textContent = product.seller.name;
     document.getElementById('lastActive').textContent = `Last active: ${product.seller.lastActive}`;
     document.getElementById('sellerImage').src = product.seller.image;
 
-    // Set main image and thumbnails
     const mainImage = document.getElementById('mainImage');
     mainImage.src = product.images[0];
-    console.log('Main image set to:', product.images[0]); // Debugging log
+    console.log('Main image set to:', product.images[0]);
 
-    // Update thumbnails
     const thumbnails = document.querySelectorAll('.thumbnail');
     thumbnails.forEach((thumbnail, index) => {
         if (product.images[index]) {
             thumbnail.src = product.images[index];
             thumbnail.style.display = 'block';
-            console.log('Thumbnail', index, 'set to:', product.images[index]); // Debugging log
+            console.log('Thumbnail', index, 'set to:', product.images[index]);
         } else {
             thumbnail.style.display = 'none';
         }
@@ -63,12 +79,19 @@ function changeImage(index) {
     const urlParams = new URLSearchParams(window.location.search);
     const productId = urlParams.get('productId');
     const product = productDatabase[productId];
-    
+
     if (product && product.images[index]) {
-        document.getElementById('mainImage').src = product.images[index];
-        console.log('Main image changed to:', product.images[index]); // Debugging log
+        const mainImage = document.getElementById('mainImage');
+        mainImage.src = product.images[index];
+        mainImage.style.height = '400px';
+        console.log('Main image changed to:', product.images[index]);
     }
 }
 
-// Initialize the page
-document.addEventListener('DOMContentLoaded', loadProductDetails);
+// Initialize based on current page
+document.addEventListener('DOMContentLoaded', function() {
+    const currentPage = window.location.pathname;
+    if (currentPage.includes('product-details.html')) {
+        loadProductDetails();
+    }
+});

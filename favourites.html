@@ -23,7 +23,6 @@
             
           </ul>
         </li>
-        <li><a href="favourites.html">Favorites</a></li>
         <li><a href="#">Discounts</a></li>
         <li><a href="contactus.html">Contact Us</a></li>
       </ul>
@@ -56,6 +55,8 @@
   <script src="Notification.js"></script>
   <script src="cart.js"></script>
   <script  src="checkout.js"></script>
+  <script src="product.js"></script>
+  <script src="product-details.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const favoritesContainer = document.getElementById('favorites-container');
@@ -83,9 +84,12 @@
         favorites.forEach(item => {
           const productCard = document.createElement('div');
           productCard.className = 'product-card';
+          productCard.setAttribute('data-product-id', item.id); // Set data-product-id attribute
           productCard.innerHTML = `
             <img src="${item.image}" alt="${item.name}">
             <p class="product-name">${item.name}</p>
+            <p class="product-description">${item.description}</p>
+            <p class="product-condition">${item.condition}</p>
             <p class="product-price">${item.price}</p>
             <button class="favorite-button" data-item-id="${item.id}" style="color: red;">
               <svg xmlns="http://www.w3.org/2000/svg" class="heart-icon" viewBox="0 0 24 24"
@@ -99,7 +103,9 @@
           // Add click handler to heart button
           const favoriteButton = productCard.querySelector('.favorite-button');
 
-          favoriteButton.addEventListener('click', () => {
+          favoriteButton.addEventListener('click', (event) => {
+            event.stopPropagation(); // Prevent navigation to product details
+
             // Get current favorites
             const currentFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
@@ -114,6 +120,11 @@
 
             // Re-render the favorites
             renderFavorites();
+          });
+
+          // Add click handler to navigate to product details page
+          productCard.addEventListener('click', () => {
+            window.location.href = `product-details.html?productId=${item.id}`;
           });
 
           favoritesContainer.appendChild(productCard);

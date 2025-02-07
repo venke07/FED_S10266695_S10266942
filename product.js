@@ -126,6 +126,20 @@ const productDatabase = {
             lastActive: "2 hours ago"
         }
     },
+    'asusroggaminglaptop': {
+        id: 'asusroggaminglaptop',
+        name: "20Hz RGB 15.6\" ASUS ROG GAMING",
+        price: "$590",
+        description: "High refresh rate gaming laptop with RGB features",
+        condition: "Brand New",
+        detailedDescription: "The ASUS ROG Gaming laptop features a high refresh rate of 20Hz and RGB lighting, providing an immersive gaming experience with top-notch performance.",
+        images: ["images/laptopproduct(4).png", "images/laptopproduct(4).png", "images/laptopproduct(4).png"],
+        seller: {
+            name: "ASUS Store",
+            image: "images/profile.png",
+            lastActive: "3 hours ago"
+        }
+    },
     'lgmonitor': {
         id: 'lgmonitor',
         name: "LG Monitor",
@@ -163,7 +177,7 @@ const productDatabase = {
         detailedDescription: "The iPhone 13 Mini packs powerful features into a compact design, including a stunning display, advanced camera system, and A15 Bionic chip.",
         images: ["images/phone-product(2)(1).png", "images/phone-product(2)(2).png", "images/phone-product(2)(3).png"],
         seller: {
-            name: "Phone Hub",
+            name: "John Doe",
             image: "images/profile.png",
             lastActive: "5 hours ago"
         }
@@ -180,20 +194,6 @@ const productDatabase = {
             name: "Phone Parts",
             image: "images/profile.png",
             lastActive: "1 day ago"
-        }
-    },
-    'asusroggaminglaptop': {
-        id: 'asusroggaminglaptop',
-        name: "20Hz RGB 15.6\" ASUS ROG GAMING",
-        price: "$590",
-        description: "High refresh rate gaming laptop with RGB features",
-        condition: "Brand New",
-        detailedDescription: "The ASUS ROG Gaming laptop features a high refresh rate of 20Hz and RGB lighting, providing an immersive gaming experience with top-notch performance.",
-        images: ["images/laptopproduct(4).png", "images/laptopproduct(4).png", "images/laptopproduct(4).png"],
-        seller: {
-            name: "ASUS Store",
-            image: "images/profile.png",
-            lastActive: "3 hours ago"
         }
     },
     'gamingmouse': {
@@ -238,7 +238,11 @@ function initializeProductCards() {
 
             const productId = card.getAttribute('data-product-id');
             if (productId) {
-                window.location.href = `product-details.html?id=${productId}`;
+                if (productId === 'asusroggaminglaptop') {
+                    window.location.href = 'abex.html';
+                } else {
+                    window.location.href = `product-details.html?productId=${productId}`;
+                }
             }
         });
     });
@@ -281,7 +285,7 @@ document.querySelectorAll('.favorite-button').forEach(button => {
 // Load product details on detail page
 function loadProductDetails() {
     const urlParams = new URLSearchParams(window.location.search);
-    const productId = urlParams.get('id');
+    const productId = urlParams.get('productId');
     const product = productDatabase[productId];
 
     if (!product) {
@@ -325,8 +329,9 @@ function loadProductDetails() {
     }
 
     // Handle thumbnails
-    const thumbnailContainer = document.querySelector('.thumbnails-container');
+    const thumbnailContainer = document.querySelector('.thumbnail-container');
     if (thumbnailContainer) {
+        thumbnailContainer.innerHTML = ''; // Clear existing thumbnails
         product.images.forEach((img, index) => {
             const thumbnail = document.createElement('img');
             thumbnail.src = img;
@@ -340,7 +345,7 @@ function loadProductDetails() {
 // Change main image on thumbnail click
 function changeImage(index) {
     const urlParams = new URLSearchParams(window.location.search);
-    const productId = urlParams.get('id');
+    const productId = urlParams.get('productId');
     const product = productDatabase[productId];
     const mainImage = document.getElementById('mainImage');
     if (mainImage && product && product.images[index]) {

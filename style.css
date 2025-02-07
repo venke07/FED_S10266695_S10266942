@@ -424,35 +424,16 @@ nav ul li a {
 }
 
 .product-description {
-  font-size: 1rem;
+  font-size: 14px;
+  padding-top: 20px;
   color: #333;
   margin-bottom: 10px;
   line-height: 1.4;
 }
 
 .product-price {
-  font-size: 1.2rem;
-  color: #007bff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-}
-
-.discounted-price {
-  color: #e74c3c;
-  font-weight: bold;
-}
-
-.original-price {
-  text-decoration: line-through;
-  color: #999;
-}
-
-.seller-name {
-  font-size: 1rem;
-  color: #333;
-  margin-top: 10px;
+  font-size: 16px;
+  padding-top: 30px;
 }
 
 .product-grid-page {
@@ -463,7 +444,6 @@ nav ul li a {
   justify-content: end;
 }
 
-
 .product-card {
   border: 1px solid #ccc;
   border-radius: 10px;
@@ -473,10 +453,10 @@ nav ul li a {
   justify-content: space-between;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  height: 600px; /* Increased height */
-  width: 350px; /* Adjust width as needed */
+  height: 100%; /* Ensure the card takes full height */
+  width: 100%; /* Ensure the card takes full width */
   position: relative; /* Ensure absolute positioning works within the card */
-  overflow: visible; /* Ensure overflow is visible */
+  overflow: hidden; /* Prevent overflow */
   z-index: 1; /* Ensure the card is above other elements */
 }
 
@@ -1688,7 +1668,7 @@ input:focus, textarea:focus {
   background-color: #0056b3;
 }
 
-/* ...existing code... */
+
 
 .popup-box {
   position: fixed;
@@ -1722,9 +1702,7 @@ input:focus, textarea:focus {
   margin-top: 15px;
 }
 
-/* ...existing code... */
 
-/* ...existing code... */
 .notification-dot {
   position: absolute;
   top: -5px;
@@ -1773,9 +1751,7 @@ input:focus, textarea:focus {
   background-size: contain;
   animation: bell-lines 1s infinite;
 }
-/* ...existing code... */
 
-/* ...existing code... */
 .notification-dot {
   position: absolute;
   top: 0;
@@ -1785,7 +1761,7 @@ input:focus, textarea:focus {
   background-color: red;
   border-radius: 50%;
 }
-/* ...existing code... */
+
 
 #dropdown-container {
   position: absolute;
@@ -1801,9 +1777,7 @@ input:focus, textarea:focus {
   display: none;
   z-index: 1000;
 }
-/* ...existing code... */
 
-/* ...existing code... */
 @keyframes shake {
   0%, 100% {
     transform: translateX(0);
@@ -1826,9 +1800,7 @@ input:focus, textarea:focus {
 .icon.shake {
   animation: shake 0.5s;
 }
-/* ...existing code... */
 
-/* ...existing code... */
 
 #showCaptchaBtn {
   background-color: #4CAF50; /* Green background */
@@ -1845,9 +1817,6 @@ input:focus, textarea:focus {
   background-color: #45a049; /* Darker green on hover */
 }
 
-/* ...existing code... */
-
-/* ...existing code... */
 
 .product-card .product-image {
   width: 85%;
@@ -1907,7 +1876,8 @@ input:focus, textarea:focus {
 
 .main-image img {
   width: 100%;
-  height: auto;
+  height: 400px; /* Set a fixed height */
+  object-fit: cover; /* Ensure the image covers the area without distortion */
   border-radius: 8px;
   transition: transform 0.3s ease; /* Smooth zoom effect */
 }
@@ -2202,8 +2172,6 @@ input:focus, textarea:focus {
   background-color: #dc2626;
 }
 
-/* Modify your existing product section to work with filters */
-
 
 .product-seller-info {
   display: flex;
@@ -2211,42 +2179,29 @@ input:focus, textarea:focus {
   gap: 5px; /* Adds spacing between icon and text */
 }
 
+.product-seller-info .product-user-icon {
+  width: 50px; /* Adjust as needed */
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
 .product-card img {
   width: 100%;
-  height: 200px; /* Set a fixed height */
+  padding: 10px;
+  height: 300px; /* Set a fixed height */
   object-fit: cover; /* Ensure the image covers the area without distortion */
   border-radius: 4px;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .product-grid {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  }
-  
-  .header {
-    padding: 1rem;
-  }
-  
-  .search-bar {
-    width: 150px;
-  }
-  
-  .menu {
-    gap: 1rem;
-  }
+.favorites-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjusted to match product section */
+  gap: 20px;
+  width: 100%;
 }
 
-@media (max-width: 480px) {
-  .product-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .product img {
-    height: 200px;
-  }
-  
-  .promo-banner {
-    height: 300px;
-  }
-}
+
+
+

@@ -131,5 +131,36 @@
     <script src="dropdown.js"></script>
     <script src="chatbot.js"></script>
     <script src="listing.js"></script>
+    <script>
+      document.getElementById('itemDetailsForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const formData = new FormData(this);
+        const data = Object.fromEntries(formData.entries());
+
+        fetch('https://assignment-6774.restdb.io/rest/listings', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'x-apikey': 'YOUR_API_KEY' // Ensure this is the correct API key
+          },
+          body: JSON.stringify(data)
+        })
+        .then(response => {
+          if (!response.ok) {
+            if (response.status === 401) {
+              throw new Error('Unauthorized: Check your API key');
+            }
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then(data => {
+          console.log('Success:', data);
+        })
+        .catch(error => {
+          console.error('Error submitting form:', error);
+        });
+      });
+    </script>
 </body>
 </html>

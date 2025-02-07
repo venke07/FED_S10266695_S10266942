@@ -88,6 +88,8 @@ document.addEventListener('DOMContentLoaded', () => {
         id: productId,
         name: productCard.querySelector('.product-name').textContent,
         price: productCard.querySelector('.product-price').textContent,
+        description: productCard.querySelector('.product-description').textContent,
+        condition: productCard.querySelector('.product-condition').textContent,
         image: productCard.querySelector('img:not(.product-user-icon)').src // Ensure the correct image is selected
       };
 
@@ -163,6 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
               padding: 10px;
               border-bottom: 1px solid #ddd;
               position: relative;
+              cursor: pointer; /* Add pointer cursor */
             `;
             const img = document.createElement('img');
             img.src = favorite.image;

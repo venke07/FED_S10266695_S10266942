@@ -391,7 +391,6 @@ nav ul li a {
   justify-content: end;
 }
 
-
 .product-card {
   border: 1px solid #ccc;
   border-radius: 10px;
@@ -401,11 +400,10 @@ nav ul li a {
   justify-content: space-between;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  height: 600px; /* Increased height */
-  height: 600px; /* Increased height */
-  width: 350px; /* Adjust width as needed */
+  height: 100%; /* Ensure the card takes full height */
+  width: 100%; /* Ensure the card takes full width */
   position: relative; /* Ensure absolute positioning works within the card */
-  overflow: visible; /* Ensure overflow is visible */
+  overflow: hidden; /* Prevent overflow */
   z-index: 1; /* Ensure the card is above other elements */
 }
 
@@ -2144,6 +2142,12 @@ input:focus, textarea:focus {
   border-radius: 4px;
 }
 
+.favorites-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjusted to match product section */
+  gap: 20px;
+  width: 100%;
+}
 
 
 

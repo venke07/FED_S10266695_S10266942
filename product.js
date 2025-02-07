@@ -177,7 +177,7 @@ const productDatabase = {
         detailedDescription: "The iPhone 13 Mini packs powerful features into a compact design, including a stunning display, advanced camera system, and A15 Bionic chip.",
         images: ["images/phone-product(2)(1).png", "images/phone-product(2)(2).png", "images/phone-product(2)(3).png"],
         seller: {
-            name: "Phone Hub",
+            name: "John Doe",
             image: "images/profile.png",
             lastActive: "5 hours ago"
         }
@@ -329,8 +329,9 @@ function loadProductDetails() {
     }
 
     // Handle thumbnails
-    const thumbnailContainer = document.querySelector('.thumbnails-container');
+    const thumbnailContainer = document.querySelector('.thumbnail-container');
     if (thumbnailContainer) {
+        thumbnailContainer.innerHTML = ''; // Clear existing thumbnails
         product.images.forEach((img, index) => {
             const thumbnail = document.createElement('img');
             thumbnail.src = img;

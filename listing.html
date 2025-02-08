@@ -88,24 +88,7 @@
             }
         }
 
-        function toggleChatbot() {
-            const chatbot = document.getElementById('chatbot');
-            chatbot.style.display = chatbot.style.display === 'none' ? 'flex' : 'none';
-        }
-
-        function sendMessage() {
-            const input = document.getElementById('chatbotInput');
-            const message = input.value.trim();
-            if (message) {
-                const chatbotMessages = document.getElementById('chatbotMessages');
-                chatbotMessages.innerHTML += `<div class="chatbot-message user"><p>${message}</p></div>`;
-                input.value = '';
-                // Simulate bot response
-                setTimeout(() => {
-                    chatbotMessages.innerHTML += `<div class="chatbot-message bot"><p>I'm a bot, how can I help you with ${message}?</p></div>`;
-                }, 1000);
-            }
-        }
+       
     </script>
 </body>
 </html>

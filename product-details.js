@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
             console.log("Clicked Product ID:", productId);
 
             if (productId === 'asusroggaminglaptop') {
-                window.location.href = 'abex.html';
+                window.location.href = '/trusted_sellers/abex.html';
                 return;
             } else if (productId) {
                 window.location.href = `product-details.html?productId=${productId}`;
@@ -54,13 +54,14 @@ function loadProductDetails() {
     document.getElementById('productDescription').textContent = product.description;
     document.getElementById('productCondition').textContent = product.condition;
     document.getElementById('detailedDescription').textContent = product.detailedDescription;
-
+    document.getElementById('productLocation').textContent = product.location;
     document.getElementById('sellerName').textContent = product.seller.name;
     document.getElementById('lastActive').textContent = `Last active: ${product.seller.lastActive}`;
     document.getElementById('sellerImage').src = product.seller.image;
 
     const mainImage = document.getElementById('mainImage');
     mainImage.src = product.images[0];
+    mainImage.style.height = '500px'; // Ensure consistent height on page load
     console.log('Main image set to:', product.images[0]);
 
     const thumbnails = document.querySelectorAll('.thumbnail');
@@ -83,7 +84,7 @@ function changeImage(index) {
     if (product && product.images[index]) {
         const mainImage = document.getElementById('mainImage');
         mainImage.src = product.images[index];
-        mainImage.style.height = '400px';
+        mainImage.style.height = '500px'; // Ensure consistent height when changing images
         console.log('Main image changed to:', product.images[index]);
     }
 }

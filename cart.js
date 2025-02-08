@@ -94,25 +94,26 @@ document.addEventListener('DOMContentLoaded', () => {
         sellername: productCard.querySelector('.product-seller-name')?.textContent,
         listingtime: productCard.querySelector('.listing-time')?.textContent,
         image: productCard.querySelector('img:not(.product-user-icon)')?.getAttribute('src')
-    };
-
+      };
+      
       const existingIndex = favorites.findIndex(fav => fav.id === productId);
-
+      let notifications = JSON.parse(localStorage.getItem('notificationList')) || [];
+      
       if (existingIndex === -1) {
-        // Add to favorites
         favorites.push(productDetails);
+        notifications.push(productDetails); // Add to notifications separately
+        localStorage.setItem('notificationList', JSON.stringify(notifications));
         button.querySelector('.heart-icon').style.fill = 'red';
         showMessage(`${productDetails.name} added to favorites!`);
-        updateNotificationDot();
       } else {
-        // Remove from favorites
         favorites.splice(existingIndex, 1);
         button.querySelector('.heart-icon').style.fill = 'none';
         showMessage(`${productDetails.name} removed from favorites!`, false);
-        updateNotificationDot();
       }
-
+      
+      // Only update `favorites`, don't touch notifications
       saveFavorites(favorites);
+      updateNotificationDot();
     });
   });
 
@@ -120,6 +121,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const updateNotificationDot = () => {
     const notificationBell = document.querySelector('.icon[alt="Notification Bell"]');
     if (notificationBell) {
+      let notifications = JSON.parse(localStorage.getItem('notificationList')) || [];
+  
       let dot = notificationBell.nextElementSibling;
       if (!dot || !dot.classList.contains('notification-dot')) {
         dot = document.createElement('span');
@@ -135,133 +138,140 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
         notificationBell.parentElement.appendChild(dot);
       }
-      const favorites = getFavorites();
-      if (favorites.length === 0) {
-        dot.style.display = 'none';
-      } else {
-        dot.style.display = 'block';
-      }
+  
+      // Hide dot if no notifications exist
+      dot.style.display = notifications.length === 0 ? 'none' : 'block';
+  
       notificationBell.classList.add('bell-animation');
       setTimeout(() => {
         notificationBell.classList.remove('bell-animation');
-      }, 1000); // Animation duration
+      }, 1000);
     }
   };
 
+
   // Add click event listener to notification bell
-  const notificationBell = document.querySelector('.icon[alt="Notification Bell"]');
-  if (notificationBell) {
-    notificationBell.addEventListener('click', () => {
-      const dropdownContainer = document.getElementById('dropdown-container');
-      if (dropdownContainer.style.display === 'block') {
-        dropdownContainer.style.display = 'none';
-      } else {
-        const favorites = getFavorites();
-        dropdownContainer.innerHTML = ''; // Clear previous content
+const notificationBell = document.querySelector('.icon[alt="Notification Bell"]');
+if (notificationBell) {
+  notificationBell.addEventListener('click', () => {
+    const dropdownContainer = document.getElementById('dropdown-container');
+    if (dropdownContainer.style.display === 'block') {
+      dropdownContainer.style.display = 'none';
+    } else {
+      const notifications = JSON.parse(localStorage.getItem('notificationList')) || [];
+      dropdownContainer.innerHTML = ''; // Clear previous content
 
-        if (favorites.length > 0) {
-          favorites.forEach(favorite => {
-            const item = document.createElement('div');
-            item.style.cssText = `
-              display: flex;
-              align-items: center;
-              padding: 10px;
-              border-bottom: 1px solid #ddd;
-              position: relative;
-              cursor: pointer; /* Add pointer cursor */
-            `;
-            const img = document.createElement('img');
-            img.src = favorite.image;
-            img.style.cssText = `
-              width: 50px;
-              height: 50px;
-              margin-right: 10px;
-              border-radius: 4px;
-            `;
-            const textContainer = document.createElement('div');
-            textContainer.style.cssText = `
-              display: flex;
-              flex-direction: column;
-              flex-grow: 1;
-              max-width: 250px; /* Set a fixed width for the text container */
-            `;
-            const textNode = document.createTextNode(`${favorite.name} - ${favorite.price}`);
-            const moreInfo = document.createElement('span');
-            moreInfo.textContent = 'Click here to find out more.';
-            moreInfo.style.cssText = `
-              color: #007bff;
-              margin-top: 5px;
-            `;
-            textContainer.appendChild(textNode);
-            textContainer.appendChild(moreInfo);
-            item.appendChild(img);
-            item.appendChild(textContainer);
-
-            // Add close button to remove individual notification
-            const closeButton = document.createElement('button');
-            closeButton.textContent = 'X';
-            closeButton.style.cssText = `
-              position: absolute;
-              top: 10px;
-              right: 10px;
-              background: none;
-              border: none;
-              color: #f44336;
-              font-size: 16px;
-              cursor: pointer;
-            `;
-            closeButton.addEventListener('click', (event) => {
-              event.stopPropagation(); // Prevent triggering the item click event
-              const updatedFavorites = favorites.filter(fav => fav.id !== favorite.id);
-              saveFavorites(updatedFavorites);
-              item.remove();
-              updateNotificationDot();
-
-              // Check if there are no more favorites and update the dropdown
-              if (updatedFavorites.length === 0) {
-                dropdownContainer.innerHTML = '<div style="padding: 10px;">No new notifications.</div>';
-              }
-            });
-            item.appendChild(closeButton);
-
-            item.addEventListener('click', () => {
-              const cleanProductId = favorite.id.replace(/-/g, ''); // Remove hyphens
-              window.location.href = `product-details.html?productId=${encodeURIComponent(cleanProductId)}`;
-            });
-           
-            dropdownContainer.appendChild(item);
-          });
-
-          // Add "Clear All Notifications" button
-          const clearAllButton = document.createElement('button');
-          clearAllButton.textContent = 'Clear All Notifications';
-          clearAllButton.style.cssText = `
-            display: block;
-            width: 100%;
+      if (notifications.length > 0) {
+        notifications.forEach(favorite => {
+          const item = document.createElement('div');
+          item.style.cssText = `
+            display: flex;
+            align-items: center;
             padding: 10px;
-            background-color: #f44336;
-            color: white;
+            border-bottom: 1px solid #ddd;
+            position: relative;
+            cursor: pointer; /* Add pointer cursor */
+          `;
+          const img = document.createElement('img');
+          img.src = favorite.image;
+          img.style.cssText = `
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+            border-radius: 4px;
+          `;
+          const textContainer = document.createElement('div');
+          textContainer.style.cssText = `
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            max-width: 250px; /* Set a fixed width for the text container */
+          `;
+          const textNode = document.createTextNode(`${favorite.name} - ${favorite.price}`);
+          const moreInfo = document.createElement('span');
+          moreInfo.textContent = 'Click here to find out more.';
+          moreInfo.style.cssText = `
+            color: #007bff;
+            margin-top: 5px;
+          `;
+          textContainer.appendChild(textNode);
+          textContainer.appendChild(moreInfo);
+          item.appendChild(img);
+          item.appendChild(textContainer);
+
+          // Add close button to remove individual notification
+          const closeButton = document.createElement('button');
+          closeButton.textContent = 'X';
+          closeButton.style.cssText = `
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
             border: none;
-            border-radius: 0 0 8px 8px;
+            color: #f44336;
+            font-size: 16px;
             cursor: pointer;
           `;
-          clearAllButton.addEventListener('click', () => {
-            localStorage.removeItem('favorites');
-            dropdownContainer.innerHTML = '<div style="padding: 10px;">No new notifications.</div>';
-            updateNotificationDot();
-          });
-          dropdownContainer.appendChild(clearAllButton);
-        } else {
-          const noFavoritesMessage = document.createElement('div');
-          noFavoritesMessage.textContent = 'No new notifications.';
-          noFavoritesMessage.style.padding = '10px';
-          dropdownContainer.appendChild(noFavoritesMessage);
-        }
+          closeButton.addEventListener('click', (event) => {
+            event.stopPropagation(); // Prevent triggering the item click event
 
-        dropdownContainer.style.display = 'block';
+            let notifications = JSON.parse(localStorage.getItem('notificationList')) || [];
+            notifications = notifications.filter(n => n.id !== favorite.id); // Remove specific notification
+            localStorage.setItem('notificationList', JSON.stringify(notifications));
+
+            item.remove();
+            updateNotificationDot();
+
+            // If no more notifications, display a message
+            if (notifications.length === 0) {
+              dropdownContainer.innerHTML = '<div style="padding: 10px;">No new notifications.</div>';
+            }
+          });
+
+          item.appendChild(closeButton);
+
+          item.addEventListener('click', () => {
+            if (favorite.id === 'asusroggaminglaptop') {
+              window.location.href = 'trusted_sellers/abex.html';
+            } else {
+              const cleanProductId = favorite.id.replace(/-/g, ''); // Remove hyphens
+              window.location.href = `product-details.html?productId=${encodeURIComponent(cleanProductId)}`;
+            }
+          });
+
+          dropdownContainer.appendChild(item);
+        });
+
+        // Add "Clear All Notifications" button
+        const clearAllButton = document.createElement('button');
+        clearAllButton.textContent = 'Clear All Notifications';
+        clearAllButton.style.cssText = `
+          display: block;
+          width: 100%;
+          padding: 10px;
+          background-color: #f44336;
+          color: white;
+          border: none;
+          border-radius: 0 0 8px 8px;
+          cursor: pointer;
+        `;
+        clearAllButton.addEventListener('click', () => {
+          localStorage.removeItem('notificationList');  // Only clear notifications
+          dropdownContainer.innerHTML = '<div style="padding: 10px;">No new notifications.</div>';
+          updateNotificationDot();
+        });
+        dropdownContainer.appendChild(clearAllButton);
+      } else {
+        const noFavoritesMessage = document.createElement('div');
+        noFavoritesMessage.textContent = 'No new notifications.';
+        noFavoritesMessage.style.padding = '10px';
+        dropdownContainer.appendChild(noFavoritesMessage);
       }
-    });
-  }
+
+      dropdownContainer.style.display = 'block';
+    }
+  });
+}
 
   // Your existing functions remain the same
   function generateProductId(productCard) {

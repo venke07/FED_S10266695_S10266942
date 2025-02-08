@@ -1,7 +1,3 @@
-const API_URL = "https://assignment-6774.restdb.io/rest/listings";
-const API_KEY = "be0a208b9efb4a99517bba9c06f413dd69fc2";
-
-// DOM Elements
 const fileUploadBox = document.querySelector('.file-upload');
 const fileInput = document.getElementById('fileInput');
 const itemForm = document.querySelector('.item-form');
@@ -61,47 +57,51 @@ form.addEventListener('submit', async (e) => {
 
     if (!validateForm()) return;
 
-    const formData = new FormData();
-    formData.append('name', document.getElementById('itemName').value);
-    formData.append('category', document.getElementById('category').value);
-    formData.append('condition', document.getElementById('condition').value);
-    formData.append('price', document.getElementById('price').value);
-    formData.append('description', document.getElementById('description').value);
-    formData.append('location', document.getElementById('location').value || "N/A");
+    // Create a unique ID for the listing
+    const listingId = Date.now().toString();
 
-    // Append images as Base64
-    const imagePromises = Array.from(fileInput.files).map(file => {
+    // Prepare listing data
+    const listingData = {
+        id: listingId,
+        name: document.getElementById('itemName').value,
+        category: document.getElementById('category').value,
+        condition: document.getElementById('condition').value,
+        price: document.getElementById('price').value,
+        description: document.getElementById('description').value,
+        location: document.getElementById('location').value || "N/A",
+        brand: document.getElementById('brand').value || "N/A",
+        model: document.getElementById('model').value || "N/A"
+    };
+
+    // Handle image uploads
+    const imageFiles = fileInput.files;
+    const imagePromises = Array.from(imageFiles).map(file => {
         return new Promise((resolve, reject) => {
             const reader = new FileReader();
-            reader.onload = () => resolve(reader.result);
+            reader.onload = (e) => resolve(e.target.result);
             reader.onerror = reject;
             reader.readAsDataURL(file);
         });
     });
 
     try {
-        const imageBase64Array = await Promise.all(imagePromises);
-        formData.append('images', JSON.stringify(imageBase64Array)); // Store multiple images as an array
+        // Wait for all images to be converted to base64
+        listingData.images = await Promise.all(imagePromises);
 
-        const response = await fetch(API_URL, {
-            method: 'POST',
-            headers: {
-                'x-apikey': API_KEY,
-                'cache-control': 'no-cache',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(Object.fromEntries(formData))
-        });
+        // Retrieve existing listings or create new array
+        const listings = JSON.parse(localStorage.getItem('mokesell_listings') || '[]');
+        
+        // Add new listing
+        listings.push(listingData);
 
-        if (!response.ok) throw new Error("Failed to submit listing");
+        // Save updated listings back to localStorage
+        localStorage.setItem('mokesell_listings', JSON.stringify(listings));
 
-        const result = await response.json();
-        console.log('Success:', result);
         alert('Item listed successfully!');
         resetForm();
     } catch (error) {
-        console.error('Error submitting form:', error);
-        alert('Error submitting form. Please try again.');
+        console.error('Error processing listing:', error);
+        alert('Error creating listing');
     }
 });
 
@@ -112,29 +112,6 @@ function resetForm() {
     itemForm.style.display = 'none';
     fileInput.value = '';
 }
-
-// Drag and Drop Handling
-fileUploadBox.addEventListener('dragover', (e) => {
-    e.preventDefault();
-    fileUploadBox.style.backgroundColor = '#f0f0f0';
-});
-
-fileUploadBox.addEventListener('dragleave', () => {
-    fileUploadBox.style.backgroundColor = '';
-});
-
-fileUploadBox.addEventListener('drop', (e) => {
-    e.preventDefault();
-    fileUploadBox.style.backgroundColor = '';
-
-    const files = Array.from(e.dataTransfer.files);
-    if (handleFileSelect(files)) {
-        // Manually set the files to the input
-        const dataTransfer = new DataTransfer();
-        files.forEach(file => dataTransfer.items.add(file));
-        fileInput.files = dataTransfer.files;
-    }
-});
 
 // Form Validation
 function validateForm() {

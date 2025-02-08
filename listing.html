@@ -4,51 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MokeSell - Listings</title>
-    <style>
-        .listings {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            padding: 20px;
-        }
-        .listing-card {
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 15px;
-            width: 250px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        .listing-card img {
-            max-width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 4px;
-        }
-        .no-listings {
-            text-align: center;
-            width: 100%;
-            color: #666;
-        }
-        .back-link {
-            display: block;
-            margin: 20px;
-            text-align: center;
-            font-size: 16px;
-            color: #007bff;
-            text-decoration: none;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Current Listings</h1>
-    <a href="index.html" class="back-link">Back to Home</a> <!-- Added back link -->
-    <div id="listingsContainer" class="listings"></div>
+    <header>
+        <!-- ...existing code... -->
+    </header>
 
+    <main>
+        <h1>Current Listings</h1>
+        <a href="index.html" class="back-link">Back to Home</a>
+        <div id="listingsContainer" class="product-grid-page"></div>
+    </main>
+
+    <div id="chatbot" class="chatbot-container">
+        <div class="chatbot-header">
+            <h1>Chatbot</h1>
+            <button class="close-chat" onclick="toggleChatbot()">X</button>
+        </div>
+        <div class="chatbot-messages" id="chatbotMessages"></div>
+        <div class="chatbot-input">
+            <input type="text" id="chatbotInput" placeholder="Type a message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+    <button class="chat-toggle" onclick="toggleChatbot()">💬</button>
+
+    <script src="chatbot.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const container = document.getElementById('listingsContainer');
-            
-            // Retrieve listings from localStorage
             const listings = JSON.parse(localStorage.getItem('mokesell_listings') || '[]');
 
             if (listings.length === 0) {
@@ -56,28 +41,71 @@
                 return;
             }
 
-            // Create listing cards
             listings.forEach(listing => {
                 const card = document.createElement('div');
-                card.classList.add('listing-card');
-                
-                // Use the first image as the main image
+                card.classList.add('product-card');
+                card.setAttribute('data-listing-id', listing.id);
+
                 const mainImage = listing.images && listing.images.length > 0 
                     ? listing.images[0] 
                     : 'placeholder.jpg';
 
                 card.innerHTML = `
+                    <div class="product-seller-info">
+                        <img src="images/profile.png" alt="User Icon" class="product-user-icon">
+                        <span class="product-seller-name">${listing.sellerName}</span>
+                        <span class="listing-time">${listing.listingTime}</span>
+                    </div>
                     <img src="${mainImage}" alt="${listing.name}">
-                    <h3>${listing.name}</h3>
-                    <p>Category: ${listing.category}</p>
-                    <p>Condition: ${listing.condition}</p>
-                    <p>Price: $${listing.price}</p>
-                    <p>Location: ${listing.location}</p>
+                    <p class="product-name">${listing.name}</p>
+                    <p class="product-description">${listing.description}</p>
+                    <p class="product-condition">${listing.condition}</p>
+                    <p class="product-price">$${listing.price}</p>
+                    <button class="chat-button" onclick="openChat('${listing.id}')">Chat</button>
                 `;
+
+                card.addEventListener('click', () => {
+                    window.location.href = `listing-details.html?listingId=${listing.id}`;
+                });
 
                 container.appendChild(card);
             });
         });
+
+        function openChat(listingId) {
+            const listings = JSON.parse(localStorage.getItem('mokesell_listings') || '[]');
+            const listing = listings.find(l => l.id === listingId);
+            if (listing) {
+                toggleChatbot();
+                const chatbotMessages = document.getElementById('chatbotMessages');
+                chatbotMessages.innerHTML = `
+                    <div class="chatbot-message bot">
+                        <p>Listing: ${listing.name}</p>
+                        <p>Price: $${listing.price}</p>
+                        <p>Description: ${listing.description}</p>
+                    </div>
+                `;
+            }
+        }
+
+        function toggleChatbot() {
+            const chatbot = document.getElementById('chatbot');
+            chatbot.style.display = chatbot.style.display === 'none' ? 'flex' : 'none';
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chatbotInput');
+            const message = input.value.trim();
+            if (message) {
+                const chatbotMessages = document.getElementById('chatbotMessages');
+                chatbotMessages.innerHTML += `<div class="chatbot-message user"><p>${message}</p></div>`;
+                input.value = '';
+                // Simulate bot response
+                setTimeout(() => {
+                    chatbotMessages.innerHTML += `<div class="chatbot-message bot"><p>I'm a bot, how can I help you with ${message}?</p></div>`;
+                }, 1000);
+            }
+        }
     </script>
 </body>
 </html>

@@ -7,6 +7,13 @@ const form = document.getElementById('itemDetailsForm');
 // Hide the form initially
 itemForm.style.display = 'none';
 
+// ImgBB API Key
+const imgbbApiKey = '735f40f916d2462f7d3a09f1d5b6ae58';
+
+// RestDB API Configuration
+const restdbApiUrl = 'https://devassignmentven-57f7.restdb.io/listings';
+const restdbApiKey = '6788f0bf7cf4e11f6418ad94';
+
 // File Upload Handling
 function handleFileSelect(files) {
     if (files.length > 10) {
@@ -73,32 +80,39 @@ form.addEventListener('submit', async (e) => {
         model: document.getElementById('model').value || "N/A"
     };
 
-    // Handle image uploads
+    // Handle image uploads to ImgBB
     const imageFiles = fileInput.files;
     const imagePromises = Array.from(imageFiles).map(file => {
-        return new Promise((resolve, reject) => {
-            const reader = new FileReader();
-            reader.onload = (e) => resolve(e.target.result);
-            reader.onerror = reject;
-            reader.readAsDataURL(file);
-        });
+        const formData = new FormData();
+        formData.append('image', file);
+        return fetch(`https://api.imgbb.com/1/upload?key=${imgbbApiKey}`, {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => data.data.url);
     });
 
     try {
-        // Wait for all images to be converted to base64
+        // Wait for all images to be uploaded to ImgBB
         listingData.images = await Promise.all(imagePromises);
 
-        // Retrieve existing listings or create new array
-        const listings = JSON.parse(localStorage.getItem('mokesell_listings') || '[]');
-        
-        // Add new listing
-        listings.push(listingData);
+        // Save listing data to RestDB
+        const response = await fetch(restdbApiUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'x-apikey': restdbApiKey
+            },
+            body: JSON.stringify(listingData)
+        });
 
-        // Save updated listings back to localStorage
-        localStorage.setItem('mokesell_listings', JSON.stringify(listings));
-
-        alert('Item listed successfully!');
-        resetForm();
+        if (response.ok) {
+            alert('Item listed successfully!');
+            resetForm();
+        } else {
+            throw new Error('Failed to save listing to RestDB');
+        }
     } catch (error) {
         console.error('Error processing listing:', error);
         alert('Error creating listing');

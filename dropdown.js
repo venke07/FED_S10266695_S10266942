@@ -27,61 +27,59 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     }
   });
-});
 
+  // Array of image URLs
+  const images = [
+    "images/headbanner.jpg",
+    "images/laptop(2).avif",
+    "images/laptop(3).jpg"
+  ];
 
+  let currentIndex = 0;
 
+  // Get elements
+  const carouselImage = document.getElementById("carouselImage");
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
+  const dotsContainer = document.getElementById("dotsContainer");
 
-// Array of image URLs i
-// Array of image URLs
-const images = [
-"images/headbanner.jpg", // First banner image
-"images/laptop(2).avif", // Second banner image
-"images/laptop(3).jpg"  // Third banner image
-];
+  if (dotsContainer) {
+    // Create dots for each image
+    images.forEach((_, index) => {
+      const dot = document.createElement("div");
+      dot.classList.add("dot");
+      if (index === 0) dot.classList.add("active");
+      dot.addEventListener("click", () => switchImage(index));
+      dotsContainer.appendChild(dot);
+    });
 
-let currentIndex = 0;
+    // Update the active dot
+    function updateDots() {
+      const dots = document.querySelectorAll(".dot");
+      dots.forEach((dot, index) => {
+        dot.classList.toggle("active", index === currentIndex);
+      });
+    }
 
-// Get elements
-const carouselImage = document.getElementById("carouselImage");
-const prevBtn = document.getElementById("prevBtn");
-const nextBtn = document.getElementById("nextBtn");
-const dotsContainer = document.getElementById("dotsContainer");
+    // Switch to a specific image
+    function switchImage(index) {
+      currentIndex = index;
+      carouselImage.src = images[currentIndex];
+      updateDots();
+    }
 
-// Create dots for each image
-images.forEach((_, index) => {
-const dot = document.createElement("div");
-dot.classList.add("dot");
-if (index === 0) dot.classList.add("active"); // Mark the first dot as active
-dot.addEventListener("click", () => switchImage(index)); // Add click event to each dot
-dotsContainer.appendChild(dot);
-});
+    // Show the previous image
+    prevBtn.addEventListener("click", () => {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      carouselImage.src = images[currentIndex];
+      updateDots();
+    });
 
-// Update the active dot
-function updateDots() {
-const dots = document.querySelectorAll(".dot");
-dots.forEach((dot, index) => {
-  dot.classList.toggle("active", index === currentIndex);
-});
-}
-
-// Switch to a specific image
-function switchImage(index) {
-currentIndex = index;
-carouselImage.src = images[currentIndex];
-updateDots();
-}
-
-// Show the previous image
-prevBtn.addEventListener("click", () => {
-currentIndex = (currentIndex - 1 + images.length) % images.length;
-carouselImage.src = images[currentIndex];
-updateDots();
-});
-
-// Show the next image
-nextBtn.addEventListener("click", () => {
-currentIndex = (currentIndex + 1) % images.length;
-carouselImage.src = images[currentIndex];
-updateDots();
+    // Show the next image
+    nextBtn.addEventListener("click", () => {
+      currentIndex = (currentIndex + 1) % images.length;
+      carouselImage.src = images[currentIndex];
+      updateDots();
+    });
+  }
 });

@@ -86,12 +86,15 @@ document.addEventListener('DOMContentLoaded', () => {
       const favorites = getFavorites();
       const productDetails = {
         id: productId,
-        name: productCard.querySelector('.product-name').textContent,
-        price: productCard.querySelector('.product-price').textContent,
-        description: productCard.querySelector('.product-description').textContent,
-        condition: productCard.querySelector('.product-condition').textContent,
-        image: productCard.querySelector('img:not(.product-user-icon)').src // Ensure the correct image is selected
-      };
+        name: productCard.querySelector('.product-name')?.textContent,
+        price: productCard.querySelector('.product-price')?.textContent,
+        description: productCard.querySelector('.product-description')?.textContent,
+        condition: productCard.querySelector('.product-condition')?.textContent,
+        userimage: productCard.querySelector('.product-user-icon')?.getAttribute('src'),
+        sellername: productCard.querySelector('.product-seller-name')?.textContent,
+        listingtime: productCard.querySelector('.listing-time')?.textContent,
+        image: productCard.querySelector('img:not(.product-user-icon)')?.getAttribute('src')
+    };
 
       const existingIndex = favorites.findIndex(fav => fav.id === productId);
 

@@ -156,31 +156,15 @@ nav ul li a {
 
 .dropdown-menu {
   display: none;
-  position: absolute;
-  top: 100%;
+  position: fixed;
   left: 0;
   right: 0;
   top: 50px; /* Adjust based on your header height */
   background: white;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  border-radius: 4px;
-  padding: 0.5rem 0;
-  min-width: 150px;
-}
-
-.dropdown-menu .menu-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 40px; /* Increased padding */
-}
-
-.dropdown-menu li {
-  list-style: none;
-}
-
-.dropdown-menu a {
-  display: block;
-  padding: 0.5rem 1rem;
+  padding: 40px 0; /* Increased padding */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  z-index: 1000;
+  min-height: 200px; /* Makes dropdown bigger */
 }
 
 /* Add this to create an invisible bridge between menu item and dropdown */
@@ -203,54 +187,38 @@ nav ul li a {
 .header-icons {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 10px;
 }
 
 .search-bar {
-  padding: 0.5rem;
+  padding: 5px;
   border: 1px solid #ddd;
-  border-radius: 4px;
+  border-radius: 9px;
   width: 200px;
-  transition: border-color 0.3s ease;
-}
-
-.search-bar:focus {
-  outline: none;
-  border-color: #2196F3;
-}
-
-.sell-btn, .login-btn {
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
 .sell-btn {
-  background-color: #4CAF50;
+  background-color: #007bff; /* Blue background */
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
 }
 
-.sell-btn:hover {
-  background-color: #45a049;
-}
-
-.login-btn {
-  background-color: #2196F3;
-}
-
-.login-btn:hover {
-  background-color: #1976d2;
-}
-
-.sell-link, .login-link {
+.sell-btn a {
   color: white;
   text-decoration: none;
 }
 
+.sell-btn:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
 .icon {
-  width: 24px;
-  height: 24px;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
 }
 
@@ -322,28 +290,24 @@ nav ul li a {
 }
 
 .promo-banner {
-  position: relative;
-  width: 100%;
-  height: 400px;
-  overflow: hidden;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  height: 450px;
+  background-color: #ddd;
+  margin-top: 10px;
 }
 
 .promo-banner img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: opacity 0.5s ease;
 }
 
 .arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   color: white;
-  padding: 1rem;
   border: none;
   width: 40px; /* Set fixed width */
   height: 40px; /* Set fixed height */
@@ -351,98 +315,68 @@ nav ul li a {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  z-index: 100;
-  transition: background-color 0.3s ease;
-}
-
-.arrow:hover {
-  background: rgba(0,0,0,0.7);
+  border-radius: 50%;
+  font-size: 20px; /* Adjust font size */
 }
 
 .left-arrow {
-  left: 10px;
-  border-radius: 0 4px 4px 0;
+  left: 5%;
 }
 
 .right-arrow {
-  right: 10px;
-  border-radius: 4px 0 0 4px;
+  right: 5%;
 }
 
-.dots {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 0.5rem;
-}
-
-.dot {
-  width: 10px;
-  height: 10px;
-  background: rgba(255,255,255,0.5);
-  border-radius: 50%;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.dot.active {
-  background: white;
+.arrow:hover {
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 /* Product Sections */
 .product-section {
-  margin: 40px auto;
-  max-width: 1200px;
+  display: flex;
+  gap: 30px;
   padding: 20px;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: relative; /* Add relative positioning */
 }
 
 .product-section h2 {
-  font-size: 1.5rem;
-  margin-bottom: 20px;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
   color: #333;
-  text-align: center;
 }
 
 .product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 30px;
-  justify-content: center;
+  display: flex;
+  gap: 15px;
 }
 
 .product {
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 20px;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex: 1;
+  height: 200px;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  width: 100px;
+  border-radius: 12px;
 }
 
 .product:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid #007bff;
+  cursor: pointer;
 }
 
 .product img {
-  width: 100%;
-  height: 250px;
+  width: 70%;
+  height: 70%;
+  margin-left: 85px;
+  margin-top: 30px;
   object-fit: contain;
-  border-radius: 8px;
-  margin-bottom: 15px;
+  border-radius: 4px;
 }
 
 .product-description {
   font-size: 14px;
   padding-top: 20px;
   color: #333;
-  margin-bottom: 10px;
-  line-height: 1.4;
 }
 
 .product-price {

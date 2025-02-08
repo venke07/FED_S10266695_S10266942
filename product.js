@@ -7,6 +7,7 @@ const productDatabase = {
         description: "High-performance laptop with sleek design",
         condition: "Brand New",
         detailedDescription: "The Asus Laptop K413E offers a high-performance experience with its powerful processor and sleek design. Perfect for both work and entertainment.",
+        location: "Singapore, Bukit Batok",
         images: ["images/lenovo-lap.png", "images/lenovo-lap(2).png", "images/lenovo-lap(3).png"],
         seller: {
             name: "Tech Store",
@@ -21,6 +22,7 @@ const productDatabase = {
         description: "Versatile 2-in-1 laptop with touch screen",
         condition: "Slightly Used",
         detailedDescription: "The Microsoft Surface Pro 2 is a versatile 2-in-1 laptop with a touch screen, perfect for both work and play. It offers high performance and portability.",
+        location: "Singapore, Jurong East",
         images: ["images/laptop-product.png", "images/laptop-product(2).png", "images/laptop-product(3).png"],
         seller: {
             name: "Microsoft Store",
@@ -35,6 +37,7 @@ const productDatabase = {
         description: "Latest iPhone model with A15 Bionic chip",
         condition: "Brand New",
         detailedDescription: "The iPhone 13 in Starlight features a stunning design, advanced camera system, and powerful A15 Bionic chip for exceptional performance.",
+        location: "Singapore, Orchard",
         images: ["images/iphone.png", "images/iphone(2).png", "images/iphone(3).png"],
         seller: {
             name: "iStore",
@@ -49,6 +52,7 @@ const productDatabase = {
         description: "High-resolution display with powerful performance",
         condition: "Slightly Used",
         detailedDescription: "The Mid 2015 Retina MacBook Pro offers a high-resolution display and powerful performance, making it ideal for professionals and creatives.",
+        location: "Singapore, Tampines",
         images: ["images/laptop-product(1).png", "images/laptop-product(1)(2).png", "images/laptop-product(1)(3).png"],
         seller: {
             name: "Apple Store",
@@ -63,6 +67,7 @@ const productDatabase = {
         description: "Ultra-slim laptop with powerful performance",
         condition: "Brand New",
         detailedDescription: "The Lenovo Yoga Slim 7 Pro is an ultra-slim laptop with powerful performance, ideal for professionals and creatives. It features a sleek design and long battery life.",
+        location: "Singapore, Yishun",
         images: ["images/laptop-product(2)(1).png", "images/laptop-product(2)(2).png", "images/laptop-product(2)(3).png"],
         seller: {
             name: "Lenovo Official",
@@ -77,6 +82,7 @@ const productDatabase = {
         description: "Latest Samsung flagship with advanced camera system",
         condition: "Brand New",
         detailedDescription: "The Samsung Galaxy S23 in Green is the latest flagship smartphone with an advanced camera system, stunning display, and powerful performance.",
+        location: "Singapore, Clementi",
         images: ["images/phone-product.png", "images/phone-product(1).png", "images/phone-product(3).png"],
         seller: {
             name: "Samsung Store",
@@ -91,6 +97,7 @@ const productDatabase = {
         description: "Custom built gaming PC with latest components",
         condition: "Brand New",
         detailedDescription: "This custom gaming PC features the latest components, including a 4060 GPU and Ryzen 5 7600 CPU, for an exceptional gaming experience.",
+        location: "Singapore, Sengkang",
         images: ["images/computer-product.png", "images/computer-product(2).png", "images/computer-product(3).png"],
         seller: {
             name: "PC Builder Pro",
@@ -105,6 +112,7 @@ const productDatabase = {
         description: "Compact mechanical keyboard with customizable keys",
         condition: "Slightly Used",
         detailedDescription: "This 60% mechanical keyboard offers a compact design with customizable keys, perfect for gamers and typists who need a reliable and responsive keyboard.",
+        location: "Singapore, Woodlands",
         images: ["images/keyboard.png", "images/keyboard(2).png"],
         seller: {
             name: "Tech Gadgets",
@@ -119,6 +127,7 @@ const productDatabase = {
         description: "Customizable gaming PC with various configuration options",
         condition: "Brand New",
         detailedDescription: "Build your own custom desktop gaming PC with options for Intel Core, AMD Ryzen, and GeForce GTX or RTX graphics cards. Tailor it to your needs.",
+        location: "Singapore, Hougang",
         images: ["images/computer-product(2)(1).png"],
         seller: {
             name: "PC Custom Works",
@@ -133,6 +142,7 @@ const productDatabase = {
         description: "High refresh rate gaming laptop with RGB features",
         condition: "Brand New",
         detailedDescription: "The ASUS ROG Gaming laptop features a high refresh rate of 20Hz and RGB lighting, providing an immersive gaming experience with top-notch performance.",
+        location: "Singapore, Ang Mo Kio",
         images: ["images/laptopproduct(4).png", "images/laptopproduct(4).png", "images/laptopproduct(4).png"],
         seller: {
             name: "ASUS Store",
@@ -147,6 +157,7 @@ const productDatabase = {
         description: "High-quality display monitor for work and gaming",
         condition: "Slightly Used",
         detailedDescription: "The LG Monitor offers a high-quality display for both work and gaming, with vibrant colors and sharp details. Perfect for any setup.",
+        location: "Singapore, Bukit Panjang",
         images: ["images/pc-product.png", "images/pc-product(2).png", "images/pc-product(3).png"],
         seller: {
             name: "LG Official",
@@ -161,6 +172,7 @@ const productDatabase = {
         description: "High-quality bluetooth earbuds with noise cancellation",
         condition: "Brand New",
         detailedDescription: "These Earpeac3 bluetooth earbuds offer high-quality sound with noise cancellation, making them perfect for listening to music or taking calls on the go.",
+        location: "Singapore, Bedok",
         images: ["images/earbuds.png", "images/earbuds(2).png", "images/earbuds(3).png"],
         seller: {
             name: "Audio Store",
@@ -175,6 +187,7 @@ const productDatabase = {
         description: "Compact iPhone with powerful features",
         condition: "Brand New",
         detailedDescription: "The iPhone 13 Mini packs powerful features into a compact design, including a stunning display, advanced camera system, and A15 Bionic chip.",
+        location: "Singapore, Sembawang",
         images: ["images/phone-product(2)(1).png", "images/phone-product(2)(2).png", "images/phone-product(2)(3).png"],
         seller: {
             name: "John Doe",
@@ -189,6 +202,7 @@ const productDatabase = {
         description: "iPhone 14 Mini with screen damage - for repair or parts",
         condition: "Damaged",
         detailedDescription: "This iPhone 14 Mini in Blue has a damaged screen but is perfect for repair or parts. It features the latest technology and a compact design.",
+        location: "Singapore, Pasir Ris",
         images: ["images/phone-product(3)(1).png", "images/phone-product(3)(2).png", "images/phone-product(3)(3).png"],
         seller: {
             name: "Phone Parts",
@@ -203,6 +217,7 @@ const productDatabase = {
         description: "Ergonomic gaming mouse with customizable features",
         condition: "Brand New",
         detailedDescription: "The Razer Basilisk V3 is an ergonomic gaming mouse with customizable features, providing precision and comfort for long gaming sessions.",
+        location: "Singapore, Jurong West",
         images: ["images/mouse.png"],
         seller: {
             name: "Gaming Gear",
@@ -217,6 +232,7 @@ const productDatabase = {
         description: "Used gaming PC in good condition",
         condition: "Slightly Used",
         detailedDescription: "This slightly used gaming PC features an AMD Ryzen 5 5600 CPU and Nvidia GeForce RTX 3060 GPU, providing excellent performance for gaming and more.",
+        location: "Singapore, Choa Chu Kang",
         images: ["images/computer-product(3)(1).png", "images/computer-product(3)(2).png", "images/computer-product(3)(3).png"],
         seller: {
             name: "PC Resale Pro",

@@ -54,7 +54,7 @@ function loadProductDetails() {
     document.getElementById('productDescription').textContent = product.description;
     document.getElementById('productCondition').textContent = product.condition;
     document.getElementById('detailedDescription').textContent = product.detailedDescription;
-
+    document.getElementById('productLocation').textContent = product.location;
     document.getElementById('sellerName').textContent = product.seller.name;
     document.getElementById('lastActive').textContent = `Last active: ${product.seller.lastActive}`;
     document.getElementById('sellerImage').src = product.seller.image;

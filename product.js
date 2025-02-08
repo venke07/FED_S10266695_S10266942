@@ -143,7 +143,7 @@ const productDatabase = {
         condition: "Brand New",
         detailedDescription: "The ASUS ROG Gaming laptop features a high refresh rate of 20Hz and RGB lighting, providing an immersive gaming experience with top-notch performance.",
         location: "Singapore, Ang Mo Kio",
-        images: ["images/laptopproduct(4).png", "images/laptopproduct(4).png", "images/laptopproduct(4).png"],
+        images: ["images/laptop-product(4).png", "images/laptop-product(4).png", "images/laptop-product(4).png"],
         seller: {
             name: "ASUS Store",
             image: "images/profile.png",
@@ -243,7 +243,6 @@ const productDatabase = {
 };
 
 // Initialize product cards on main page
-
 function initializeProductCards() {
     document.querySelectorAll('.product-card').forEach(card => {
         card.addEventListener('click', (event) => {
@@ -264,8 +263,6 @@ function initializeProductCards() {
         });
     });
 }
-
-
 
 // Add click event listeners to all favorite buttons
 document.querySelectorAll('.favorite-button').forEach(button => {

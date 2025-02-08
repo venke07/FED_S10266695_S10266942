@@ -3,42 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MokeSell - My Favorites</title>
+  <title>MokeSell</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
     <div class="logo">MokeSell</div>
-    <nav>
-      <ul class="menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="products.html">Products</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle">Electronics</a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Laptops</a></li>
-            <li><a href="#">Smartphones</a></li>
-            <li><a href="#">Tablets</a></li>
-            <li><a href="#">Accessories</a></li>
-            
-          </ul>
-        </li>
-        <li><a href="#">Discounts</a></li>
-        <li><a href="contactus.html">Contact Us</a></li>
+<nav>
+  <ul class="menu">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="products.html">Products</a></li>
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle">Electronics</a>
+      <ul class="dropdown-menu">
+        <li><a href="#">Laptops</a></li>
+        <li><a href="#">Smartphones</a></li>
+        <li><a href="#">Tablets</a></li>
+        <li><a href="#">Accessories</a></li>
       </ul>
-    </nav>
-
+    </li>
+    <li><a href="#">Discounts</a></li>
+    <li><a href="contactus.html">Contact Us</a></li>
+  </ul>
+</nav>
+<div class="header-icons">
+  <button id="sell-btn" class="sell-btn">
+    <a class="sell-link" href="selling.html">+Sell</a>
+  </button>
     <div class="header-icons">
-      <button id="sell-btn" class="sell-btn">
-        <a class="sell-link" href="selling.html">+Sell</a>
-      </button>
       <input type="text" placeholder="Search" class="search-bar">
       <img src="images/bell.png" alt="Notification Bell" class="icon">
-      <img src="images/heart.png" alt="Heart" id="shopping-cart-icon" class="icon">
+      <a href="favourites.html">
+        <img src="images/heart.png" alt="Heart" class="icon">
+      </a>
       <img src="images/chat.png" alt="Messages" class="icon">
       <a href="profile.html">
         <img id="profile-icon" src="images/profile.png" alt="Profile" class="icon" style="display: none;">
-      </a>    
+    </a>    
       <button id="login-btn" class="login-btn"><a class="login-link" href="login.html">Log In / Sign Up</a></button>
     </div>
   </header>
@@ -80,8 +81,14 @@
 
       // Function to display no favorites message
       const showNoFavoritesMessage = () => {
-        favoritesContainer.innerHTML = '<p class="center-message">No favorite items yet</p>';
-      };
+  favoritesContainer.innerHTML = `
+    <p class="center-message">
+      No favorite items yet. Start shopping now!
+      <img src="images/shopping-cart .png" alt="Shopping Cart" class="cart-icon">
+    </p>
+  `;
+};
+
 
       // Function to render all favorites
       const renderFavorites = () => {
@@ -147,8 +154,12 @@
 
           // Add click handler to navigate to product details page
           productCard.addEventListener('click', () => {
-            window.location.href = `product-details.html?productId=${item.id}`;
-          });
+    if (item.id === "asusroggaminglaptop") {
+        window.location.href = "trusted_sellers/abex.html"; // Redirect for this specific ID
+    } else {
+        window.location.href = `product-details.html?productId=${item.id}`; // Default behavior
+    }
+});
 
           favoritesContainer.appendChild(productCard);
         });

@@ -71,7 +71,6 @@
             
 
             
-            
             <!-- Action Buttons -->
             <div class="action-buttons">
                 <button class="chat-btn" onclick="openChat()">
@@ -81,10 +80,7 @@
                 <button class="favorite-btn" onclick="toggleFavorite()">
                     <img src="images/heart.png" alt="Favorite">
                 </button>
-                <button class="share-btn" onclick="shareProduct()">
-                    <img src="images/share.png" alt="Share">
-                </button>
-            </div>
+                
 
             <!-- Seller Information -->
             <div class="seller-info">
@@ -100,6 +96,10 @@
         </div>
     </div>
 
+    <script src="product.js"></script>
+    <script src="product-details.js"></script>
+    <script src="liking.js"></script>
+ 
     <script>
         // Add login check functionality
         document.addEventListener('DOMContentLoaded', function() {
@@ -116,7 +116,5 @@
             }
         });
     </script>
-    <script src="product.js"></script>
-    <script src="product-details.js"></script>
 </body>
 </html>

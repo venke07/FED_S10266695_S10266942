@@ -4,14 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat - MokeSell</title>
+    <link rel="stylesheet" href="chat.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
     <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
     <header>
-        <div class="logo">
-            <div class="logo"><a href="index.html">MokeSell</a></div>
+        <div class="logo"><a href="index.html">MokeSell</a></div>
+        <nav>
+          <ul class="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="contactus/contactus.html">Contact Us</a></li>
+            <li><a href="posting/posting.html">Listings</a></li> <!-- Added link to listing.html -->
+          </ul>
+        </nav>
+        <div class="header-icons">
+          <button id="sell-btn" class="sell-btn">
+            <a class="sell-link" href="selling/selling.html">+Sell</a>
+          </button>
+          <img src="images/bell.png" alt="Notification Bell" class="icon">
+          <a href="favourites.html">
+            <img src="images/heart.png" alt="Heart" class="icon">
+          </a>
+          <a href="chat.html">
+            <img src="images/chat.png" alt="Messages" class="icon">
+          </a>
+          <a href="profile.html">
+            <img id="profile-icon" src="images/profile.png" alt="Profile" class="icon">
+          </a>    
+          <button id="login-btn" class="login-btn">
+            <a class="login-link" href="login/login.html">Log In / Sign Up</a>
+          </button>
         </div>
-    </header>
+      </header>
+    
 
     <main>
         <div class="chat-page">
@@ -59,6 +88,23 @@
             </div>
         </div>
     </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const userId = localStorage.getItem('userId'); // Retrieve user ID from local storage
+          const profileIcon = document.getElementById('profile-icon');
+          const loginBtn = document.getElementById('login-btn');
+    
+          console.log('Retrieved user ID:', userId); // Debugging log
+    
+          if (userId) {
+            profileIcon.style.display = 'block';
+            loginBtn.style.display = 'none';
+          } else {
+            profileIcon.style.display = 'none';
+            loginBtn.style.display = 'block';
+          }
+        });
+      </script>
 
     <script src="chat.js"></script>
 </body>

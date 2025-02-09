@@ -11,13 +11,6 @@ body {
   background-color: #f9f9f9;
 }
 
-body.login-body, body.signup-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  padding-top: 60px; /* Adjust for the top bar */
-}
 
 body.contactus-body {
   background: linear-gradient(135deg, #e0f7fa, #80deea);
@@ -275,7 +268,7 @@ nav ul li a {
 }
 
 .switch-btn:hover {
-  background-color: #218838;
+  background-color: #008cff;
 }
 
 /* Main Section */
@@ -485,254 +478,6 @@ nav ul li a {
   color: #333;
 }
 
-
-
-/* Global Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', Arial, sans-serif;
-}
-
-
-.login-body,
-.signup-body {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(135deg, #0062cc, #0099ff);
-  position: relative;
-  overflow: hidden;
-}
-
-/* Animated Background for both pages */
-.login-body::before,
-.signup-body::before {
-  content: '';
-  position: absolute;
-  width: 150%;
-  height: 150%;
-  background: linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.1) 45%, rgba(255, 255, 255, 0.1) 55%, transparent 60%);
-  animation: shine 3s infinite linear;
-  pointer-events: none;
-}
-
-@keyframes shine {
-  0% { transform: translateX(-50%) translateY(-50%) rotate(0deg); }
-  100% { transform: translateX(-50%) translateY(-50%) rotate(360deg); }
-}
-
-/* Common Section Styles */
-.login-section,
-.signup-section {
-  background: rgba(255, 255, 255, 0.95);
-  padding: 3rem;
-  border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-  margin: 20px;
-  position: relative;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.login-section {
-  width: 100%;
-  max-width: 420px;
-}
-
-.signup-section {
-  width: 100%;
-  max-width: 480px;
-}
-
-/* Decorative Elements */
-.login-section::before,
-.login-section::after,
-.signup-section::before,
-.signup-section::after {
-  content: '';
-  position: absolute;
-  width: 100px;
-  height: 100px;
-  background: linear-gradient(45deg, #0062cc, #0099ff);
-  border-radius: 50%;
-  opacity: 0.1;
-  z-index: -1;
-}
-
-.login-section::before,
-.signup-section::before {
-  top: -30px;
-  left: -30px;
-}
-
-.login-section::after,
-.signup-section::after {
-  bottom: -30px;
-  right: -30px;
-}
-
-/* Heading Styles */
-h1 {
-  color: #0062cc;
-  text-align: center;
-  margin-bottom: 2rem;
-  font-size: 2.2rem;
-  font-weight: bold;
-  position: relative;
-  padding-bottom: 15px;
-}
-
-h1::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  height: 4px;
-  background: linear-gradient(90deg, #0062cc, #0099ff);
-  border-radius: 2px;
-}
-
-.login-section h1::after {
-  width: 60px;
-}
-
-.signup-section h1::after {
-  width: 80px;
-}
-
-/* Form Group Styles */
-.form-group {
-  margin-bottom: 1.8rem;
-  position: relative;
-}
-
-/* Label Styles */
-label {
-  display: block;
-  margin-bottom: 0.8rem;
-  color: #333;
-  font-weight: 500;
-  font-size: 0.95rem;
-  transition: color 0.3s ease;
-}
-
-/* Input Styles */
-input {
-  width: 100%;
-  padding: 14px;
-  border: 2px solid #e1e1e1;
-  border-radius: 12px;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  background: rgba(255, 255, 255, 0.9);
-}
-
-input:focus {
-  outline: none;
-  border-color: #0099ff;
-  box-shadow: 0 0 15px rgba(0, 153, 255, 0.2);
-  transform: translateY(-2px);
-}
-
-input:focus + label {
-  color: #0099ff;
-}
-
-/* Common Button Styles */
-.login-btn,
-.signup-btn,
-.switch-btn {
-  width: 100%;
-  padding: 14px;
-  border: none;
-  border-radius: 12px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.login-btn,
-.signup-btn {
-  background: linear-gradient(45deg, #0062cc, #0099ff);
-  color: white;
-  margin-bottom: 1.2rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.login-btn:hover,
-.signup-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 98, 204, 0.3);
-}
-
-.login-btn:active,
-.signup-btn:active {
-  transform: translateY(-1px);
-}
-
-.switch-btn {
-  background-color: transparent;
-  border: 2px solid #0062cc;
-  position: relative;
-  z-index: 1;
-}
-
-.switch-btn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 100%;
-  background: linear-gradient(45deg, #0062cc, #0099ff);
-  transition: width 0.3s ease;
-  z-index: -1;
-}
-
-/* Link Styles */
-.signup-link,
-.login-link {
-  color: #0062cc;
-  text-decoration: none;
-  display: block;
-  width: 100%;
-  height: 100%;
-  transition: color 0.3s ease;
-}
-
-.switch-btn:hover::before {
-  width: 100%;
-}
-
-.switch-btn:hover .signup-link,
-.switch-btn:hover .login-link {
-  color: white;
-}
-
-/* Input Focus Animation */
-.form-group::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background: linear-gradient(90deg, #0062cc, #0099ff);
-  transition: width 0.3s ease, left 0.3s ease;
-}
-
-.form-group:focus-within::after {
-  width: 100%;
-  left: 0;
-}
 
 .top-bar {
   width: 100%;
@@ -1556,10 +1301,6 @@ body {
   text-decoration: underline;
 }
 
-.form-group {
-  margin-bottom: 20px;
-  text-align: left;
-}
 
 label {
   font-weight: 600;
@@ -2704,7 +2445,6 @@ main {
 }
 
 /* ...existing code... */
-
 
 
 

@@ -1,0 +1,132 @@
+/* Main Section */
+.welcome-section {
+  text-align: center;
+  padding: 20px;
+  background-color: #fff;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.promo-banner {
+  width: 80%;
+  height: 450px;
+  background-color: #ddd;
+  margin-top: 10px;
+}
+
+.promo-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  width: 40px; /* Set fixed width */
+  height: 40px; /* Set fixed height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 20px; /* Adjust font size */
+}
+
+.left-arrow {
+  left: 5%;
+}
+
+.right-arrow {
+  right: 5%;
+}
+
+.arrow:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Product Sections */
+.product-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding: 20px;
+  position: relative; /* Add relative positioning */
+}
+
+.product-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+.product-grid {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.product {
+  flex: 1;
+  max-width: 300px;
+  height: 300px;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.product img {
+  width: 100%;
+  height: 70%;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+.product-description {
+  font-size: 14px;
+  margin-top: 10px;
+  color: #333;
+  text-align: center;
+}
+
+.product-price {
+  font-size: 16px;
+  margin-top: 10px;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.product-condition {
+  font-size: 16px;
+  margin-top: 10px;
+  color: #666;
+}
+
+.product-grid-page {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Exactly 3 columns */
+  gap: 20px;
+  justify-content: center;
+}

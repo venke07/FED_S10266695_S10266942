@@ -2427,5 +2427,18 @@ main {
 
 /* ...existing code... */
 
+/* Notification Badge Positioning */
+.notification-badge {
+  display: none; /* Hide the notification badge */
+}
+
+/* Bell Icon Wrapper */
+.icon-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* ...existing code... */
+
 
 

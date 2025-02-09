@@ -117,41 +117,8 @@ document.addEventListener('DOMContentLoaded', () => {
       
       // Only update `favorites`, don't touch notifications
       saveFavorites(favorites);
-      updateNotificationDot();
     });
   });
-
-  // Update notification dot and animate bell
-  const updateNotificationDot = () => {
-    const notificationBell = document.querySelector('.icon[alt="Notification Bell"]');
-    if (notificationBell) {
-      let notifications = JSON.parse(localStorage.getItem('notificationList')) || [];
-  
-      let dot = notificationBell.nextElementSibling;
-      if (!dot || !dot.classList.contains('notification-dot')) {
-        dot = document.createElement('span');
-        dot.classList.add('notification-dot');
-        dot.style.cssText = `
-          position: absolute;
-          top: 5px;  /* Adjusted to position above the bell icon */
-          right: 105px;
-          width: 10px;
-          height: 10px;
-          background-color: red;
-          border-radius: 50%;
-        `;
-        notificationBell.parentElement.appendChild(dot);
-      }
-  
-      // Hide dot if no notifications exist
-      dot.style.display = notifications.length === 0 ? 'none' : 'block';
-  
-      notificationBell.classList.add('bell-animation');
-      setTimeout(() => {
-        notificationBell.classList.remove('bell-animation');
-      }, 1000);
-    }
-  };
 
   // Function to update the notification bell
   function updateNotificationBell() {
@@ -159,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
     
     if (notificationDot) {
-        notificationDot.style.display = favorites.length > 0 ? 'block' : 'none';
+        notificationDot.style.display = 'none'; // Hide the notification dot
     }
   }
 
@@ -245,7 +212,6 @@ if (notificationBell) {
             localStorage.setItem('notificationList', JSON.stringify(notifications));
 
             item.remove();
-            updateNotificationDot();
 
             // If no more notifications, display a message
             if (notifications.length === 0) {
@@ -283,7 +249,6 @@ if (notificationBell) {
         clearAllButton.addEventListener('click', () => {
           localStorage.removeItem('notificationList');  // Only clear notifications
           dropdownContainer.innerHTML = '<div style="padding: 10px;">No new notifications.</div>';
-          updateNotificationDot();
         });
         dropdownContainer.appendChild(clearAllButton);
       } else {
@@ -311,5 +276,5 @@ if (notificationBell) {
   }
 
   // Initial call to update the notification dot on page load
-  updateNotificationDot();
+  updateNotificationBell();
 });

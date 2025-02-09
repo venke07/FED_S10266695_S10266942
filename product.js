@@ -10,7 +10,7 @@ const productDatabase = {
         location: "Singapore, Bukit Batok",
         images: ["images/lenovo-lap.png", "images/lenovo-lap(2).png", "images/lenovo-lap(3).png"],
         seller: {
-            name: "Tech Store",
+            name: "Crimpoil",
             image: "images/profile.png",
             lastActive: "2 hours ago"
         }
@@ -25,7 +25,7 @@ const productDatabase = {
         location: "Singapore, Jurong East",
         images: ["images/laptop-product.png", "images/laptop-product(2).png", "images/laptop-product(3).png"],
         seller: {
-            name: "Microsoft Store",
+            name: "PewPewWoof",
             image: "images/profile.png",
             lastActive: "1 hour ago"
         }
@@ -40,7 +40,7 @@ const productDatabase = {
         location: "Singapore, Orchard",
         images: ["images/iphone.png", "images/iphone(2).png", "images/iphone(3).png"],
         seller: {
-            name: "iStore",
+            name: "Sherman Yuo",
             image: "images/profile.png",
             lastActive: "30 minutes ago"
         }
@@ -55,7 +55,7 @@ const productDatabase = {
         location: "Singapore, Tampines",
         images: ["images/laptop-product(1).png", "images/laptop-product(1)(2).png", "images/laptop-product(1)(3).png"],
         seller: {
-            name: "Apple Store",
+            name: "Yoiesriio",
             image: "images/profile.png",
             lastActive: "4 hours ago"
         }
@@ -70,7 +70,7 @@ const productDatabase = {
         location: "Singapore, Yishun",
         images: ["images/laptop-product(2)(1).png", "images/laptop-product(2)(2).png", "images/laptop-product(2)(3).png"],
         seller: {
-            name: "Lenovo Official",
+            name: "MelbieLuvs",
             image: "images/profile.png",
             lastActive: "1 day ago"
         }
@@ -85,7 +85,7 @@ const productDatabase = {
         location: "Singapore, Clementi",
         images: ["images/phone-product.png", "images/phone-product(1).png", "images/phone-product(3).png"],
         seller: {
-            name: "Samsung Store",
+            name: "Sogeking",
             image: "images/profile.png",
             lastActive: "5 hours ago"
         }
@@ -100,7 +100,7 @@ const productDatabase = {
         location: "Singapore, Sengkang",
         images: ["images/computer-product.png", "images/computer-product(2).png", "images/computer-product(3).png"],
         seller: {
-            name: "PC Builder Pro",
+            name: "PianoMakernLover",
             image: "images/profile.png",
             lastActive: "3 hours ago"
         }
@@ -115,7 +115,7 @@ const productDatabase = {
         location: "Singapore, Woodlands",
         images: ["images/keyboard.png", "images/keyboard(2).png"],
         seller: {
-            name: "Tech Gadgets",
+            name: "Reiromboodjvd",
             image: "images/profile.png",
             lastActive: "1 hour ago"
         }
@@ -130,7 +130,7 @@ const productDatabase = {
         location: "Singapore, Hougang",
         images: ["images/computer-product(2)(1).png"],
         seller: {
-            name: "PC Custom Works",
+            name: "Yoomahs",
             image: "images/profile.png",
             lastActive: "2 hours ago"
         }
@@ -145,7 +145,7 @@ const productDatabase = {
         location: "Singapore, Ang Mo Kio",
         images: ["images/laptop-product(4).png", "images/laptop-product(4).png", "images/laptop-product(4).png"],
         seller: {
-            name: "ASUS Store",
+            name: "Abex",
             image: "images/profile.png",
             lastActive: "3 hours ago"
         }
@@ -160,7 +160,7 @@ const productDatabase = {
         location: "Singapore, Bukit Panjang",
         images: ["images/pc-product.png", "images/pc-product(2).png", "images/pc-product(3).png"],
         seller: {
-            name: "LG Official",
+            name: "Slippy",
             image: "images/profile.png",
             lastActive: "6 hours ago"
         }
@@ -175,7 +175,7 @@ const productDatabase = {
         location: "Singapore, Bedok",
         images: ["images/earbuds.png", "images/earbuds(2).png", "images/earbuds(3).png"],
         seller: {
-            name: "Audio Store",
+            name: "TobiOobi",
             image: "images/profile.png",
             lastActive: "4 hours ago"
         }
@@ -190,7 +190,7 @@ const productDatabase = {
         location: "Singapore, Sembawang",
         images: ["images/phone-product(2)(1).png", "images/phone-product(2)(2).png", "images/phone-product(2)(3).png"],
         seller: {
-            name: "John Doe",
+            name: "Christine Chuu",
             image: "images/profile.png",
             lastActive: "5 hours ago"
         }
@@ -205,7 +205,7 @@ const productDatabase = {
         location: "Singapore, Pasir Ris",
         images: ["images/phone-product(3)(1).png", "images/phone-product(3)(2).png", "images/phone-product(3)(3).png"],
         seller: {
-            name: "Phone Parts",
+            name: "Misksl",
             image: "images/profile.png",
             lastActive: "1 day ago"
         }
@@ -220,7 +220,7 @@ const productDatabase = {
         location: "Singapore, Jurong West",
         images: ["images/mouse.png"],
         seller: {
-            name: "Gaming Gear",
+            name: "Clementine3Bi",
             image: "images/profile.png",
             lastActive: "2 hours ago"
         }
@@ -235,7 +235,7 @@ const productDatabase = {
         location: "Singapore, Choa Chu Kang",
         images: ["images/computer-product(3)(1).png", "images/computer-product(3)(2).png", "images/computer-product(3)(3).png"],
         seller: {
-            name: "PC Resale Pro",
+            name: "Tory",
             image: "images/profile.png",
             lastActive: "7 hours ago"
         }

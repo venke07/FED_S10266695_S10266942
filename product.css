@@ -165,7 +165,7 @@ opacity: 1;
 nav {
   flex: 1;
   text-align: center; /* Center the navbar */
-  padding-left: 160px; /* Add some padding to the left */
+  padding-left: 20px; /* Reduce padding to move items to the left */
 }
 
 nav ul {
@@ -176,12 +176,6 @@ nav ul {
   align-items: center; 
   margin: 0; 
   padding: 0; 
-}
-
-nav ul li a {
-  text-decoration: none;
-  color: #333;
-  font-size: 1rem;
 }
 
 /* Header Icons & Search Bar */
@@ -1670,7 +1664,7 @@ text-decoration: none;
   
   .notification-dot {
     position: absolute;
-    top: -5px;
+    top: 9px;  /* Adjusted to position above the bell icon */
     right: -5px;
     width: 10px;
     height: 10px;
@@ -2567,11 +2561,11 @@ text-decoration: none;
 /* Notification Badge Positioning */
 .notification-badge {
     position: absolute;
-    top: -10px;  /* Moved above the bell icon */
-    right: -10px;
+    top: -5px;  /* Adjusted to position above the bell icon */
+    right: -5px;
     background-color: #ff4757;
-    width: 20px;
-    height: 20px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
     color: white;
     display: flex;

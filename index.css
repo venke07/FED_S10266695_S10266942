@@ -162,10 +162,11 @@ header {
     position: relative;
 }
 
+/* Adjust the navigation menu to centralize the items */
 nav {
     flex: 1;
     text-align: center; /* Center the navbar */
-    padding-left: 160px; /* Add some padding to the left */
+    padding-left: 20px; /* Reduce padding to move items to the left */
 }
 
 nav ul {
@@ -176,12 +177,6 @@ nav ul {
     align-items: center; 
     margin: 0; 
     padding: 0; 
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #333;
-    font-size: 1rem;
 }
 
 /* Header Icons & Search Bar */
@@ -517,28 +512,6 @@ nav ul li a {
 
 .menu li {
     position: relative;
-}
-
-nav {
-    flex: 1;
-    text-align: center; /* Center the navbar */
-    padding-left: 160px; /* Add some padding to the left */
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 25px;
-    justify-content: center; /* Center items */
-    align-items: center; 
-    margin: 0; 
-    padding: 0; 
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #333;
-    font-size: 1rem;
 }
 
 .dropdown {
@@ -893,4 +866,27 @@ nav ul li a {
   background-color: #333;
   margin: 4px 0;
   transition: 0.4s;
+}
+
+/* Notification Badge Positioning */
+.notification-badge {
+    position: absolute;
+    top: -5px;  /* Adjusted to position above the bell icon */
+    right: -5px;
+    background-color: #ff4757;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+/* Bell Icon Wrapper */
+.icon-wrapper {
+    position: relative;
+    display: inline-block;
 }

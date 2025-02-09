@@ -109,6 +109,10 @@ document.addEventListener('DOMContentLoaded', () => {
         favorites.splice(existingIndex, 1);
         button.querySelector('.heart-icon').style.fill = 'none';
         showMessage(`${productDetails.name} removed from favorites!`, false);
+
+        // Remove from notifications
+        notifications = notifications.filter(n => n.id !== productId);
+        localStorage.setItem('notificationList', JSON.stringify(notifications));
       }
       
       // Only update `favorites`, don't touch notifications
@@ -129,12 +133,12 @@ document.addEventListener('DOMContentLoaded', () => {
         dot.classList.add('notification-dot');
         dot.style.cssText = `
           position: absolute;
-          top: 10px;
-          right: 100px;
+          top: 5px;  /* Adjusted to position above the bell icon */
+          right: 105px;
           width: 10px;
           height: 10px;
           background-color: red;
-          border-radius: 40%;
+          border-radius: 50%;
         `;
         notificationBell.parentElement.appendChild(dot);
       }

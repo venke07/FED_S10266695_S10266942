@@ -46,6 +46,18 @@ ClaudeAi - Helped with generating ideas on how to imrpove the functionality of o
 
 Assistive AI
 ------------------
+![alt text](<Screenshot 2025-02-09 224533.png>)
+![alt text](<Screenshot 2025-02-09 224551.png>)
+![alt text](<Screenshot 2025-02-09 224713.png>)
+![alt text](<Screenshot 2025-02-09 224744.png>)
+![alt text](<Screenshot 2025-02-09 224803.png>)
+![alt text](<Screenshot 2025-02-09 224828.png>)
+![alt text](<Screenshot 2025-02-09 224920.png>)
+![alt text](<Screenshot 2025-02-09 225004.png>) ![alt text](<Screenshot 2025-02-09 224920-1.png>)
+![alt text](<Screenshot 2025-02-09 225131.png>)
+
+
+
 
 Testing
 -----------------

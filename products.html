@@ -9,29 +9,31 @@
 <body>
   <header>
     <div class="logo"><a href="index.html">MokeSell</a></div>
-<nav>
-  <ul class="menu">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="products.html">Products</a></li>
-    <li><a href="contactus/contactus.html">Contact Us</a></li>
-    <li><a href="posting/posting.html">Listings</a></li> 
-  </ul>
-</nav>
-<div class="header-icons">
-  <button id="sell-btn" class="sell-btn">
-    <a class="sell-link" href="selling/selling.html">+Sell</a>
-  </button>
+    <nav>
+      <ul class="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="contactus/contactus.html">Contact Us</a></li>
+        <li><a href="posting/posting.html">Listings</a></li> <!-- Added link to listing.html -->
+      </ul>
+    </nav>
     <div class="header-icons">
-      <input type="text" placeholder="Search" class="search-bar">
+      <button id="sell-btn" class="sell-btn">
+        <a class="sell-link" href="selling/selling.html">+Sell</a>
+      </button>
       <img src="images/bell.png" alt="Notification Bell" class="icon">
       <a href="favourites.html">
         <img src="images/heart.png" alt="Heart" class="icon">
       </a>
-      <img src="images/chat.png" alt="Messages" class="icon">
+      <a href="chat.html">
+        <img src="images/chat.png" alt="Messages" class="icon">
+      </a>
       <a href="profile.html">
-        <img id="profile-icon" src="images/profile.png" alt="Profile" class="icon" style="display: none;">
-    </a>    
-      <button id="login-btn" class="login-btn"><a class="login-link" href="login.html">Log In / Sign Up</a></button>
+        <img id="profile-icon" src="images/profile.png" alt="Profile" class="icon">
+      </a>    
+      <button id="login-btn" class="login-btn">
+        <a class="login-link" href="login/login.html">Log In / Sign Up</a>
+      </button>
     </div>
   </header>
 

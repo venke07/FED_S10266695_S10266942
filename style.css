@@ -338,10 +338,6 @@ nav ul li a {
   color: #333;
 }
 
-.product-grid {
-  display: flex;
-  gap: 15px;
-}
 
 .product {
   flex: 1;
@@ -381,13 +377,7 @@ nav ul li a {
   font-size: 16px;
   padding-top: 13px;
 }
-.product-grid-page {
-  flex: 1;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Exactly 3 columns */
-  gap: 20px;
-  justify-content: end;
-}
+
 
 .product-card {
   border: 1px solid #ccc;

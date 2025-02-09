@@ -149,6 +149,27 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  // Function to update the notification bell
+  function updateNotificationBell() {
+    const notificationDot = document.querySelector('.notification-dot');
+    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    
+    if (notificationDot) {
+        notificationDot.style.display = favorites.length > 0 ? 'block' : 'none';
+    }
+  }
+
+  // Call updateNotificationBell on page load to ensure the bell is updated
+  document.addEventListener('DOMContentLoaded', function() {
+      updateNotificationBell();
+  });
+
+  // Ensure the notification bell is updated when a product is liked
+  document.addEventListener('click', function(event) {
+      if (event.target.closest('.favorite-btn')) {
+          updateNotificationBell();
+      }
+  });
 
   // Add click event listener to notification bell
 const notificationBell = document.querySelector('.icon[alt="Notification Bell"]');

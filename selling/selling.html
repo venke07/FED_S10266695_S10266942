@@ -115,6 +115,24 @@
 
     <div id="chatbot"></div>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const userId = localStorage.getItem('userId'); // Retrieve user ID from local storage
+          const profileIcon = document.getElementById('profile-icon');
+          const loginBtn = document.getElementById('login-btn');
+    
+          console.log('Retrieved user ID:', userId); // Debugging log
+    
+          if (userId) {
+            profileIcon.style.display = 'block';
+            loginBtn.style.display = 'none';
+          } else {
+            profileIcon.style.display = 'none';
+            loginBtn.style.display = 'block';
+          }
+        });
+      </script>
+
     <!-- Scripts -->
     <script src="../dropdown.js"></script>
     <script src="../chatbot.js"></script>

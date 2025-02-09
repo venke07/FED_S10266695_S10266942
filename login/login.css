@@ -259,3 +259,129 @@ html {
     width: 100%;
     left: 0;
   }
+
+/* Responsive Styles */
+/* Media Queries */
+@media screen and (max-width: 480px) {
+  /* For mobile phones */
+  .login-section,
+  .signup-section {
+      padding: 2rem;
+      max-width: 100%;
+      margin: 15px;
+      border-radius: 15px;
+  }
+
+  h1 {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+  }
+
+  .form-group {
+      margin-bottom: 1.4rem;
+  }
+
+  input {
+      padding: 12px;
+      font-size: 0.95rem;
+  }
+
+  .login-btn,
+  .signup-btn,
+  .switch-btn {
+      padding: 12px;
+      font-size: 1rem;
+  }
+
+  label {
+      font-size: 0.9rem;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  /* For tablets */
+  .login-section,
+  .signup-section {
+      padding: 2.5rem;
+      max-width: 380px;
+  }
+
+  h1 {
+      font-size: 2rem;
+  }
+
+  .login-body,
+  .signup-body {
+      padding: 30px 15px;
+  }
+}
+
+@media screen and (max-height: 600px) {
+  /* For devices with small height */
+  .login-body,
+  .signup-body {
+      padding: 20px;
+      height: auto;
+      min-height: 100vh;
+  }
+
+  .login-section,
+  .signup-section {
+      margin: 10px auto;
+      padding: 2rem;
+  }
+
+  h1 {
+      margin-bottom: 1.5rem;
+  }
+
+  .form-group {
+      margin-bottom: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  /* For very small devices */
+  .login-section,
+  .signup-section {
+      padding: 1.5rem;
+  }
+
+  h1 {
+      font-size: 1.6rem;
+  }
+
+  input {
+      padding: 10px;
+  }
+
+  .login-btn,
+  .signup-btn,
+  .switch-btn {
+      padding: 10px;
+      font-size: 0.95rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  /* For large desktop screens */
+  .login-section,
+  .signup-section {
+      max-width: 450px;
+      padding: 3.5rem;
+  }
+
+  h1 {
+      font-size: 2.4rem;
+  }
+
+  input {
+      padding: 16px;
+  }
+
+  .login-btn,
+  .signup-btn,
+  .switch-btn {
+      padding: 16px;
+  }
+}

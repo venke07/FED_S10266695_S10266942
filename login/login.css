@@ -1,51 +1,65 @@
 /* Global Reset */
+/* Global Reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Arial, sans-serif;
-  }
-  
-  .login-body,
-  .signup-body {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(135deg, #0062cc, #0099ff);
-    position: relative;
-    overflow: hidden;
-  }
-  
-  /* Animated Background for both pages */
-  .login-body::before,
-  .signup-body::before {
-    content: '';
-    position: absolute;
-    width: 150%;
-    height: 150%;
-    background: linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.1) 45%, rgba(255, 255, 255, 0.1) 55%, transparent 60%);
-    animation: shine 3s infinite linear;
-    pointer-events: none;
-  }
-  
-  @keyframes shine {
-    0% { transform: translateX(-50%) translateY(-50%) rotate(0deg); }
-    100% { transform: translateX(-50%) translateY(-50%) rotate(360deg); }
-  }
-  
-  /* Common Section Styles */
-  .login-section,
-  .signup-section {
-    background: rgba(255, 255, 255, 0.95);
-    padding: 3rem;
-    border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-    margin: 20px;
-    position: relative;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* Force scrollbar to always show to prevent layout shifts */
+html {
+  overflow-y: scroll;
+}
+
+.login-body,
+.signup-body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #0062cc, #0099ff);
+  position: relative;
+  padding: 40px 20px; /* Increased padding to prevent content touching edges */
+  width: 100%;
+}
+
+/* Animated Background for both pages */
+.login-body::before,
+.signup-body::before {
+  content: '';
+  position: fixed; /* Changed from absolute to fixed */
+  width: 150%;
+  height: 150%;
+  background: linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.1) 45%, rgba(255, 255, 255, 0.1) 55%, transparent 60%);
+  animation: shine 3s infinite linear;
+  pointer-events: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes shine {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Common Section Styles */
+.login-section,
+.signup-section {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  position: relative;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto; /* Center the section */
+}
+
+/* Rest of your CSS remains the same */
   
   .login-section {
     width: 100%;
@@ -54,7 +68,9 @@
   
   .signup-section {
     width: 100%;
-    max-width: 480px;
+    max-width: 420px; /* Match the width of the login section */
+    margin-bottom: 20px; /* Add margin to ensure space for scrolling */
+    overflow: hidden; /* Prevent content overflow */
   }
   
   /* Decorative Elements */

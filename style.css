@@ -12,25 +12,6 @@ body {
 }
 
 
-body.contactus-body {
-  background: linear-gradient(135deg, #e0f7fa, #80deea);
-  position: relative;
-  overflow-x: hidden; /* Allow vertical scrolling */
-}
-
-.ribbon {
-  position: absolute;
-  top: 40%;
-  left: -50%;
-  width: 200%;
-  height: 300px; /* Increase height for more curvature */
-  background: linear-gradient(135deg, #4d2bfb, #0606db); /* Nicer gradient color */
-  transform: rotate(-10deg); /* Increase rotation for more curvature */
-  border-radius: 50% / 20%; /* More complex curvature */
-  z-index: 0;
-  pointer-events: none; /* Ensure the ribbon does not interfere with scrolling */
-}
-
 .icon-background {
   position: absolute;
   top: 0;

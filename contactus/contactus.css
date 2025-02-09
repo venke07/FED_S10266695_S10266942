@@ -1,0 +1,323 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+html {
+    overflow-y: scroll;
+}
+
+.contactus-body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0062cc, #0099ff);
+    position: relative;
+    padding: 10px;
+    padding-top: 10px;
+    overflow: hidden;
+}
+
+/* Subtle Animated Background */
+.ribbon {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 40%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
+    animation: ribbonFloat 15s ease-in-out infinite;
+    z-index: 0;
+}
+
+@keyframes ribbonFloat {
+    0% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-20px) scale(1.05);
+    }
+    100% {
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Header Styles */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    z-index: 1000;
+   
+}
+
+.logo a {
+    color: white;
+    text-decoration: none;
+    font-size: 2.2rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    position: relative;
+    display: inline-block;
+}
+
+.logo a::after {
+    color: #e1e1e1;
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    transition: width 0.3s ease;
+}
+
+.logo a:hover::after {
+    width: 100%;
+}
+
+/* Icon Background */
+.icon-background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.icon-background img {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    opacity: 0.15;
+    filter: brightness(0) invert(1);
+    animation: floatIcon 6s ease-in-out infinite;
+}
+
+.icon-background img:nth-child(1) { animation-delay: 0s; }
+.icon-background img:nth-child(2) { animation-delay: 1.5s; }
+.icon-background img:nth-child(3) { animation-delay: 3s; }
+.icon-background img:nth-child(4) { animation-delay: 4.5s; }
+
+@keyframes floatIcon {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+}
+/* Contact Section */
+.contact-section {
+    background: rgba(255, 255, 255, 0.95);
+    max-width: 800px;
+    margin: 100px auto 20px;
+    padding: 3.5rem;
+    border-radius: 20px;
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.1),
+        0 0 0 1px rgba(255, 255, 255, 0.3) inset;
+    position: relative;
+    backdrop-filter: blur(10px);
+    z-index: 2;
+}
+
+/* Heading Styles */
+h1 {
+    color: #0062cc;
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 2.8rem;
+    font-weight: bold;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 4px;
+    background: linear-gradient(90deg, #0062cc, #9333ea);
+    border-radius: 2px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 2.5rem;
+    font-size: 1.1rem;
+}
+
+.subtitle a {
+    color: #9333ea;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.subtitle a:hover {
+    color: #0062cc;
+}
+
+/* Form Group Styles */
+.form-group {
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.8rem;
+    color: #333;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 16px;
+    border: 2px solid #e1e1e1;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+/* Phone Input Styles */
+.phone-input {
+    display: flex;
+    gap: 12px;
+}
+
+#countryCode {
+    width: 140px;
+    flex-shrink: 0;
+}
+
+/* Message Area Styles */
+textarea {
+    resize: vertical;
+    min-height: 140px;
+}
+
+.character-count {
+    position: absolute;
+    right: 12px;
+    bottom: -24px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Button Styles */
+#showCaptchaBtn, .submit-btn {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: linear-gradient(45deg, #0062cc, #9333ea);
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#showCaptchaBtn:hover, .submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 98, 204, 0.2);
+}
+
+/* Popup Styles */
+.popup-box {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.2),
+        0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+    text-align: center;
+    z-index: 2000;
+    max-width: 400px;
+    width: 90%;
+}
+
+.popup-box h2 {
+    color: #0062cc;
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+}
+
+.popup-box .emoji {
+    font-size: 4rem;
+    margin: 1.5rem 0;
+}
+
+/* Focus States */
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: #9333ea;
+    box-shadow: 0 0 0 4px rgba(147, 51, 234, 0.1);
+    transform: translateY(-2px);
+}
+
+.form-group:focus-within label {
+    color: #9333ea;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-section {
+        padding: 2.5rem;
+        margin: 80px 20px;
+        border-radius: 20px;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    .phone-input {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    #countryCode {
+        width: 100%;
+    }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(#0062cc, #9333ea);
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(#9333ea, #0062cc);
+}

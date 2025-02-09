@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Hide popup box after 3 seconds and redirect to index.html
         setTimeout(() => {
             popupBox.style.display = 'none';
-            window.location.href = 'index.html';
+            window.location.href = '../index.html';
         }, 3000);
 
         // Reset form

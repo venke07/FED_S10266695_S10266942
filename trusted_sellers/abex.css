@@ -537,17 +537,164 @@ footer {
 
 
 /* Responsive Adjustments */
-@media (max-width: 768px) {
-    .checkout {
-        padding: 3rem 5%;
+@media (max-width: 1024px) {
+    /* Header */
+    header {
+        padding: 10px 3%;
     }
 
-    .checkout-form {
-        padding: 2rem;
-        width: 100%;
+    .logo {
+        font-size: 1.5rem;
     }
 
-    .checkout h2 {
+    nav ul {
+        gap: 10px;
+    }
+
+    nav ul li a {
+        font-size: 1rem;
+    }
+
+    /* Hero Section */
+    .hero {
+        height: 70vh;
+    }
+
+    .video-background video {
+        height: 70vh;
+        object-fit: cover;
+    }
+
+    .hero h1 {
         font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .shop-now {
+        font-size: 1rem;
+        padding: 8px 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .cart-popup {
+        display: none; /* Hidden until activated */
+        position: fixed;
+        top: 60px;
+        right: 5%;
+        width: 85%;
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        padding: 1rem;
+        border-radius: 10px;
+    }
+
+    /* Show Cart When Active */
+    .cart-popup.active {
+        display: block;
+    }
+}
+
+/* Improve Video & Hero Text Readability */
+.video-background {
+    position: relative;
+}
+
+.video-background video {
+    width: 100%;
+    height: 70vh; /* Adjusted height */
+    object-fit: cover;
+}
+
+/* Add Dark Overlay on Video for Better Contrast */
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Darker overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+/* Improve Hero Text Readability */
+.hero-content h1 {
+    font-size: 2.5rem; /* Slightly larger */
+    font-weight: 700;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    font-weight: 400;
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8);
+}
+
+.shop-now {
+    font-size: 1rem;
+    padding: 10px 20px;
+    background: #221c1a;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.shop-now:hover {
+    background: #c3b5b0;
+}
+
+@media (max-width: 480px) {
+    /* Header */
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    nav ul li a {
+        font-size: 0.8rem;
+    }
+
+    /* Hero Section */
+    .hero {
+        height: 40vh;
+    }
+
+    .video-background video {
+        width: 100%;
+        height: 40vh;
+        object-fit: cover;
+    }
+
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero p {
+        font-size: 0.9rem;
+    }
+
+    .shop-now {
+        font-size: 0.8rem;
+        padding: 6px 10px;
+    }
+
+    /* Cart Popup */
+    .cart-popup {
+        position: fixed;
+        top: 50px;
+        right: 5%;
+        width: 85%;
+        background: white;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
     }
 }

@@ -109,6 +109,10 @@ document.addEventListener('DOMContentLoaded', () => {
         favorites.splice(existingIndex, 1);
         button.querySelector('.heart-icon').style.fill = 'none';
         showMessage(`${productDetails.name} removed from favorites!`, false);
+
+        // Remove from notifications
+        notifications = notifications.filter(n => n.id !== productId);
+        localStorage.setItem('notificationList', JSON.stringify(notifications));
       }
       
       // Only update `favorites`, don't touch notifications

@@ -319,6 +319,10 @@ nav ul li a {
   color: #333;
 }
 
+.product-grid {
+  display: flex;
+  gap: 15px;
+}
 
 .product {
   flex: 1;
@@ -358,7 +362,13 @@ nav ul li a {
   font-size: 16px;
   padding-top: 13px;
 }
-
+.product-grid-page {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Exactly 3 columns */
+  gap: 20px;
+  justify-content: end;
+}
 
 .product-card {
   border: 1px solid #ccc;
@@ -2400,130 +2410,22 @@ main {
 }
 
 /* Responsive Design */
-@media (max-width: 1024px) {
-  .middle-section {
-      flex-direction: column;
-      padding: 20px;
-  }
-
-  .form-row {
-      flex-direction: column;
-      gap: 20px;
-  }
-
-  .form-actions {
-      flex-direction: column-reverse;
-  }
-
-  .preview-images img {
-      width: calc(50% - 6px);
-      height: 150px;
-  }
-
-  .search-bar {
-      width: 100%;
-  }
-}
-
-/* Mobile Responsive Styles */
 @media (max-width: 768px) {
-  /* Header Adjustments */
-  header {
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px;
-  }
+    .chat-page {
+        flex-direction: column;
+    }
 
-  .menu {
-      display: none;
-      flex-direction: column;
-      position: absolute;
-      top: 60px;
-      left: 0;
-      width: 100%;
-      background-color: white;
-      text-align: center;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
+    .chat-list {
+        width: 100%;
+        height: 300px;
+    }
 
-  .menu.active {
-      display: flex;
-  }
-
-  .menu li {
-      padding: 10px;
-  }
-
-  /* Hamburger Menu */
-  .hamburger {
-      display: block;
-      cursor: pointer;
-      background: none;
-      border: none;
-      font-size: 24px;
-  }
-
-  .header-icons {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-  }
-
-  .icon {
-      width: 30px;
-      height: 30px;
-  }
-
-  /* Middle Section */
-  .middle-section {
-      flex-direction: column;
-      padding: 20px;
-  }
-
-  .form-row {
-      flex-direction: column;
-      gap: 20px;
-  }
-
-  .form-actions {
-      flex-direction: column-reverse;
-  }
-
-  .preview-images img {
-      width: 100%;
-      height: auto;
-  }
+    main {
+        padding: 1rem;
+    }
 }
 
-/* Smaller Devices */
-@media (max-width: 480px) {
-  .search-bar {
-      width: 100%;
-  }
-
-  .menu {
-      width: 100%;
-      position: absolute;
-      left: 0;
-      top: 60px;
-  }
-
-  .menu li {
-      display: block;
-      padding: 15px;
-  }
-
-  .header-icons img {
-      width: 24px;
-      height: 24px;
-  }
-
-  .sell-btn {
-      font-size: 14px;
-      padding: 6px 10px;
-  }
-}
+/* ...existing code... */
 
 
 

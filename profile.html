@@ -7,39 +7,39 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="chatbot"></div>
   <header>
-    <div class="logo-profile"><a class="logo-profile" href="index.html">MokeSell</a></div>
-    <div id="top-right">
-      <img id="profile-icon" src="images/profile.png" alt="Profile" class="profile-icon">
-      <button id="logout-btn" class="login-btn"><a class="login-link" href="login.html">Log Out</a></button>
+    <div class="logo"><a href="index.html">MokeSell</a></div>
+    <nav>
+      <ul class="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="contactus/contactus.html">Contact Us</a></li>
+        <li><a href="posting/posting.html">Listings</a></li>
+      </ul>
+    </nav>
+    <div class="header-icons">
+      <button id="sell-btn" class="sell-btn">
+        <a class="sell-link" href="selling/selling.html">+Sell</a>
+      </button>
+      <img src="images/bell.png" alt="Notification Bell" class="icon">
+      <a href="favourites.html">
+        <img src="images/heart.png" alt="Heart" class="icon">
+      </a>
+      <a href="chat.html">
+        <img src="images/chat.png" alt="Messages" class="icon">
+      </a>
+      <a href="profile.html">
+        <img id="profile-icon" src="images/profile.png" alt="Profile" class="icon">
+      </a>    
+      <button id="login-btn" class="login-btn">
+        <a class="login-link" href="login/login.html">Log In / Sign Up</a>
+      </button>
     </div>
   </header>
   <main>
     <section class="profile-section">
       <h1>Your Profile</h1>
       <div class="profile-details">
-        <h2>Basic Information</h2>
-        <p><strong>Username:</strong> <span id="profile-username">Loading...</span></p>
-        <p><strong>Email:</strong> <span id="profile-email">Loading...</span></p>
-      </div>
-      <div class="profile-image-section">
-        <h2>Change Profile Image</h2>
-        <img id="current-profile-image" src="images/profile.png" alt="Current Profile Image" class="icon">
-        <input type="file" id="profile-image-input" accept="image/*">
-        <button id="change-profile-image-btn" class="signup-btn">Change Image</button>
-      </div>
-      <div class="advanced-info-section">
-        <h2>Advanced Information</h2>
-        <p><strong>Account Created:</strong> <span id="account-created">Loading...</span></p>
-        <p><strong>Last Login:</strong> <span id="last-login">Loading...</span></p>
-      </div>
-      <div class="change-password-section">
-        <h2>Change Password</h2>
-        <form id="change-password-form">
-          <div class="form-group">
-            <label for="current-password">Current Password:</label>
-            <input type="password" id="current-password" name="current-password" required>
           </div>
           <div class="form-group">
             <label for="new-password">New Password:</label>

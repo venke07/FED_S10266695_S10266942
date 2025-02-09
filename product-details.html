@@ -8,7 +8,7 @@
 </head>
 <body class="product-details-page">
     <header>
-        <div class="logo">MokeSell</div>
+        <div class="logo"><a href="index.html">MokeSell</a></div>
         <nav>
             <ul class="menu">
                 <li><a href="index.html">Home</a></li>
@@ -24,7 +24,7 @@
             <div class="header-icons">
                 <input type="text" placeholder="Search" class="search-bar">
                 <img src="images/bell.png" alt="Notification Bell" class="icon">
-                <a href="../favourites.html">
+                <a href="favourites.html">
                     <img src="images/heart.png" alt="Heart" class="icon">
                 </a>
                 <img src="images/chat.png" alt="Messages" class="icon">
@@ -38,7 +38,6 @@
         </div>
     </header>
 
-
     <div class="product-container">
         <!-- Image Gallery -->
         <div class="image-gallery">
@@ -46,30 +45,26 @@
                 <img id="mainImage" src="" alt="Main Product Image">
             </div>
             <div class="thumbnail-container">
-                <img class="thumbnail" src="" alt="Thumbnail 1" onclick="changeImage(0)">
-                <img class="thumbnail" src="" alt="Thumbnail 2" onclick="changeImage(1)">
-                <img class="thumbnail" src="" alt="Thumbnail 3" onclick="changeImage(2)">
+                <!-- Thumbnails will be populated by JavaScript -->
             </div>
         </div>
 
         <!-- Product Information -->
         <div class="product-info">
-            <h1 id="productName"></h1>
-            <p id="productPrice" class="price"></p>
+            <h1 id="productName">Product Name</h1>
+            <p id="productPrice" class="price">Product Price</p>
             
             <h2>Description</h2>
-            <p id="productDescription" class="description"></p>
+            <p id="productDescription" class="description">Product Description</p>
 
             <h2>Detailed Description</h2>
-            <p id="detailedDescription" class="detailed-description"></p>
+            <p id="detailedDescription" class="detailed-description">Detailed Description</p>
             
             <h2>Condition</h2>
-            <p id="productCondition" class="condition"></p>
+            <p id="productCondition" class="condition">Product Condition</p>
 
             <h2>Location</h2>
-            <p id="productLocation" class="location"></p>
-            
-
+            <p id="productLocation" class="location">Product Location</p>
             
             <!-- Action Buttons -->
             <div class="action-buttons">
@@ -80,7 +75,7 @@
                 <button class="favorite-btn" onclick="toggleFavorite()">
                     <img src="images/heart.png" alt="Favorite">
                 </button>
-                
+            </div>
 
             <!-- Seller Information -->
             <div class="seller-info">
@@ -88,8 +83,8 @@
                 <div class="seller-profile">
                     <img id="sellerImage" src="" alt="Seller">
                     <div class="seller-details">
-                        <p id="sellerName"></p>
-                        <p id="lastActive"></p>
+                        <p id="sellerName">Seller Name</p>
+                        <p id="lastActive">Last Active</p>
                     </div>
                 </div>
             </div>
@@ -115,7 +110,117 @@
                 profileIcon.style.display = 'none';
                 loginBtn.style.display = 'block';
             }
+
+            // Load product details based on productId
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('productId');
+            const product = productDatabase[productId];
+
+            if (product) {
+                document.getElementById('productName').textContent = product.name;
+                document.getElementById('productPrice').textContent = product.price;
+                document.getElementById('productDescription').textContent = product.description;
+                document.getElementById('detailedDescription').textContent = product.detailedDescription;
+                document.getElementById('productCondition').textContent = product.condition;
+                document.getElementById('productLocation').textContent = product.location;
+                document.getElementById('sellerName').textContent = product.seller.name;
+                document.getElementById('lastActive').textContent = product.seller.lastActive;
+                document.getElementById('mainImage').src = product.images[0];
+                document.getElementById('mainImage').alt = product.name;
+                document.getElementById('sellerImage').src = product.seller.image;
+                document.getElementById('sellerImage').alt = product.seller.name;
+
+                const thumbnailContainer = document.querySelector('.thumbnail-container');
+                thumbnailContainer.innerHTML = '';
+                product.images.forEach((image, index) => {
+                    const thumbnail = document.createElement('img');
+                    thumbnail.className = 'thumbnail';
+                    thumbnail.src = image;
+                    thumbnail.alt = `Thumbnail ${index + 1}`;
+                    thumbnail.onclick = () => changeImage(index);
+                    thumbnailContainer.appendChild(thumbnail);
+                });
+            } else {
+                // Hardcoded information for the three products
+                const hardcodedProducts = {
+                    "jeep-ew121": {
+                        name: "Jeep EW121 True Wireless Bluetooth 5.4",
+                        price: "$199.99",
+                        description: "High-quality wireless earbuds with Bluetooth 5.4 technology, offering superior sound quality and long battery life.",
+                        detailedDescription: "These Jeep EW121 earbuds provide an immersive audio experience with noise cancellation and a comfortable fit. Perfect for music lovers and on-the-go professionals.",
+                        condition: "Brand New",
+                        location: "VivoCity",
+                        seller: {
+                            name: "Alice Smith",
+                            image: "images/profile.png",
+                            lastActive: "2 hours ago"
+                        },
+                        images: ["images/laptop(1).webp"]
+                    },
+                    "samsung-galaxy-s21-ultra": {
+                        name: "Samsung Galaxy S21 Ultra 5G",
+                        price: "$999.99",
+                        description: "The latest Samsung flagship smartphone with advanced camera system and 5G connectivity.",
+                        detailedDescription: "Experience the ultimate performance with the Samsung Galaxy S21 Ultra 5G. Featuring a stunning display, powerful processor, and a versatile camera setup for professional-grade photography.",
+                        condition: "Brand New",
+                        location: "Wild wild wet",
+                        seller: {
+                            name: "Bob Johnson",
+                            image: "images/profile.png",
+                            lastActive: "1 hour ago"
+                        },
+                        images: ["images/S21.png"]
+                    },
+                    "apple-macbook-pro-16": {
+                        name: "Apple MacBook Pro 16-inch",
+                        price: "$2,399.00",
+                        description: "High-performance laptop with a 16-inch Retina display, powerful processors, and advanced graphics.",
+                        detailedDescription: "The Apple MacBook Pro 16-inch is designed for professionals who need top-tier performance. With its stunning Retina display, fast processors, and advanced graphics, it's perfect for creative work and demanding tasks.",
+                        condition: "Brand New",
+                        location: "JEM",
+                        seller: {
+                            name: "Charlie Brown",
+                            image: "images/profile.png",
+                            lastActive: "30 minutes ago"
+                        },
+                        images: ["images/macbook.png"]
+                    }
+                };
+
+                const hardcodedProduct = hardcodedProducts[productId];
+                if (hardcodedProduct) {
+                    document.getElementById('productName').textContent = hardcodedProduct.name;
+                    document.getElementById('productPrice').textContent = hardcodedProduct.price;
+                    document.getElementById('productDescription').textContent = hardcodedProduct.description;
+                    document.getElementById('detailedDescription').textContent = hardcodedProduct.detailedDescription;
+                    document.getElementById('productCondition').textContent = hardcodedProduct.condition;
+                    document.getElementById('productLocation').textContent = hardcodedProduct.location;
+                    document.getElementById('sellerName').textContent = hardcodedProduct.seller.name;
+                    document.getElementById('lastActive').textContent = hardcodedProduct.seller.lastActive;
+                    document.getElementById('mainImage').src = hardcodedProduct.images[0];
+                    document.getElementById('mainImage').alt = hardcodedProduct.name;
+                    document.getElementById('sellerImage').src = hardcodedProduct.seller.image;
+                    document.getElementById('sellerImage').alt = hardcodedProduct.seller.name;
+
+                    const thumbnailContainer = document.querySelector('.thumbnail-container');
+                    thumbnailContainer.innerHTML = '';
+                    hardcodedProduct.images.forEach((image, index) => {
+                        const thumbnail = document.createElement('img');
+                        thumbnail.className = 'thumbnail';
+                        thumbnail.src = image;
+                        thumbnail.alt = `Thumbnail ${index + 1}`;
+                        thumbnail.onclick = () => changeImage(index);
+                        thumbnailContainer.appendChild(thumbnail);
+                    });
+                }
+            }
         });
+
+        function openChat() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('productId');
+            window.location.href = `chat.html?productId=${productId}`;
+        }
     </script>
 </body>
 </html>

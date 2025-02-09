@@ -1,0 +1,213 @@
+
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+}
+
+/* Header Styling */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.logo a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.menu {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.menu li a {
+  text-decoration: none;
+  color: #000;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.header-icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.search-bar {
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 9px;
+  width: 200px;
+}
+
+.sell-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.sell-btn a {
+  color: white;
+  text-decoration: none;
+}
+
+.sell-btn:hover {
+  background-color: #0056b3;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.header-icons img {
+  width: 20px;
+  height: 20px;
+}
+
+.login-btn, .signup-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.login-link, .signup-link {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.login-btn:hover, .signup-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Listing Details Section */
+.listing-details {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+
+.listing-info {
+  margin-bottom: 2rem;
+}
+
+.seller-info {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eef2f7;
+}
+
+.seller-profile {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #3498db;
+}
+
+.seller-info p {
+  font-size: 0.9rem;
+  color: #7f8c8d;
+}
+
+.listing-info h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.listing-info p {
+  font-size: 1rem;
+  margin-bottom: 0.8rem;
+  color: #7f8c8d;
+}
+
+.listing-info p strong {
+  color: #34495e;
+  font-weight: 600;
+  margin-right: 0.5rem;
+}
+
+.listing-images {
+  display: flex;
+  gap: 10px;
+  margin-top: 1rem;
+}
+
+.listing-images img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.listing-images img:hover {
+  transform: scale(1.05);
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: 16px;
+  margin-top: 2rem;
+}
+
+.like-btn, .chat-btn {
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.like-btn {
+  background-color: #ff4757;
+  color: white;
+  border: none;
+}
+
+.like-btn:hover {
+  background-color: #e84118;
+}
+
+.chat-btn {
+  background-color: #3498db;
+  color: white;
+  border: none;
+}
+
+.chat-btn:hover {
+  background-color: #2980b9;
+}

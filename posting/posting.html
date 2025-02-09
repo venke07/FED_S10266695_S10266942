@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MokeSell - Listings</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="posting.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="../index.html">MokeSell</a>
+        </div>
+        <nav>
+            <ul class="menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../products.html">Products</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Electronics</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Laptops</a></li>
+                        <li><a href="#">Smartphones</a></li>
+                        <li><a href="#">Tablets</a></li>
+                        <li><a href="#">Accessories</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Discounts</a></li>
+            </ul>
+        </nav>
+        <div class="header-icons">
+            <button id="sell-btn" class="sell-btn">
+                <a class="sell-link" href="../selling/selling.html">+Sell</a>
+            </button>
+            <input type="text" placeholder="Search" class="search-bar">
+            <img src="../images/bell.png" alt="Notification Bell" class="icon">
+            <img src="../images/heart.png" alt="Shopping-Cart" class="icon">
+            <img src="../images/chat.png" alt="Messages" class="icon">
+            <a href="../profile.html">
+                <img id="profile-icon" src="../images/profile.png" alt="Profile" class="icon" style="display: none;">
+            </a>
+            <button id="login-btn" class="login-btn">
+                <a class="login-link" href="../login.html">Log In / Sign Up</a>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="listings-section">
+            <h2>Latest Listings</h2>
+            <div class="listings-grid" id="listingsGrid">
+                <!-- Listings will be dynamically inserted here -->
+            </div>
+        </section>
+    </main>
+
+    <div id="chatbot"></div>
+
+    <!-- Scripts -->
+    <script src="../dropdown.js"></script>
+    <script src="../chatbot.js"></script>
+    <script src="posting.js"></script>
+</body>
+</html>

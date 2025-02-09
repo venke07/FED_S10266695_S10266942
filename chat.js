@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const chatInput = document.getElementById('chat-input');
     const sendBtn = document.getElementById('send-btn');
     const currentSellerName = document.getElementById('current-seller');
+    const urlParams = new URLSearchParams(window.location.search);
+    const targetUsername = urlParams.get('user');
 
     // Fetch users from the database
     async function fetchUsers() {
@@ -59,6 +61,11 @@ document.addEventListener('DOMContentLoaded', function() {
             li.dataset.userId = user._id || user.id; // Handle both possible ID formats
             li.addEventListener('click', () => selectChat(user._id || user.id));
             chatList.appendChild(li);
+
+            // Automatically open chat if the username matches the target username
+            if (user.username === targetUsername || user.Username === targetUsername) {
+                selectChat(user._id || user.id);
+            }
         });
     }
 

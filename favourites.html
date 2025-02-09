@@ -4,14 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MokeSell</title>
-  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="favourite.css">
+  <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
   <header>
     <div class="logo"><a href="index.html">MokeSell</a></div>
-<nav>
+    <div class="hamburger" id="hamburger-menu">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+<nav class="nav-menu">
   <ul class="menu">
     <li><a href="index.html">Home</a></li>
     <li><a href= "products.html">Products</a></li>
@@ -50,6 +56,7 @@
   <script  src="checkout.js"></script>
   <script src="product.js"></script>
   <script src="product-details.js"></script>
+  <script src="scripts/menu.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const userId = localStorage.getItem('userId'); // Retrieve user ID from local storage

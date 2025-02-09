@@ -1,0 +1,953 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+  
+  /* Body Styling */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+  }
+  
+  body.login-body, body.signup-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding-top: 60px; /* Adjust for the top bar */
+  }
+  
+  body.contactus-body {
+    background: linear-gradient(135deg, #e0f7fa, #80deea);
+    position: relative;
+    overflow-x: hidden; /* Allow vertical scrolling */
+  }
+  
+  
+  /* Header Styling */
+  header {
+    display: flex;
+    justify-content: flex-start; /* Align items to the start (left) */
+    align-items: center;
+    padding: 10px 10px;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+  }
+  
+  header.login-header, header.signup-header {
+    justify-content: flex-start;
+    display: none; /* Hide the header in the login and signup pages */
+  }
+  
+  .logo {
+    margin-right: auto; /* Pushes the logo to the left */
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  .logo a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .logo-profile {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-right: auto;
+    text-decoration: none;
+  }
+  
+  .logo-profile a  {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .menu {
+    display: inline-flex; /* Aligns the menu items horizontally */
+    list-style: none;
+    padding-left: 120px;
+    margin: 0;
+    gap: 20px; /* Adds spacing between menu items */
+  }
+  
+  .menu li a {
+    text-decoration: none;
+    color: #000; /* Change to your preferred color */
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .menu li {
+    position: relative;
+  }
+  
+  nav {
+    flex: 1;
+    text-align: center; /* Center the navbar */
+    padding-left: 160px; /* Add some padding to the left */
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    justify-content: center; /* Center items */
+    align-items: center; 
+    margin: 0; 
+    padding: 0; 
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1rem;
+  }
+  
+  
+  .header-icons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .search-bar {
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 9px;
+    width: 200px;
+  }
+  
+  .sell-btn {
+    background-color: #007bff; /* Blue background */
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .sell-btn a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .sell-btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  
+  .icon {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+  }
+  
+  .header-icons img {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .login-btn, .signup-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .login-link, .signup-link {
+    text-decoration: none;
+    color: #007bff;
+  }
+  
+  .login-btn:hover, .signup-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  
+  
+  
+  
+  /* Separate favorite button styles */
+  .favorite-button {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    gap: 5px;
+    position: absolute;
+    bottom: 5px; /* Adjust to position below the product name */
+    right: 10px; /* Adjust to position on the right */
+    z-index: 10; /* Ensure the button is above other elements */
+  }
+  
+  .favorite-button .heart-icon {
+    width: 24px;
+    height: 24px;
+    fill: none; /* No fill by default */
+    stroke: #090707 !important;
+    transition: fill 0.3s ease, stroke 0.3s ease;
+  }
+  
+  .favorite-button .heart-icon.filled {
+    fill: #ff0000; /* Red fill when liked */
+    stroke: none; /* No outline when liked */
+  }
+  
+  
+  .favorite-button .like-count {
+    font-size: 14px;
+    color: #333;
+  }
+  
+  
+  .submit-btn:hover {
+    background: linear-gradient(135deg, #0056b3, #003f7f);
+    transform: scale(1.05);
+  }
+  
+  /* Chat Page Layout */
+  .chat-page {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    height: calc(100vh - 80px);
+  }
+  
+  /* Chat List Styles */
+  .chat-list {
+    flex: 1;
+    background: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    max-width: 400px;
+  }
+  
+  .chat-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .online-status {
+    color: #28a745;
+    font-size: 0.9rem;
+  }
+  
+  .search-box {
+    position: relative;
+    margin-bottom: 1rem;
+  }
+  
+  .search-box input {
+    width: 100%;
+    padding: 0.8rem 1rem 0.8rem 2.5rem;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 0.9rem;
+  }
+  
+  .search-box i {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+  }
+  
+  
+  .notification-dot {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border-radius: 50%;
+  }
+  
+  @keyframes bell-animation {
+    0%, 100% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(-15deg);
+    }
+    50% {
+      transform: rotate(15deg);
+    }
+    75% {
+      transform: rotate(-15deg);
+    }
+  }
+  
+  .bell-animation {
+    animation: bell-animation 0.5s;
+  }
+  
+  @keyframes bell-lines {
+    0%, 100% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+  
+  .bell-lines {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 20px;
+    height: 20px;
+    background: url('images/bell-lines.png') no-repeat center center;
+    background-size: contain;
+    animation: bell-lines 1s infinite;
+  }
+  
+  .notification-dot {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border-radius: 50%;
+  }
+  
+  
+  #dropdown-container {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    width: 400px; /* Make the dropdown bigger */
+    max-height: 400px; /* Add max height */
+    overflow-y: auto; /* Add scroll if content overflows */
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 1000;
+  }
+  
+  @keyframes shake {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(-5px);
+    }
+    50% {
+      transform: translateX(5px);
+    }
+    75% {
+      transform: translateX(-5px);
+    }
+  }
+  
+  .shake {
+    animation: shake 0.5s;
+  }
+  
+  .icon.shake {
+    animation: shake 0.5s;
+  }
+  
+  
+  .product-card .product-image {
+    width: 85%;
+    height: 65%; /* Adjust height to prevent overlap */
+    object-fit:inherit; /* Ensure the image covers the area without distortion */
+    border-radius: 4px;
+    position: relative;
+    z-index: 1; /* Ensure the image is below the product name */
+  }
+  
+  /* ...existing code... */
+  
+  .favorite-button .heart-icon {
+    width: 24px;
+    height: 24px;
+    fill: none; /* No fill by default */
+    stroke: #090707; /* Black outline by default */
+    transition: fill 0.3s ease, stroke 0.3s ease;
+  }
+  
+  .favorite-button .heart-icon.filled {
+    fill: #ff0000; /* Red fill when liked */
+    stroke: none; /* No outline when liked */
+  }
+  
+  .favorite-button .heart-icon.unfilled {
+    fill: none; /* No fill when unliked */
+    stroke: #090707; /* Black outline when unliked */
+  }
+  
+  
+  
+  .product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+    background-color: #f8f9fa; /* Light background color */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    margin: 20px auto; /* Center the container */
+    max-width: 1200px; /* Limit the width */
+    gap: 20px; /* Add gap between elements */
+  }
+  
+  .image-gallery {
+    flex: 1;
+    max-width: 500px;
+    background-color: #fff; /* White background */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    padding: 20px; /* Add padding */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  
+  .main-image img:hover {
+    transform: scale(1.05); /* Zoom effect on hover */
+  }
+  
+  .thumbnail-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    gap: 10px; /* Add gap between thumbnails */
+  }
+  
+  .thumbnail {
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth zoom and shadow effect */
+  }
+  
+  .thumbnail:hover {
+    transform: scale(1.1); /* Zoom effect on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect on hover */
+  }
+  
+  .product-info {
+    flex: 1;
+    max-width: 500px;
+    background-color: #fff; /* White background */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    padding: 20px; /* Add padding */
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Decrease gap between elements */
+    justify-content: space-between; /* Push buttons to the bottom */
+  }
+  
+  .product-info h1 {
+    font-size: 28px; /* Larger font size */
+    margin-bottom: 10px;
+    color: #333; /* Darker text color */
+    border-bottom: 2px solid #007bff; /* Add a bottom border */
+    padding-bottom: 10px; /* Add padding to the bottom */
+  }
+  
+  .product-info .price {
+    font-size: 24px; /* Larger font size */
+    color: #114093; /* Green color */
+    margin-bottom: 10px;
+    font-weight: bold; /* Make the price bold */
+  }
+  
+  .product-info .description {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #666; /* Gray text color */
+    line-height: 1.5; /* Increase line height for better readability */
+  }
+  
+  .product-info .location {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #666; /* Gray text color */
+    line-height: 1.5; /
+  }
+  
+  .action-buttons {
+    display: flex;
+    gap: 16px;
+    margin: 24px 0;
+    flex-direction: column; /* Stack buttons vertically */
+  }
+  
+  .action-buttons button {
+    display: flex;
+    align-items: center;
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth background and transform effect */
+  }
+  
+  .action-buttons button img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
+  
+  .action-buttons button:hover {
+    transform: translateY(-2px); /* Lift effect on hover */
+  }
+  
+  .chat-btn {
+    background-color: #007bff; /* Blue background */
+    color: white;
+    justify-content: center; /* Center the text and icon */
+  }
+  
+  .chat-btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  
+  .favorite-btn {
+    background-color: #f44336; /* Red background */
+    color: white;
+    justify-content: center; /* Center the text and icon */
+  }
+  
+  .favorite-btn:hover {
+    background-color: #d32f2f; /* Darker red on hover */
+  }
+  
+  .share-btn {
+    background-color: #FFC107;
+    color: white;
+  }
+  
+  .share-btn:hover {
+    background-color: #FFA000; /* Darker yellow on hover */
+  }
+  
+  .seller-info {
+    margin-top: 20px;
+    background-color: #f1f1f1; /* Light gray background */
+    padding: 20px; /* Add padding */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  
+  .seller-info h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #333; /* Darker text color */
+    border-bottom: 2px solid #007bff; /* Add a bottom border */
+    padding-bottom: 10px; /* Add padding to the bottom */
+  }
+  
+  .seller-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Add gap between elements */
+  }
+  
+  .seller-profile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+  
+  .seller-details p {
+    margin: 0;
+    color: #666; /* Gray text color */
+  }
+  
+  /* Adjust chat and heart icon sizes */
+  .action-buttons button img {
+    width: 16px;
+    height: 16px;
+  }
+  
+  /* Back Arrow */
+  .back-arrow {
+    font-size: 16px;
+    color: #007bff;
+    cursor: pointer;
+    margin-bottom: 20px;
+    display: inline-block;
+    margin-left: 10px; /* Adjust this value to move it to the left */
+  }
+  
+  .back-arrow:hover {
+    text-decoration: underline;
+  }
+  
+  .filter-section {
+    width: 300px;
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: absolute; /* Change to absolute positioning */
+    top: 0;
+    left: 0;
+    z-index: 10; /* Ensure it overlaps the products */
+  }
+  
+  .filter-toggle-btn {
+    display: block;
+    margin: 20px;
+    padding: 10px 20px;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .filter-toggle-btn:hover {
+    background-color: #2563eb;
+  }
+  
+  .filter-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .filter-container h3 {
+    color: #1e3a8a;
+    font-size: 20px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #3b82f6;
+  }
+  
+  .filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .filter-group h4 {
+    color: #374151;
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  
+  .price-inputs {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .price-inputs input {
+    width: 80px;
+    padding: 8px;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+  
+  .price-inputs button {
+    padding: 8px 12px;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .price-inputs button:hover {
+    background-color: #2563eb;
+  }
+  
+  .checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 15px 0;
+    padding-right: 120px;
+  }
+  
+  .checkbox-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #4b5563;
+    font-size: 14px;
+    cursor: pointer;
+    width: 150px;
+    /* Fixed width for alignment */
+  }
+  
+  .checkbox-group input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    margin: 0;  /* Remove default margins */
+    cursor: pointer;
+  }
+  
+  .clear-filters-btn {
+    padding: 10px;
+    background-color: #ef4444;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 10px;
+  }
+  
+  .clear-filters-btn:hover {
+    background-color: #dc2626;
+  }
+  
+  
+  .product-seller-info {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Adds spacing between icon and text */
+  }
+  
+  .product-seller-info .product-user-icon {
+    width: 50px; /* Adjust as needed */
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  .product-card img {
+    width: 100%;
+    padding: 10px;
+    height: 300px; /* Set a fixed height */
+    object-fit: cover; /* Ensure the image covers the area without distortion */
+    border-radius: 4px;
+  }
+  
+  .favorites-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjusted to match product section */
+    gap: 20px;
+    width: 100%;
+  }
+  
+  .product-details-page .product-container {
+    display: flex;
+    padding: 24px;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 24px auto;
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+  }
+  
+  .product-details-page .image-gallery {
+    flex: 1;
+    max-width: 550px;
+  }
+  
+  .product-details-page .main-image img {
+    width: 100%;
+    height: 500px; /* Set a fixed height */
+    object-fit: cover; /* Ensure the image covers the area without distortion */
+    border-radius: 8px;
+    margin-bottom: 16px;
+    transition: transform 0.3s ease; /* Smooth zoom effect */
+  }
+  
+  .product-details-page .thumbnail-container {
+    display: flex;
+    gap: 12px;
+  }
+  
+  .product-details-page .thumbnail {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 6px;
+    border: 1px solid #eee;
+    transition: border-color 0.2s ease;
+  }
+  
+  .product-details-page .thumbnail:hover {
+    border-color: #0066cc;
+  }
+  
+  .product-details-page .product-info {
+    flex: 1;
+    max-width: 500px;
+  }
+  
+  .product-details-page .product-info h1 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: #2c3e50;
+    border-bottom: 2px solid #0066cc;
+    padding-bottom: 8px;
+  }
+  
+  .product-details-page .product-info .price {
+    font-size: 24px;
+    color: #0066cc;
+    margin: 16px 0;
+    font-weight: 600;
+  }
+  
+  .product-details-page .product-info h2 {
+    font-size: 18px;
+    color: #2c3e50;
+    margin: 20px 0 12px;
+    font-weight: 600;
+  }
+  
+  .product-details-page .product-info .description,
+  .product-details-page .product-info .detailed-description,
+  .product-details-page .product-info .condition {
+    color: #5a6c7d;
+    line-height: 1.6;
+    margin-bottom: 16px;
+    font-size: 15px;
+  }
+  
+  .product-details-page .action-buttons {
+    display: flex;
+    gap: 12px;
+    margin: 24px 0;
+  }
+  
+  .product-details-page .action-buttons button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+  }
+  
+  .product-details-page .chat-btn {
+    background-color: #0066cc;
+    color: white;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  
+  .product-details-page .chat-btn:hover {
+    background-color: #0052a3;
+  }
+  
+  .product-details-page .favorite-btn,
+  .product-details-page .share-btn {
+    background-color: #f0f2f5;
+    padding: 12px;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .product-details-page .favorite-btn:hover,
+  .product-details-page .share-btn:hover {
+    background-color: #e4e6e9;
+  }
+  
+  .product-details-page .seller-info {
+    margin-top: 24px;
+    padding: 16px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+  }
+  
+  .product-details-page .seller-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .product-details-page .seller-profile img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid white;
+  }
+  
+  .product-details-page .seller-details p {
+    margin: 4px 0;
+    color: #5a6c7d;
+    font-size: 14px;
+  }
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    gap: 16px;
+    margin: 24px 0;
+    flex-direction: column; /* Stack buttons vertically */
+}
+
+.action-buttons button {
+    display: flex;
+    align-items: center;
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth background and transform effect */
+}
+
+.action-buttons button img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.action-buttons button:hover {
+    transform: translateY(-2px); /* Lift effect on hover */
+}
+
+.chat-btn {
+    background-color: #007bff; /* Blue background */
+    color: white;
+    justify-content: center; /* Center the text and icon */
+}
+
+.chat-btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.favorite-btn {
+    background-color: #f44336; /* Red background */
+    color: white;
+    justify-content: center; /* Center the text and icon */
+}
+
+.favorite-btn:hover {
+    background-color: #d32f2f; /* Darker red on hover */
+}
+
+

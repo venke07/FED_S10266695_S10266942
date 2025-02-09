@@ -319,10 +319,6 @@ nav ul li a {
   color: #333;
 }
 
-.product-grid {
-  display: flex;
-  gap: 15px;
-}
 
 .product {
   flex: 1;
@@ -362,13 +358,7 @@ nav ul li a {
   font-size: 16px;
   padding-top: 13px;
 }
-.product-grid-page {
-  flex: 1;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Exactly 3 columns */
-  gap: 20px;
-  justify-content: end;
-}
+
 
 .product-card {
   border: 1px solid #ccc;
@@ -2422,6 +2412,65 @@ main {
 
     main {
         padding: 1rem;
+    }
+}
+
+/* ...existing code... */
+
+/* Responsive design */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .logo {
+        margin-bottom: 1rem;
+    }
+
+    .menu {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .header-icons {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+
+    .search-bar {
+        width: 100%;
+    }
+
+    .product-grid-page {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .product-card {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product-seller-info {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product-seller-info img {
+        margin-bottom: 0.5rem;
+    }
+
+    .product-name, .product-description, .product-condition, .product-price {
+        text-align: center;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .product-grid-page {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
     }
 }
 

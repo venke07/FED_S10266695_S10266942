@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="product-details.css">
+</head>
+<body class="product-details-page">
+    <header>
+        <div class="logo">MokeSell</div>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="#">Discounts</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="header-icons">
+            <button id="sell-btn" class="sell-btn">
+                <a class="sell-link" href="selling.html">+Sell</a>
+            </button>
+            <div class="header-icons">
+                <input type="text" placeholder="Search" class="search-bar">
+                <img src="images/bell.png" alt="Notification Bell" class="icon">
+                <a href="../favourites.html">
+                    <img src="images/heart.png" alt="Heart" class="icon">
+                </a>
+                <img src="images/chat.png" alt="Messages" class="icon">
+                <a href="profile.html">
+                    <img id="profile-icon" src="images/profile.png" alt="Profile" class="icon" style="display: none;">
+                </a>
+                <button id="login-btn" class="login-btn">
+                    <a class="login-link" href="login.html">Log In / Sign Up</a>
+                </button>
+            </div>
+        </div>
+    </header>
+
+
+    <div class="product-container">
+        <!-- Image Gallery -->
+        <div class="image-gallery">
+            <div class="main-image">
+                <img id="mainImage" src="" alt="Main Product Image">
+            </div>
+            <div class="thumbnail-container">
+                <img class="thumbnail" src="" alt="Thumbnail 1" onclick="changeImage(0)">
+                <img class="thumbnail" src="" alt="Thumbnail 2" onclick="changeImage(1)">
+                <img class="thumbnail" src="" alt="Thumbnail 3" onclick="changeImage(2)">
+            </div>
+        </div>
+
+        <!-- Product Information -->
+        <div class="product-info">
+            <h1 id="productName"></h1>
+            <p id="productPrice" class="price"></p>
+            
+            <h2>Description</h2>
+            <p id="productDescription" class="description"></p>
+
+            <h2>Detailed Description</h2>
+            <p id="detailedDescription" class="detailed-description"></p>
+            
+            <h2>Condition</h2>
+            <p id="productCondition" class="condition"></p>
+
+            <h2>Location</h2>
+            <p id="productLocation" class="location"></p>
+            
+
+            
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button class="chat-btn" onclick="openChat()">
+                    <img src="images/chat.png" alt="Chat">
+                    Talk with Seller
+                </button>
+                <button class="favorite-btn" onclick="toggleFavorite()">
+                    <img src="images/heart.png" alt="Favorite">
+                </button>
+                
+
+            <!-- Seller Information -->
+            <div class="seller-info">
+                <h2>Seller Information</h2>
+                <div class="seller-profile">
+                    <img id="sellerImage" src="" alt="Seller">
+                    <div class="seller-details">
+                        <p id="sellerName"></p>
+                        <p id="lastActive"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="product.js"></script>
+    <script src="cart.js"></script>
+    <script src="product-details.js"></script>
+    <script src="liking.js"></script>
+ 
+    <script>
+        // Add login check functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const userId = localStorage.getItem('userId');
+            const profileIcon = document.getElementById('profile-icon');
+            const loginBtn = document.getElementById('login-btn');
+
+            if (userId) {
+                profileIcon.style.display = 'block';
+                loginBtn.style.display = 'none';
+            } else {
+                profileIcon.style.display = 'none';
+                loginBtn.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>

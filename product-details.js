@@ -1,3 +1,48 @@
+const productDatabase = {
+  "jeep-ew121": {
+    name: "Jeep EW121 True Wireless Bluetooth 5.4",
+    price: "$199.99",
+    description: "High-quality wireless earbuds with Bluetooth 5.4 technology, offering superior sound quality and long battery life.",
+    condition: "Brand New",
+    detailedDescription: "These Jeep EW121 earbuds provide an immersive audio experience with noise cancellation and a comfortable fit. Perfect for music lovers and on-the-go professionals.",
+    location: "New York",
+    seller: {
+      name: "Alice Smith",
+      image: "images/profile.png",
+      lastActive: "2 hours ago"
+    },
+    images: ["images/laptop(1).webp"]
+  },
+  "samsung-galaxy-s21-ultra": {
+    name: "Samsung Galaxy S21 Ultra 5G",
+    price: "$999.99",
+    description: "The latest Samsung flagship smartphone with advanced camera system and 5G connectivity.",
+    condition: "Brand New",
+    detailedDescription: "Experience the ultimate performance with the Samsung Galaxy S21 Ultra 5G. Featuring a stunning display, powerful processor, and a versatile camera setup for professional-grade photography.",
+    location: "San Francisco",
+    seller: {
+      name: "Bob Johnson",
+      image: "images/profile.png",
+      lastActive: "1 hour ago"
+    },
+    images: ["images/S21.png"]
+  },
+  "apple-macbook-pro-16": {
+    name: "Apple MacBook Pro 16-inch",
+    price: "$2,399.00",
+    description: "High-performance laptop with a 16-inch Retina display, powerful processors, and advanced graphics.",
+    condition: "Brand New",
+    detailedDescription: "The Apple MacBook Pro 16-inch is designed for professionals who need top-tier performance. With its stunning Retina display, fast processors, and advanced graphics, it's perfect for creative work and demanding tasks.",
+    location: "Los Angeles",
+    seller: {
+      name: "Charlie Brown",
+      image: "images/profile.png",
+      lastActive: "30 minutes ago"
+    },
+    images: ["images/macbook.png"]
+  }
+};
+
 // Initialize product cards on main page
 function initializeProductCards() {
     document.querySelectorAll('.product-card').forEach(card => {
